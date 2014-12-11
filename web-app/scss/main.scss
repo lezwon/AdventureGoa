@@ -1,0 +1,406 @@
+@import "compass";
+@import "variables";
+
+.white{
+  background: white;
+}
+
+.radius{
+  @include border-radius(10px);
+}
+
+
+.dropdown{
+  background: white;
+  position: absolute;
+  padding: 0 5px;
+  border: 1px solid transparentize(#808080,.5);
+  border-top: none;
+  max-height: 300px;
+  overflow-y: auto;
+  @include border-radius(0 0 5px 5px);
+
+  li{
+    list-style: none;
+    padding: 5px;
+    border-bottom: 1px solid transparentize(#808080,.5);
+    cursor: pointer;
+    font-size: .8em;
+    color: darkgray;
+
+    &:last-child{
+      border: none;
+    }
+  }
+}
+
+.form-control[readonly]{
+  opacity: 1;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.icon-compass{
+  padding: 0 20px;
+  background: url("../images/compass.ico");
+  background-size: contain;
+  margin-right: 10px;
+}
+
+.panel{
+  background: transparentize(#000000,.5);
+  padding: 20px;
+  font-family: "Open Sans", sans-serif;
+  color: darken(#ffffff, 15);
+  @include border-radius(0);
+
+  p{
+    font-size: .8em;
+  }
+}
+
+//menu bar css
+.navbar.navbar-inverse{
+  border-radius: 0;
+  background: transparentize(#000000,.4);
+  padding: 10px 0;
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+  position: fixed;
+  width: 100%;
+  @include transform(translate3d(0,0,0));
+
+
+  li {
+
+    margin: 0 10px;
+    text-align: center;
+
+    .btn{
+      padding: 10px 15px;
+    }
+
+//    links css
+    a {
+      @include transition(color .3s ease, border .3s ease, background .3s ease);
+      color: darken(#ffffff, 15);
+      font-size: 14px;
+      border: 1px solid transparent;
+      padding: 10px 5px;
+      font-weight: 700;
+
+      &:hover:not(.btn-primary) {
+        border-bottom: 1px solid white;
+      }
+    }
+  }
+
+
+// for mobile devices
+  @media (max-width: 767px) {
+    margin: 0 10px;
+
+    #menu {
+      background: transparentize(black,0.4);
+
+      li {
+        margin: 10px;
+
+        a {
+          border: none;
+        }
+        a:hover:not(.btn) {
+          border: none !important;
+          background: transparentize(black,0.3);
+        }
+      }
+    }
+  }
+
+//menu buttons
+  .btn-primary {
+    color: darken(#ffffff,10);
+    &:hover {
+      background: lighten(#2578a6, 10);
+    }
+  }
+
+  .btn-default{
+    color: lighten(#000000,15);
+    background: darken(#ffffff, 15);
+
+    &:hover{
+      color: #000000;
+      background: #ffffff;
+    }
+  }
+
+
+  .navbar-brand {
+    padding: 0;
+
+    img {
+      height: 50px;
+    }
+  }
+
+
+}
+
+
+//main container
+.wrapper{
+//  background: url("../images/trek.jpg") right center no-repeat;
+//  min-height: 900px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: -99;
+  background: black;
+//  background-size: 120%;
+
+  .outer-container {
+    overflow: hidden;
+    width: 100%;
+    background-size: 100% !important;
+//    background: #000000 no-repeat !important;
+
+    //row contents
+    .inner-container {
+      color: white;
+      width: 100%;
+      position: relative;
+//      position: absolute;
+//      margin-top: -600px;
+//      z-index: 1;
+
+      .text-container {
+        //    background: rgba(0, 0, 0, 0.50);
+        line-height: 1.5;
+        font-family: "Open Sans", sans-serif;
+        color: darken(#ffffff, 30);
+
+        h1 {
+          font-size: 4em;
+          font-weight: 700;
+          text-transform: uppercase;
+          font-style: italic;
+        }
+
+        p {
+          font-size: 1.1em;
+          font-weight: 600;
+          font-variant: small-caps;
+          font-style: italic;
+        }
+      }
+    }
+  }
+}
+
+
+//first container
+#first-container {
+  background: url("../images/trek.jpg") center right;
+//  background-size: 100%;
+
+  .inner-container {
+    top: 70%;
+
+    //  @include background(linear_gradient(rgba(0, 0, 0, 0) 0%,black 100%));
+
+    .text-container {
+      //    background: rgba(0, 0, 0, 0.50);
+      text-align: center;
+
+      .btn-danger {
+        font-family: "Open Sans", "Helvetica Neue", sans-serif;
+        font-size: 1.5em;
+        font-weight: 700;
+        @include border-radius(5px);
+        padding: 15px 20px;
+      }
+    }
+  }
+}
+
+#second-container{
+  background: url("../images/scuba_coral.jpg") center right;
+//  background-size: 100%;
+
+  .inner-container{
+    top: 25%;
+
+    #list-water-sports {
+      color: #ffffff;
+      font-family: "Open Sans", sans-serif;
+
+      li{
+
+        padding: 0;
+        background: transparentize(lighten(black,5),.35);
+        border: 1px solid #000000;
+        @include border-radius(0);
+
+        b{
+          color: #e1e1e1;
+          padding: 10px 15px;
+          display: block;
+          font-style: italic;
+          font-size: 1.3em;
+        }
+
+        a{
+          @include transition(background .3s ease);
+          font-family: "Open Sans", sans-serif;
+          font-size: .8em;
+          display: block;
+          width: 100%;
+          padding: 10px 15px;
+          color: transparentize(#ffffff, .3);
+          font-style: italic;
+
+          &:hover{
+            text-decoration: none;
+            background: transparentize(darken(deepskyblue,10),.4);
+            color: #ffffff;
+          }
+        }
+      }
+
+    }
+
+    .text-container{
+      margin-top: 50px;
+      text-align: right;
+    }
+  }
+}
+
+
+#third-container {
+  background: url("../images/bike.jpg") top right;
+//  background-size: 100%;
+
+  .inner-container {
+    top: 20%;
+
+    .row{
+      margin-bottom: 50px;
+    }
+
+    .text-container{
+      text-align: justify;
+    }
+  }
+}
+
+#fourth-container{
+  .flexslider{
+    border: none;
+
+    .slides{
+      li{
+        background-size: cover !important;
+
+        &:nth-child(2){
+          background: url("../images/jet_ski.jpg");
+        }
+        &:nth-child(3){
+          background: url("../images/jet_ski.jpg");
+        }
+        &:nth-child(4){
+          background: url("../images/jet_ski.jpg");
+        }
+      }
+
+    }
+  }
+}
+
+#fifth-container{
+
+  .inner-container{
+    margin-top: 10%;
+
+    form{
+      padding: 30px;
+      color: #000000;
+      font-family: 'Open Sans', sans-serif !important;
+
+      input{
+        width: 100%;
+      }
+    }
+  }
+
+}
+
+#sixth-container{
+//  background:
+//  -webkit-linear-gradient(45deg, hsla(22, 99%, 22%, 1) 0%, hsla(22, 99%, 22%, 0) 70%),
+//  -webkit-linear-gradient(315deg, hsla(143, 92%, 7%, 1) 10%, hsla(143, 92%, 7%, 0) 80%),
+//  -webkit-linear-gradient(225deg, hsla(212, 95%, 22%, 1) 10%, hsla(212, 95%, 22%, 0) 80%),
+//  -webkit-linear-gradient(135deg, hsla(32, 97%, 0%, 1) 100%, hsla(32, 97%, 0%, 0) 70%);
+//  background:
+//  linear-gradient(45deg, hsla(22, 99%, 22%, 1) 0%, hsla(22, 99%, 22%, 0) 70%),
+//  linear-gradient(135deg, hsla(143, 92%, 7%, 1) 10%, hsla(143, 92%, 7%, 0) 80%),
+//  linear-gradient(225deg, hsla(212, 95%, 22%, 1) 10%, hsla(212, 95%, 22%, 0) 80%),
+//  linear-gradient(315deg, hsla(32, 97%, 0%, 1) 100%, hsla(32, 97%, 0%, 0) 70%);
+
+  background-size: contain;
+  background: url("../images/boating.jpg") no-repeat;
+
+  .inner-container{
+    background: transparentize(#000000,.5);
+    position: absolute;
+    bottom: 0;
+
+    #footer{
+      padding: 30px 0;
+
+
+      ul li{
+        padding: 5px;
+        list-style: none;
+        font-family: "Open Sans", sans-serif;
+        font-size: 13px;
+
+        .nav-header{
+          font-size: 1.7em;
+          color: #808080;
+          text-transform: uppercase;
+          padding: 5px 0;
+          font-weight: 400;
+        }
+
+        a{
+          color: transparentize(#ffffff,.3);
+          @include transition(all .3s ease);
+
+          &:hover{
+            color: #ffffff;
+            text-decoration: none;
+          }
+        }
+      }
+
+
+      hr{
+        border-color: #2D2D2D;
+      }
+
+
+      #copyright{
+        font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #808080;
+        text-align: center;
+        width: 100%;
+      }
+
+
+    }
+
+  }
+}
