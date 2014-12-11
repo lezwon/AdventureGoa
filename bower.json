@@ -1,0 +1,24 @@
+{
+  "name": "AdventureGoa",
+  "version": "0.0.0",
+  "authors": [
+    "Lezwon <lezwon@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web-app/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootflat": "*",
+    "swiper": "~2.7.0",
+    "unslider": "~1.0.0",
+    "WOW": "~1.0.1",
+    "flexslider": "*"
+  }
+}
