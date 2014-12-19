@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    %{--<link href='http://fonts.googleapis.com/css?family=Open+Sans:700italic,700,400' rel='stylesheet' type='text/css'>--}%
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:700italic,700,400' rel='stylesheet' type='text/css'>
     <g:external uri="components/bootflat/bootstrap/bootstrap.min.css"/>
     <g:external uri="components/bootflat/js/jquery-1.10.1.min.js" />
     <g:external uri="components/bootflat/js/bootstrap.min.js"/>
