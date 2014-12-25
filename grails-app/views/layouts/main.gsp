@@ -2,15 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:700italic,700,400' rel='stylesheet' type='text/css'>
-    <g:external uri="components/bootflat/bootstrap/bootstrap.min.css"/>
-    <g:external uri="components/bootflat/js/jquery-1.10.1.min.js" />
-    <g:external uri="components/bootflat/js/bootstrap.min.js"/>
-    <g:external uri="components/bootflat/css/bootflat.css"/>
-    <g:external uri="css/foundation.min.css"/>
-    <g:layoutHead/>
     <title><g:layoutTitle /></title>
-    <g:external uri="css/main.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:700italic,700,400' rel='stylesheet' type='text/css'>
+    <g:external uri="http://localhost:8080/AdventureGoa/components/bootflat/bootstrap/bootstrap.min.css"/>
+    <g:external uri="http://localhost:8080/AdventureGoa/components/bootflat/css/bootflat.css"/>
+    <g:external uri="http://localhost:8080/AdventureGoa/css/foundation.min.css"/>
+    <g:external uri="http://localhost:8080/AdventureGoa/css/main.css"/>
+    <g:external uri="http://localhost:8080/AdventureGoa/components/bootflat/js/jquery-1.10.1.min.js" />
+    %{--<g:resources dir="css" file="main.css" base="http://localhost:8080/AdventureGoa/"/>--}%
+    %{--<g:external uri="css/mobile.css"  media="only screen and (min-width : 320px) and (orientation: portrait)"/>--}%
+    <g:layoutHead/>
+
+
+
 </head>
 
 <body>
@@ -45,12 +49,11 @@
         </div><!-- /.container -->
     </nav>
 
-
-    <div class="wrapper"> 
+    <div class="wrapper">
         <g:layoutBody/>
     </div>
-<g:javascript uri="components/jquery.snapscroll-master/core/dependencies/jquery.scroll_to.js"/>
-<g:javascript uri="components/jquery.snapscroll-master/core/jquery.snapscroll.js"/>
+
+<g:external uri="http://localhost:8080/AdventureGoa/components/bootflat/js/bootstrap.min.js"/>
 <g:javascript src="main.js"/>
 
 </body>

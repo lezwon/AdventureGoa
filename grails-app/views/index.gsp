@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="components/WOW/css/libs/animate.css"/>
     <link rel="stylesheet" href="components/flexslider/flexslider.css"/>
     <link rel="stylesheet" href="css/BeatPicker.min.css"/>
+    <style>.wrapper{background: #000000}</style>
 </head>
 
 <body>
@@ -113,20 +114,9 @@
     <div id="fourth-container" class="outer-container">
         <div class="flexslider">
             <ul class="slides">
-                <li>
-                    <img src="http://placehold.it/1980x1080" />
-
-
-                </li>
-                <li>
-                    <img src="http://placehold.it/1980x1080" />
-
-
-                </li>
-                <li>
-                    <img src="http://placehold.it/1980x1080" />
-
-                </li>
+                <li><img src="http://placehold.it/1980x1081" /></li>
+                <li><img src="http://placehold.it/1980x1082" /></li>
+                <li><img src="http://placehold.it/1980x1083" /></li>
             </ul>
         </div>
     </div>

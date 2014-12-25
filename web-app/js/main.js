@@ -17,7 +17,7 @@ $.fn.exists = function(callback) {
 $(document).ready(function(){
 
     //set outer-class to width and height
-    var fullSize = $('.outer-container');
+    var fullSize = $('.outer-container, .slides li');
     fullSize.exists(adaptWidth);
     //$(window).resize(adaptWidth);
 

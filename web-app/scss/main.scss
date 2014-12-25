@@ -2,7 +2,7 @@
 @import "variables";
 
 .white{
-  background: white;
+  background-color: white;
 }
 
 .radius{
@@ -68,6 +68,7 @@
   font-family: 'Open Sans', sans-serif;
   position: fixed;
   width: 100%;
+  z-index: 99;
   @include transform(translate3d(0,0,0));
 
 
@@ -96,27 +97,6 @@
   }
 
 
-// for mobile devices
-  @media (max-width: 767px) {
-    margin: 0 10px;
-
-    #menu {
-      background: transparentize(black,0.4);
-
-      li {
-        margin: 10px;
-
-        a {
-          border: none;
-        }
-        a:hover:not(.btn) {
-          border: none !important;
-          background: transparentize(black,0.3);
-        }
-      }
-    }
-  }
-
 //menu buttons
   .btn-primary {
     color: darken(#ffffff,10);
@@ -143,10 +123,7 @@
       height: 50px;
     }
   }
-
-
 }
-
 
 //main container
 .wrapper{
@@ -155,15 +132,14 @@
   position: absolute;
   width: 100%;
   top: 0;
-  z-index: -99;
-  background: black;
+  margin: 0 auto;
 //  background-size: 120%;
 
   .outer-container {
     overflow: hidden;
     width: 100%;
     background-size: 100% !important;
-//    background: #000000 no-repeat !important;
+    background-color: #000000;
 
     //row contents
     .inner-container {
@@ -201,7 +177,8 @@
 
 //first container
 #first-container {
-  background: url("../images/trek.jpg") center right;
+  background-image: url("../images/trek.jpg");
+  background-position:  center right;
 //  background-size: 100%;
 
   .inner-container {
@@ -226,10 +203,10 @@
 
 #second-container{
   background: url("../images/scuba_coral.jpg") center right;
-//  background-size: 100%;
+  background-position:  center right;
 
   .inner-container{
-    top: 25%;
+    top: 10%;
 
     #list-water-sports {
       color: #ffffff;
@@ -279,11 +256,12 @@
 
 
 #third-container {
-  background: url("../images/bike.jpg") top right;
+  background-image: url("../images/bike.jpg");
+  background-position:  top right;;
 //  background-size: 100%;
 
   .inner-container {
-    top: 20%;
+    top: 10%;
 
     .row{
       margin-bottom: 50px;
@@ -296,14 +274,22 @@
 }
 
 #fourth-container{
+
   .flexslider{
     border: none;
 
     .slides{
       li{
         background-size: cover !important;
+        width: 100%;
 
-        &:nth-child(2){
+/*        &.clone{
+          display: none !important;
+        }*/
+
+
+
+/*        &:nth-child(2){
           background: url("../images/jet_ski.jpg");
         }
         &:nth-child(3){
@@ -311,7 +297,7 @@
         }
         &:nth-child(4){
           background: url("../images/jet_ski.jpg");
-        }
+        }*/
       }
 
     }
@@ -348,8 +334,9 @@
 //  linear-gradient(225deg, hsla(212, 95%, 22%, 1) 10%, hsla(212, 95%, 22%, 0) 80%),
 //  linear-gradient(315deg, hsla(32, 97%, 0%, 1) 100%, hsla(32, 97%, 0%, 0) 70%);
 
-  background-size: contain;
-  background: url("../images/boating.jpg") no-repeat;
+  background-size: contain !important;
+  background-image: url("../images/boating.jpg");
+  background-repeat: no-repeat;
 
   .inner-container{
     background: transparentize(#000000,.5);
@@ -401,6 +388,19 @@
 
 
     }
-
   }
+}
+
+//login page
+
+#login-form-conatiner{
+  padding: 10px 20px;
+  @include border-radius(10px);
+  @include single-box-shadow(0,5px,5px,5px,transparentize(black,.6));
+
+  #rememberMe{
+    float: none;
+    margin: 0;
+  }
+
 }
