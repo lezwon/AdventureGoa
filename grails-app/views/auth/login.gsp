@@ -3,12 +3,23 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="layout" content="main" />
   <title>Login</title>
+  <style>
+  body{
+    background-image: url("../images/38-Elephant-Rock-Bushrangers-bay-Mornington-VIC-Australia.jpg");
+  }
+  .wrapper{
+    position: fixed;
+    height: 100%;
+  }
+  </style>
 </head>
 <body>
-<div class="row">
-  <div class="small-12 medium-6 large-4 columns small-centered">
-    <div id="login-form-conatiner">
+<div class="row" id="login-form-row">
+  <div class="small-12 medium-6 large-5 columns small-centered">
+    <div id="login-form-container" class="white">
       <h1>Sign In</h1>
+
+      <hr/>
 
       <g:form name="login" action="signIn">
         <div class="form-group">

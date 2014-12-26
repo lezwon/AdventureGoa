@@ -334,7 +334,7 @@
 //  linear-gradient(225deg, hsla(212, 95%, 22%, 1) 10%, hsla(212, 95%, 22%, 0) 80%),
 //  linear-gradient(315deg, hsla(32, 97%, 0%, 1) 100%, hsla(32, 97%, 0%, 0) 70%);
 
-  background-size: contain !important;
+  background-size: cover !important;
   background-image: url("../images/boating.jpg");
   background-repeat: no-repeat;
 
@@ -385,22 +385,30 @@
         text-align: center;
         width: 100%;
       }
-
-
     }
   }
 }
 
 //login page
+#login-form-row{
+  margin: auto;
+  position: absolute;
+  top: 0;left: 0;right: 0;bottom: 0;
+  height: 45%;
+}
 
-#login-form-conatiner{
+
+#login-form-container{
   padding: 10px 20px;
   @include border-radius(10px);
-  @include single-box-shadow(0,5px,5px,5px,transparentize(black,.6));
+  @include single-box-shadow(0,5px,5px,5px,transparentize(black,.8));
 
   #rememberMe{
     float: none;
     margin: 0;
   }
 
+  .btn{
+    width: 100%;
+  }
 }
