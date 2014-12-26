@@ -10,8 +10,11 @@ class AuthController {
     def shiroSecurityManager
 
     def index = { redirect(action: "login", params: params) }
-
     def login = {
+
+        if(SecurityUtils.subject.isAuthenticated()){
+            redirect(uri: "/")
+        }
         return [ username: params.username, rememberMe: (params.rememberMe != null), targetUri: params.targetUri ]
     }
 

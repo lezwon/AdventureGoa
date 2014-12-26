@@ -43,7 +43,7 @@
                     <li><a href="">Experiences</a></li>
                     <li><a href="">Culture</a></li>
                     <li><a href="" class="btn btn-sm btn-primary">Book Your Trip</a></li>
-                    <li><a href="" class="btn btn-sm btn-default">Log In</a></li>
+                    <li><a href="auth/login" class="btn btn-sm btn-default">Log In</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->

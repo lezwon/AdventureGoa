@@ -21,18 +21,22 @@
 
       <hr/>
 
+      <g:if test="${flash.message}">
+        <div class="alert alert-danger">${flash.message}</div>
+      </g:if>
+
       <g:form name="login" action="signIn">
         <div class="form-group">
-          <input class="form-control" placeholder="Username" type="text" name="username"/>
+          <input class="form-control" placeholder="Username" type="text" name="username" value="${username}"/>
         </div>
 
         <div class="form-group">
-          <input class="form-control" placeholder="Password" type="text" name="password"/>
+          <input class="form-control" placeholder="Password" type="password" name="password"/>
         </div>
 
         <div class="checkbox">
           %{--<input class="form-control" placeholder="" type="checkbox" name="rememberMe"/>--}%
-          <g:field type="checkbox" name="rememberMe"/>
+          <g:checkBox name="rememberMe" value="${rememberMe}"/>
           <label for="rememberMe">Remember Me</label>
         </div>
 

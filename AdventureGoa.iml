@@ -124,7 +124,9 @@
           <root url="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-quartz/1.2.2/shiro-quartz-1.2.2.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES />
+        <SOURCES>
+          <root url="jar://$USER_HOME$/.ideaLibSources/shiro-core-1.2.2-sources.jar!/" />
+        </SOURCES>
         <jarDirectory url="file://$MODULE_DIR$/lib" recursive="false" />
       </library>
     </orderEntry>
