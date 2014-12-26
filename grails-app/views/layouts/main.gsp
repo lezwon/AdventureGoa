@@ -43,7 +43,36 @@
                     <li><a href="">Experiences</a></li>
                     <li><a href="">Culture</a></li>
                     <li><a href="" class="btn btn-sm btn-primary">Book Your Trip</a></li>
-                    <li><a href="auth/login" class="btn btn-sm btn-default">Log In</a></li>
+
+
+                    <shiro:authenticated>
+                        %{--<li><g:link controller="auth" action="signOut" class="btn btn-sm btn-default">Log Out</g:link></li>--}%
+                    <li>
+                        <div>
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdown-user" data-toggle="dropdown" aria-expanded="true">
+                                <shiro:principal/>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-user">
+                                <li><a href="#">Account</a></li>
+                                <li><a href="#">History</a></li>
+                                <li><a href="#">Wallet</a></li>
+                                <li><a href="#">Recommendations</a></li>
+                                <li>
+                                    <g:link controller="auth" action="signOut">Log Out</g:link>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    </shiro:authenticated>
+
+
+                    <shiro:notAuthenticated>
+                    <li>
+                        <g:link controller="auth" action="login" class="btn btn-sm btn-default">Log In</g:link>
+                    </li>
+                    </shiro:notAuthenticated>
+
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->

@@ -1,6 +1,11 @@
 @import "compass";
 @import "variables";
 
+*{
+  font-family: "Open Sans", sans-serif !important;
+}
+
+
 .white{
   background-color: white;
 }
@@ -92,6 +97,26 @@
 
       &:hover:not(.btn-primary) {
         border-bottom: 1px solid white;
+      }
+    }
+  }
+
+  .dropdown-menu{
+    overflow: hidden;
+    padding: 0;
+
+    li{
+      margin: 0;
+
+      a{
+
+        border: none !important;
+        color: white;
+
+        &:hover{
+          border: none !important;
+          background: lighten(#000000,25);
+        }
       }
     }
   }
@@ -399,6 +424,9 @@
 
 
 #login-form-container{
+
+
+
   padding: 10px 20px;
   @include border-radius(10px);
   @include single-box-shadow(0,5px,5px,5px,transparentize(black,.8));
