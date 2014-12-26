@@ -1,12 +1,14 @@
 package com.adventuregoa
 
 class Role {
-    String name
 
-    static hasMany = [ users: User, permissions: String ]
-    static belongsTo = User
+	String authority
 
-    static constraints = {
-        name(nullable: false, blank: false, unique: true)
-    }
+	static mapping = {
+		cache true
+	}
+
+	static constraints = {
+		authority blank: false, unique: true
+	}
 }

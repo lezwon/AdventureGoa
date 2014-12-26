@@ -45,12 +45,12 @@
                     <li><a href="" class="btn btn-sm btn-primary">Book Your Trip</a></li>
 
 
-                    <shiro:authenticated>
+                    <sec:ifLoggedIn>
                         %{--<li><g:link controller="auth" action="signOut" class="btn btn-sm btn-default">Log Out</g:link></li>--}%
                     <li>
                         <div>
                             <button class="btn btn-default dropdown-toggle" type="button" id="dropdown-user" data-toggle="dropdown" aria-expanded="true">
-                                <shiro:principal/>
+                                <sec:username/>
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-user">
@@ -64,14 +64,13 @@
                             </ul>
                         </div>
                     </li>
-                    </shiro:authenticated>
+                    </sec:ifLoggedIn>
 
-
-                    <shiro:notAuthenticated>
+                    <sec:ifNotLoggedIn>
                     <li>
                         <g:link controller="auth" action="login" class="btn btn-sm btn-default">Log In</g:link>
                     </li>
-                    </shiro:notAuthenticated>
+                    </sec:ifNotLoggedIn>
 
                 </ul>
             </div><!-- /.navbar-collapse -->
