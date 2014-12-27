@@ -424,14 +424,12 @@
 
 
 #login-form-container{
-
-
-
+  background: #ffffff;
   padding: 10px 20px;
   @include border-radius(10px);
   @include single-box-shadow(0,5px,5px,5px,transparentize(black,.8));
 
-  #rememberMe{
+  #_spring_security_remember_me{
     float: none;
     margin: 0;
   }

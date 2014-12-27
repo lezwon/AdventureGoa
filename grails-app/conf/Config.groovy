@@ -127,9 +127,26 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/index.gsp':                     ['permitAll'],
 	'/assets/**':                     ['permitAll'],
 	'/**/js/**':                      ['permitAll'],
-	'/**/components/**':              ['permitAll'],
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
-	'/**/favicon.ico':                ['permitAll']
+	'/**/favicon.ico':                ['permitAll'],
+    '/**/components/**':              ['permitAll'],
+    '/register/**' :                  ['permitAll']
 ]
 
+
+grails {
+    mail {
+        host = "smtp.gmail.com"
+        port = 465
+        username = "lezwon@gmail.com"
+        password = "Lezbofranklin93"
+        props = ["mail.smtp.auth":"true",
+                 "mail.smtp.socketFactory.port":"465",
+                 "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+                 "mail.smtp.socketFactory.fallback":"false"]
+    }
+}
+
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/'
+//grails.plugin.springsecurity.successHandler.alwaysUseDefault = true

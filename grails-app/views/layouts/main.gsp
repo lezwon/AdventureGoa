@@ -49,17 +49,17 @@
                         %{--<li><g:link controller="auth" action="signOut" class="btn btn-sm btn-default">Log Out</g:link></li>--}%
                     <li>
                         <div>
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdown-user" data-toggle="dropdown" aria-expanded="true">
+                            <a class="btn btn-default dropdown-toggle" type="button" id="dropdown-user" data-toggle="dropdown" aria-expanded="true">
                                 <sec:username/>
                                 <span class="caret"></span>
-                            </button>
+                            </a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-user">
                                 <li><a href="#">Account</a></li>
                                 <li><a href="#">History</a></li>
                                 <li><a href="#">Wallet</a></li>
                                 <li><a href="#">Recommendations</a></li>
                                 <li>
-                                    <g:link controller="auth" action="signOut">Log Out</g:link>
+                                    <g:link uri="/j_spring_security_logout">Log Out</g:link>
                                 </li>
                             </ul>
                         </div>
