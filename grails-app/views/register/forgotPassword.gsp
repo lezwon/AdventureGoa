@@ -1,48 +1,64 @@
 <html>
 
 <head>
-<title><g:message code='spring.security.ui.forgotPassword.title'/></title>
-<meta name='layout' content='register'/>
+	<title><g:message code='spring.security.ui.forgotPassword.title'/></title>
+	<meta name='layout' content='main'/>
+	<style>
+	body{
+		background-image: url("<g:resource dir="images" file="38-Elephant-Rock-Bushrangers-bay-Mornington-VIC-Australia.jpg"/>");
+	}
+
+	.wrapper{
+		position: fixed;
+		height: 100%;
+		overflow: auto;
+	}
+	</style>
 </head>
 
 <body>
 
-<p/>
+<div class="row form-row">
+	<div class="small-12 medium-6 large-5 columns small-centered">
+		<div class="form-container">
 
-<s2ui:form width='400' height='220' elementId='forgotPasswordFormContainer'
-           titleCode='spring.security.ui.forgotPassword.header' center='true'>
+			<g:if test='${emailSent}'>
+				<div class="alert alert-info">
+					<g:message code='spring.security.ui.forgotPassword.sent'/>
+				</div>
 
-	<g:form action='forgotPassword' name="forgotPasswordForm" autocomplete='off'>
+				<g:link controller="login" class="btn btn-lg btn-default">Back to Login</g:link>
+			</g:if>
 
-	<g:if test='${emailSent}'>
-	<br/>
-	<g:message code='spring.security.ui.forgotPassword.sent'/>
-	</g:if>
+			<g:else>
 
-	<g:else>
+				<h1>Forgot Password</h1>
+				<hr/>
 
-	<br/>
-	<h4><g:message code='spring.security.ui.forgotPassword.description'/></h4>
+				<g:if test="${flash}">
+					<div class="alert alert-danger">${flash.error}</div>
+				</g:if>
 
-	<table>
-		<tr>
-			<td><label for="username"><g:message code='spring.security.ui.forgotPassword.username'/></label></td>
-			<td><g:textField name="username" size="25" /></td>
-		</tr>
-	</table>
 
-	<s2ui:submitButton elementId='reset' form='forgotPasswordForm' messageCode='spring.security.ui.forgotPassword.submit'/>
+				<g:form action="forgotPassword">
+					<div class="form-group">
+						<g:textField name="username" placeholder="Enter your Username" class="form-control"/>
+					</div>
 
-	</g:else>
 
-	</g:form>
-</s2ui:form>
+					<div class="form-group">
+						<ul class="small-block-grid-2">
+							<li><g:link controller="login" class="btn btn-lg btn-default">Back to Login</g:link> </li>
+							<li><input type="submit" value="Submit" class="btn btn-success btn-lg" /></li>
+						</ul>
+					</div>
+				</g:form>
+			</g:else>
 
-<script>
-$(document).ready(function() {
-	$('#username').focus();
-});
-</script>
+		</div>
+	</div>
+</div>
+
 
 </body>
 </html>

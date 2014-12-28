@@ -39,6 +39,8 @@ class RegisterController extends AbstractS2UiController {
         def user = lookupUserClass().newInstance(email: command.email, username: command.username,
                 accountLocked: true, enabled: true)
 
+        user.properties = command.properties
+
         RegistrationCode registrationCode = springSecurityUiService.register(user, command.password, salt)
         if (registrationCode == null || registrationCode.hasErrors()) {
             // null means problem creating the user
@@ -253,6 +255,7 @@ class RegisterCommand {
     String email
     String password
     String password2
+    boolean agreement
 
     def grailsApplication
 
@@ -269,6 +272,11 @@ class RegisterCommand {
         email blank: false, email: true
         password blank: false, validator: RegisterController.passwordValidator
         password2 validator: RegisterController.password2Validator
+        agreement blank:false, nullable: false, validator: { val->
+            if(!val){
+                return ["RegisterCommand.agreement.notaccepted"]
+            }
+        }
     }
 }
 

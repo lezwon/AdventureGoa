@@ -149,4 +149,5 @@ grails {
 }
 
 grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/'
+grails.plugin.springsecurity.ui.register.postResetUrl = ''
 //grails.plugin.springsecurity.successHandler.alwaysUseDefault = true

@@ -1,44 +1,61 @@
 <html>
 
 <head>
-<title><g:message code='spring.security.ui.resetPassword.title'/></title>
-<meta name='layout' content='register'/>
+	<title><g:message code='spring.security.ui.resetPassword.title'/></title>
+	<meta name='layout' content='main'/>
+	<style>
+	body{
+		background-image: url("<g:resource dir="images" file="38-Elephant-Rock-Bushrangers-bay-Mornington-VIC-Australia.jpg"/>");
+	}
+
+	.wrapper{
+		position: fixed;
+		height: 100%;
+		overflow: auto;
+	}
+	</style>
 </head>
 
 <body>
 
-<p/>
 
-<s2ui:form width='475' height='250' elementId='resetPasswordFormContainer'
-           titleCode='spring.security.ui.resetPassword.header' center='true'>
+<div class="row form-row">
+	<div class="small-12 medium-6 large-5 columns small-centered">
+		<div class="form-container">
 
-	<g:form action='resetPassword' name='resetPasswordForm' autocomplete='off'>
-	<g:hiddenField name='t' value='${token}'/>
-	<div class="sign-in">
+				<h1>Reset Password</h1>
+				<hr/>
 
-	<br/>
-	<h4><g:message code='spring.security.ui.resetPassword.description'/></h4>
+				<g:hasErrors bean="${command}">
+					<g:eachError bean="${command}" var="error">
+						<div class="alert alert-danger" role="alert">
+							<g:message error="${error}"/>
+						</div>
+					</g:eachError>
+				</g:hasErrors>
 
-	<table>
-		<s2ui:passwordFieldRow name='password' labelCode='resetPasswordCommand.password.label' bean="${command}"
-                             labelCodeDefault='Password' value="${command?.password}"/>
 
-		<s2ui:passwordFieldRow name='password2' labelCode='resetPasswordCommand.password2.label' bean="${command}"
-                             labelCodeDefault='Password (again)' value="${command?.password2}"/>
-	</table>
 
-	<s2ui:submitButton elementId='reset' form='resetPasswordForm' messageCode='spring.security.ui.resetPassword.submit'/>
+				<g:form action="resetPassword">
+					<g:hiddenField name='t' value='${token}'/>
 
+					<div class="form-group">
+						<g:passwordField name="password" placeholder="Enter New Password" class="form-control"/>
+					</div>
+
+					<div class="form-group">
+						<g:passwordField name="password2" placeholder="Confirm New Password" class="form-control"/>
+					</div>
+
+
+					<div class="form-group">
+						<input type="submit" value="Reset Password" class="btn btn-primary btn-lg" />
+					</div>
+				</g:form>
+
+		</div>
 	</div>
-	</g:form>
-
-</s2ui:form>
-
-<script>
-$(document).ready(function() {
-	$('#password').focus();
-});
-</script>
+</div>
 
 </body>
 </html>
