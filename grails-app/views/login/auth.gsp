@@ -43,7 +43,7 @@
 						</div>
 
 						<div class="form-group">
-							<input type="submit" value="Submit" class="btn btn-success btn-lg" />
+							<input type="submit" value="Login" class="btn btn-success btn-lg" />
 						</div>
 					</g:form>
 

@@ -4,17 +4,12 @@
     <meta charset="UTF-8">
     <title><g:layoutTitle /></title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:700italic,700,400' rel='stylesheet' type='text/css'>
-    <g:external uri="http://localhost:8080/AdventureGoa/components/bootflat/bootstrap/bootstrap.min.css"/>
-    <g:external uri="http://localhost:8080/AdventureGoa/components/bootflat/css/bootflat.css"/>
-    <g:external uri="http://localhost:8080/AdventureGoa/css/foundation.min.css"/>
-    <g:external uri="http://localhost:8080/AdventureGoa/css/main.css"/>
-    <g:external uri="http://localhost:8080/AdventureGoa/components/bootflat/js/jquery-1.10.1.min.js" />
-    %{--<g:resources dir="css" file="main.css" base="http://localhost:8080/AdventureGoa/"/>--}%
-    %{--<g:external uri="css/mobile.css"  media="only screen and (min-width : 320px) and (orientation: portrait)"/>--}%
+    <g:external dir="components/bootflat/bootstrap" file="bootstrap.min.css"/>
+    <g:external dir="components/bootflat/css" file="bootflat.css"/>
+    <g:external dir="css" file="foundation.min.css"/>
+    <g:external dir="css" file="main.css"/>
+    <g:external dir="components/bootflat/js" file="jquery-1.10.1.min.js" />
     <g:layoutHead/>
-
-
-
 </head>
 
 <body>
@@ -82,7 +77,7 @@
         <g:layoutBody/>
     </div>
 
-<g:external uri="http://localhost:8080/AdventureGoa/components/bootflat/js/bootstrap.min.js"/>
+<g:external dir="components/bootflat/js" file="bootstrap.min.js"/>
 <g:javascript src="main.js"/>
 
 </body>

@@ -148,6 +148,7 @@ grails {
     }
 }
 
-grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/'
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/$username/home'
 grails.plugin.springsecurity.ui.register.postResetUrl = ''
-//grails.plugin.springsecurity.successHandler.alwaysUseDefault = true
+grails.plugin.springsecurity.successHandler.alwaysUseDefault = true
+grails.assets.excludes = ["*"]
