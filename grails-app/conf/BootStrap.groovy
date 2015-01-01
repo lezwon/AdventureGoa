@@ -6,19 +6,28 @@ class BootStrap {
 
     def init = { servletContext ->
 
-        def user = new User(
-                username: "lezwon",
-                password: "password",
-                email: "lezwon@gmail.com"
-        )
-        user.save()
+        def users = [
+                [
+                        username: "lezwon",
+                        password: "password",
+                        email: "lezwon@gmail.com"
+                ],
+                [
+                        username: "lester",
+                        password: "password",
+                        email: "lester@gmail.com"
+                ]
+        ]
+
 
         def roleUser = Role.findByAuthority("ROLE_USER") ?: new Role(authority: "ROLE_USER");
         roleUser.save()
 
 
-        UserRole.create(user,roleUser);
-
+        users.each { user ->
+            def tempUser = new User(user).save();
+            UserRole.create(tempUser,roleUser)
+        }
 
     }
     def destroy = {

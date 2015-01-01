@@ -30,7 +30,8 @@
 
 					<g:form url="${postUrl}" name="form-login">
 						<div class="form-group">
-							<g:textField name="j_username" value="${username}" placeholder="Username" class="form-control"/>
+							<g:textField name="j_username"  value=""
+										 placeholder="Username" class="form-control"/>
 						</div>
 
 						<div class="form-group">
@@ -38,7 +39,7 @@
 						</div>
 
 						<div class="checkbox">
-							<g:checkBox name="_spring_security_remember_me" value="${rememberMe}"/>
+							<g:checkBox name="_spring_security_remember_me" value=""/>
 							<label for="_spring_security_remember_me">Remember Me</label>
 						</div>
 
