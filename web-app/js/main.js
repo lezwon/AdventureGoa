@@ -2,7 +2,7 @@
  * Created by Lezwon on 16-08-2014.
  */
 
-$.fn.exists = function(callback) {
+$.fn.exists = function (callback) {
     var args = [].slice.call(arguments, 1);
 
     if (this.length) {
@@ -14,14 +14,14 @@ $.fn.exists = function(callback) {
 
 // Usage
 
-$(document).ready(function(){
+$(document).ready(function () {
 
     //set outer-class to width and height
     var fullSize = $('.outer-container, .slides li');
     fullSize.exists(adaptWidth);
     //$(window).resize(adaptWidth);
 
-    function adaptWidth(){
+    function adaptWidth() {
         fullSize.height(window.innerHeight);
     }
 
@@ -29,14 +29,14 @@ $(document).ready(function(){
 });
 
 var options = {
-    disablingRules: [{from: new Date(),to:'<'}],
+    disablingRules: [{from: new Date(), to: '<'}],
     modules: {
         footer: false,
         clear: false
     },
     dateFormat: {
         separator: "",
-        format: ["YYYY" , "MM" , "DD"]
+        format: ["YYYY", "MM", "DD"]
     }
 
 };

@@ -10,12 +10,12 @@ class BootStrap {
                 [
                         username: "lezwon",
                         password: "password",
-                        email: "lezwon@gmail.com"
+                        email   : "lezwon@gmail.com"
                 ],
                 [
                         username: "lester",
                         password: "password",
-                        email: "lester@gmail.com"
+                        email   : "lester@gmail.com"
                 ]
         ]
 
@@ -23,11 +23,16 @@ class BootStrap {
         def roleUser = Role.findByAuthority("ROLE_USER") ?: new Role(authority: "ROLE_USER");
         roleUser.save()
 
+        def roleAdmin = Role.findByAuthority("ROLE_ADMIN") ?: new Role(authority: "ROLE_ADMIN");
+        roleAdmin.save()
 
-        users.each { user ->
+        users.eachWithIndex { user,index ->
             def tempUser = new User(user).save();
-            UserRole.create(tempUser,roleUser)
+//            UserRole.create(tempUser, roleUser)
+
+            index == 0 ? UserRole.create(tempUser,roleAdmin) : UserRole.create(tempUser,roleUser)
         }
+
 
     }
     def destroy = {

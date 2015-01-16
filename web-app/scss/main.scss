@@ -1,145 +1,140 @@
 @import "compass";
 @import "variables";
 
-*{
+* {
   font-family: "Open Sans", sans-serif !important;
 }
 
-
-.white{
+.white {
   background-color: white;
 }
 
-.radius{
+.radius {
   @include border-radius(10px);
 }
 
-
-.dropdown{
+.dropdown {
   background: white;
   position: absolute;
   padding: 0 5px;
-  border: 1px solid transparentize(#808080,.5);
+  border: 1px solid transparentize(#808080, .5);
   border-top: none;
   max-height: 300px;
   overflow-y: auto;
   @include border-radius(0 0 5px 5px);
 
-  li{
+  li {
     list-style: none;
     padding: 5px;
-    border-bottom: 1px solid transparentize(#808080,.5);
+    border-bottom: 1px solid transparentize(#808080, .5);
     cursor: pointer;
     font-size: .8em;
     color: darkgray;
 
-    &:last-child{
+    &:last-child {
       border: none;
     }
   }
 }
 
-.form-control[readonly]{
+.form-control[readonly] {
   opacity: 1;
   background-color: transparent;
   cursor: pointer;
 }
 
-.icon-compass{
+.icon-compass {
   padding: 0 20px;
   background: url("../images/compass.ico");
   background-size: contain;
   margin-right: 10px;
 }
 
-.panel{
-  background: transparentize(#000000,.5);
+.panel {
+  background: transparentize(#000000, .5);
   padding: 20px;
   font-family: "Open Sans", sans-serif;
   color: darken(#ffffff, 15);
   @include border-radius(0);
 
-  p{
+  p {
     font-size: .8em;
   }
 }
 
+
+
 //menu bar css
-.navbar.navbar-inverse{
+.navbar{
   border-radius: 0;
-  background: transparentize(#000000,.4);
+  width: 100%;
   padding: 10px 0;
   border: none;
   font-family: 'Open Sans', sans-serif;
-  position: fixed;
-  width: 100%;
-  z-index: 99;
-  @include transform(translate3d(0,0,0));
 
+  position: fixed;
+  z-index: 99;
+  @include transform(translate3d(0, 0, 0));
 
   li {
 
     margin: 0 10px;
     text-align: center;
 
-    .btn{
+    .btn {
       padding: 10px 15px;
     }
 
-//    links css
+    //    links css
     a {
       @include transition(color .3s ease, border .3s ease, background .3s ease);
-      color: darken(#ffffff, 15);
       font-size: 14px;
       border: 1px solid transparent;
       padding: 10px 5px;
       font-weight: 700;
 
-      &:hover:not(.btn-primary) {
-        border-bottom: 1px solid white;
+      &.btn {
+        border-color: transparent;
+
+        &:active {
+          @include box-shadow(none);
+        }
       }
+
     }
   }
 
-  .dropdown-menu{
+  .dropdown-menu {
     overflow: hidden;
     padding: 0;
 
-    li{
+    li {
       margin: 0;
 
-      a{
+      a {
 
         border: none !important;
-        color: white;
 
-        &:hover{
+        &:hover {
           border: none !important;
-          background: lighten(#000000,25);
         }
       }
     }
   }
 
-
-//menu buttons
+  //menu buttons
   .btn-primary {
-    color: darken(#ffffff,10);
+    color: darken(#ffffff, 10);
     &:hover {
       background: lighten(#2578a6, 10);
     }
   }
 
-  .btn-default{
-    color: lighten(#000000,15);
+  .btn-default {
+    color: lighten(#000000, 15);
     background: darken(#ffffff, 15);
-
-    &:hover{
-      color: #000000;
-      background: #ffffff;
-    }
+    border-color: transparent !important;
   }
-
 
   .navbar-brand {
     padding: 0;
@@ -150,15 +145,92 @@
   }
 }
 
+.fixed-white{
+
+  @include single-box-shadow(0, 2px, 5px, -2px, grey);
+
+  li{
+    a{
+      color: lighten(#000000,30);
+
+      &:hover:not(.btn) {
+        background-color: transparent;
+        border-bottom: 1px solid black;
+        color: #000000;
+      }
+
+    }
+  }
+
+  .dropdown-menu {
+    li {
+
+      a {
+        color: black;
+
+
+        &:hover {
+          background: darken(#ffffff, 5);
+        }
+      }
+    }
+  }
+}
+
+.fixed-black{
+  background: transparentize(#000000, .4);
+
+  li{
+    a{
+      color: darken(#ffffff, 15);
+
+      &:hover:not(.btn) {
+        border-bottom: 1px solid white;
+        background-color: transparent;
+        color: #ffffff;
+      }
+
+      &.btn-default {
+        color: lighten(#000000, 15);
+        background: darken(#ffffff, 15);
+
+        &:hover {
+          color: #000000;
+          background: #ffffff;
+        }
+      }
+    }
+  }
+
+
+
+  .dropdown-menu{
+    background: transparentize(#000000, .4);
+
+    li {
+
+      a {
+        border: none !important;
+        color: darken(#ffffff,15);
+
+        &:hover {
+          border: none !important;
+          background: lighten(#000000, 25);
+        }
+      }
+    }
+  }
+}
+
 //main container
-.wrapper{
-//  background: url("../images/trek.jpg") right center no-repeat;
-//  min-height: 900px;
+.wrapper {
+  //  background: url("../images/trek.jpg") right center no-repeat;
+  //  min-height: 900px;
   position: absolute;
   width: 100%;
   top: 0;
   margin: 0 auto;
-//  background-size: 120%;
+  //  background-size: 120%;
 
   .outer-container {
     overflow: hidden;
@@ -171,9 +243,9 @@
       color: white;
       width: 100%;
       position: relative;
-//      position: absolute;
-//      margin-top: -600px;
-//      z-index: 1;
+      //      position: absolute;
+      //      margin-top: -600px;
+      //      z-index: 1;
 
       .text-container {
         //    background: rgba(0, 0, 0, 0.50);
@@ -199,12 +271,11 @@
   }
 }
 
-
 //first container
 #first-container {
   background-image: url("../images/trek.jpg");
-  background-position:  center right;
-//  background-size: 100%;
+  background-position: center right;
+  //  background-size: 100%;
 
   .inner-container {
     top: 70%;
@@ -226,25 +297,25 @@
   }
 }
 
-#second-container{
+#second-container {
   background: url("../images/scuba_coral.jpg") center right;
-  background-position:  center right;
+  background-position: center right;
 
-  .inner-container{
+  .inner-container {
     top: 10%;
 
     #list-water-sports {
       color: #ffffff;
       font-family: "Open Sans", sans-serif;
 
-      li{
+      li {
 
         padding: 0;
-        background: transparentize(lighten(black,5),.35);
+        background: transparentize(lighten(black, 5), .35);
         border: 1px solid #000000;
         @include border-radius(0);
 
-        b{
+        b {
           color: #e1e1e1;
           padding: 10px 15px;
           display: block;
@@ -252,7 +323,7 @@
           font-size: 1.3em;
         }
 
-        a{
+        a {
           @include transition(background .3s ease);
           font-family: "Open Sans", sans-serif;
           font-size: .8em;
@@ -262,9 +333,9 @@
           color: transparentize(#ffffff, .3);
           font-style: italic;
 
-          &:hover{
+          &:hover {
             text-decoration: none;
-            background: transparentize(darken(deepskyblue,10),.4);
+            background: transparentize(darken(deepskyblue, 10), .4);
             color: #ffffff;
           }
         }
@@ -272,75 +343,72 @@
 
     }
 
-    .text-container{
+    .text-container {
       margin-top: 50px;
       text-align: right;
     }
   }
 }
 
-
 #third-container {
   background-image: url("../images/bike.jpg");
-  background-position:  top right;;
-//  background-size: 100%;
+  background-position: top right;;
+  //  background-size: 100%;
 
   .inner-container {
     top: 10%;
 
-    .row{
+    .row {
       margin-bottom: 50px;
     }
 
-    .text-container{
+    .text-container {
       text-align: justify;
     }
   }
 }
 
-#fourth-container{
+#fourth-container {
 
-  .flexslider{
+  .flexslider {
     border: none;
 
-    .slides{
-      li{
+    .slides {
+      li {
         background-size: cover !important;
         width: 100%;
 
-/*        &.clone{
-          display: none !important;
-        }*/
+        /*        &.clone{
+                  display: none !important;
+                }*/
 
-
-
-/*        &:nth-child(2){
-          background: url("../images/jet_ski.jpg");
-        }
-        &:nth-child(3){
-          background: url("../images/jet_ski.jpg");
-        }
-        &:nth-child(4){
-          background: url("../images/jet_ski.jpg");
-        }*/
+        /*        &:nth-child(2){
+                  background: url("../images/jet_ski.jpg");
+                }
+                &:nth-child(3){
+                  background: url("../images/jet_ski.jpg");
+                }
+                &:nth-child(4){
+                  background: url("../images/jet_ski.jpg");
+                }*/
       }
 
     }
   }
 }
 
-#fifth-container{
+#fifth-container {
   background-image: url("../images/landscape.jpg");
 
-  .inner-container{
+  .inner-container {
     margin-top: 10%;
 
-    form{
+    form {
       padding: 30px;
       color: #000000;
       font-family: 'Open Sans', sans-serif !important;
 
-      input{
+      input {
         width: 100%;
       }
     }
@@ -348,38 +416,37 @@
 
 }
 
-#sixth-container{
-//  background:
-//  -webkit-linear-gradient(45deg, hsla(22, 99%, 22%, 1) 0%, hsla(22, 99%, 22%, 0) 70%),
-//  -webkit-linear-gradient(315deg, hsla(143, 92%, 7%, 1) 10%, hsla(143, 92%, 7%, 0) 80%),
-//  -webkit-linear-gradient(225deg, hsla(212, 95%, 22%, 1) 10%, hsla(212, 95%, 22%, 0) 80%),
-//  -webkit-linear-gradient(135deg, hsla(32, 97%, 0%, 1) 100%, hsla(32, 97%, 0%, 0) 70%);
-//  background:
-//  linear-gradient(45deg, hsla(22, 99%, 22%, 1) 0%, hsla(22, 99%, 22%, 0) 70%),
-//  linear-gradient(135deg, hsla(143, 92%, 7%, 1) 10%, hsla(143, 92%, 7%, 0) 80%),
-//  linear-gradient(225deg, hsla(212, 95%, 22%, 1) 10%, hsla(212, 95%, 22%, 0) 80%),
-//  linear-gradient(315deg, hsla(32, 97%, 0%, 1) 100%, hsla(32, 97%, 0%, 0) 70%);
+#sixth-container {
+  //  background:
+  //  -webkit-linear-gradient(45deg, hsla(22, 99%, 22%, 1) 0%, hsla(22, 99%, 22%, 0) 70%),
+  //  -webkit-linear-gradient(315deg, hsla(143, 92%, 7%, 1) 10%, hsla(143, 92%, 7%, 0) 80%),
+  //  -webkit-linear-gradient(225deg, hsla(212, 95%, 22%, 1) 10%, hsla(212, 95%, 22%, 0) 80%),
+  //  -webkit-linear-gradient(135deg, hsla(32, 97%, 0%, 1) 100%, hsla(32, 97%, 0%, 0) 70%);
+  //  background:
+  //  linear-gradient(45deg, hsla(22, 99%, 22%, 1) 0%, hsla(22, 99%, 22%, 0) 70%),
+  //  linear-gradient(135deg, hsla(143, 92%, 7%, 1) 10%, hsla(143, 92%, 7%, 0) 80%),
+  //  linear-gradient(225deg, hsla(212, 95%, 22%, 1) 10%, hsla(212, 95%, 22%, 0) 80%),
+  //  linear-gradient(315deg, hsla(32, 97%, 0%, 1) 100%, hsla(32, 97%, 0%, 0) 70%);
 
   background-size: cover !important;
   background-image: url("../images/boating.jpg");
   background-repeat: no-repeat;
 
-  .inner-container{
-    background: transparentize(#000000,.5);
+  .inner-container {
+    background: transparentize(#000000, .5);
     position: absolute;
     bottom: 0;
 
-    #footer{
+    #footer {
       padding: 30px 0;
 
-
-      ul li{
+      ul li {
         padding: 5px;
         list-style: none;
         font-family: "Open Sans", sans-serif;
         font-size: 13px;
 
-        .nav-header{
+        .nav-header {
           font-size: 1.7em;
           color: #808080;
           text-transform: uppercase;
@@ -387,24 +454,22 @@
           font-weight: 400;
         }
 
-        a{
-          color: transparentize(#ffffff,.3);
+        a {
+          color: transparentize(#ffffff, .3);
           @include transition(all .3s ease);
 
-          &:hover{
+          &:hover {
             color: #ffffff;
             text-decoration: none;
           }
         }
       }
 
-
-      hr{
+      hr {
         border-color: #2D2D2D;
       }
 
-
-      #copyright{
+      #copyright {
         font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 14px;
         color: #808080;
@@ -416,25 +481,28 @@
 }
 
 //login page
-.form-row{
+.form-row {
   margin: auto;
   position: absolute;
-  top: 0;left: 0;right: 0;bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   height: 60%;
 }
 
-.form-container{
+.form-container {
   background: #ffffff;
   padding: 10px 20px;
   @include border-radius(10px);
-  @include single-box-shadow(0,5px,5px,5px,transparentize(black,.8));
+  @include single-box-shadow(0, 5px, 5px, 5px, transparentize(black, .8));
 
-  .checkbox input[type=checkbox]{
+  .checkbox input[type=checkbox] {
     float: none;
-    margin: 0;
+//    margin: 0;
   }
 
-  .btn{
+  .btn {
     width: 100%;
   }
 }

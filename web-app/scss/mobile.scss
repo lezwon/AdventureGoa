@@ -1,6 +1,6 @@
-.navbar.navbar-inverse{
+.navbar.navbar-inverse {
   #menu {
-    background: transparentize(black,0.4);
+    background: transparentize(black, 0.4);
     max-height: none;
 
     li {
@@ -11,7 +11,7 @@
       }
       a:hover:not(.btn) {
         border: none !important;
-        background: transparentize(black,0.3);
+        background: transparentize(black, 0.3);
       }
     }
   }

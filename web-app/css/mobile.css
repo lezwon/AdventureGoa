@@ -1,1 +1,17 @@
-.navbar.navbar-inverse #menu{background:rgba(0,0,0,0.6);max-height:none}.navbar.navbar-inverse #menu li{margin:10px}.navbar.navbar-inverse #menu li a{border:none}.navbar.navbar-inverse #menu li a:hover:not(.btn){border:none !important;background:rgba(0,0,0,0.7)}
+.navbar.navbar-inverse #menu {
+    background: rgba(0, 0, 0, 0.6);
+    max-height: none
+}
+
+.navbar.navbar-inverse #menu li {
+    margin: 10px
+}
+
+.navbar.navbar-inverse #menu li a {
+    border: none
+}
+
+.navbar.navbar-inverse #menu li a:hover:not(.btn) {
+    border: none !important;
+    background: rgba(0, 0, 0, 0.7)
+}

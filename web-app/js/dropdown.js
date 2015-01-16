@@ -4,7 +4,7 @@
 
 var textbox;
 
-$.fn.dropDown = function(list){
+$.fn.dropDown = function (list) {
 
     textbox = this;
 
@@ -17,11 +17,11 @@ $.fn.dropDown = function(list){
     var height = this.outerHeight();
     var width = this.outerWidth();
 
-    dropDownUl.style.top = offsetTop+height+'px';
-    dropDownUl.style.left = offsetLeft+'px';
-    dropDownUl.style.width = width+'px';
+    dropDownUl.style.top = offsetTop + height + 'px';
+    dropDownUl.style.left = offsetLeft + 'px';
+    dropDownUl.style.width = width + 'px';
 
-    list.forEach(function(item){
+    list.forEach(function (item) {
         dropDownUl.appendChild(item);
     });
 
@@ -30,27 +30,26 @@ $.fn.dropDown = function(list){
 };
 
 
-
-$(document).ready(function(){
+$(document).ready(function () {
 
     var airportTextbox = $("#airport");
 
-    airportTextbox.keyup(function(){
+    airportTextbox.keyup(function () {
         var value = this.value;
-        $.get("http://www.goibibo.com/common/selectairports/",{search:value}, function(data){
+        $.get("http://www.goibibo.com/common/selectairports/", {search: value}, function (data) {
 
             var list = [];
 
             data = $.parseJSON(data);
 
-            data.forEach(function(airport){
+            data.forEach(function (airport) {
                 var li = document.createElement('li');
                 /** @namespace airport.cityname */
                 /** @namespace airport.airportname */
                 /** @namespace airport.countryname */
-                li.innerHTML = airport.cityname + ', ' + airport.countryname + ' ' + '('+airport.airportname+')';
+                li.innerHTML = airport.cityname + ', ' + airport.countryname + ' ' + '(' + airport.airportname + ')';
                 /** @namespace airport.iatacode */
-                li.setAttribute('data-code',airport.iatacode);
+                li.setAttribute('data-code', airport.iatacode);
                 list.push(li);
             });
 
@@ -59,24 +58,24 @@ $(document).ready(function(){
         });
     });
 
-    airportTextbox.click(function(){
+    airportTextbox.click(function () {
         $(this).val('');
-        $(this).attr('data-code','');
+        $(this).attr('data-code', '');
     });
 
-    $('.dropdown').blur(function(){
+    $('.dropdown').blur(function () {
         $(this).remove();
     });
 
 });
 
 
-function listen(){
-    $('.dropdown li').click(function(){
+function listen() {
+    $('.dropdown li').click(function () {
         var airport = $(this).text();
         textbox.val(airport);
-        var code =  $(this).attr('data-code');
-        textbox.attr('data-code',code);
+        var code = $(this).attr('data-code');
+        textbox.attr('data-code', code);
         $(".dropdown").remove();
     });
 }

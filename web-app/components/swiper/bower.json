@@ -8,7 +8,11 @@
   "version": "2.7.0",
   "author": "Vladimir Kharlampidi",
   "homepage": "http://www.idangero.us/sliders/swiper/",
-  "keywords": ["swiper", "swipe", "slider"],
+  "keywords": [
+    "swiper",
+    "swipe",
+    "slider"
+  ],
   "dependencies": {
   },
   "scripts": [
@@ -18,7 +22,10 @@
     "dist/idangerous.swiper.js",
     "dist/idangerous.swiper.css"
   ],
-  "license": ["GPL", "MIT"],
+  "license": [
+    "GPL",
+    "MIT"
+  ],
   "dependencies": {},
   "ignore": [
     ".*",

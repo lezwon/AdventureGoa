@@ -6,9 +6,9 @@
   "dependencies": {
     "jquery": "latest"
   },
-  "ignore" : [
+  "ignore": [
     "site/",
-	"readme.md",
-	".gitignore"
+    "readme.md",
+    ".gitignore"
   ]
 }

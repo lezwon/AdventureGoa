@@ -17,19 +17,19 @@ module.exports = function (grunt) {
         // Metadata.
         pkg: grunt.file.readJSON('bower.json'),
         banner: '/*\n' +
-          ' * Swiper <%= pkg.version %>\n' +
-          ' * <%= pkg.description %>\n' +
-          ' *\n' +
-          ' * <%= pkg.homepage %>\n' +
-          ' *\n' +
-          ' * Copyright 2010-<%= grunt.template.today("yyyy") %>, <%= pkg.author %>\n' +
-          ' * The iDangero.us\n' +
-          ' * http://www.idangero.us/\n' +
-          ' *\n' +
-          ' * Licensed under <%= pkg.license.join(" & ") %>\n' +
-          ' *\n' +
-          ' * Released on: <%= grunt.template.today("mmmm d, yyyy") %>\n' +
-          '*/\n',
+        ' * Swiper <%= pkg.version %>\n' +
+        ' * <%= pkg.description %>\n' +
+        ' *\n' +
+        ' * <%= pkg.homepage %>\n' +
+        ' *\n' +
+        ' * Copyright 2010-<%= grunt.template.today("yyyy") %>, <%= pkg.author %>\n' +
+        ' * The iDangero.us\n' +
+        ' * http://www.idangero.us/\n' +
+        ' *\n' +
+        ' * Licensed under <%= pkg.license.join(" & ") %>\n' +
+        ' *\n' +
+        ' * Released on: <%= grunt.template.today("mmmm d, yyyy") %>\n' +
+        '*/\n',
         // Task configuration.
         concat: {
             options: {
