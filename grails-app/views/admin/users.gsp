@@ -13,6 +13,26 @@
     </head>
 
     <body>
+        <div class="table-container table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <g:each in="${fields}">
+                        <th>${it.name.capitalize()}</th>
+                    </g:each>
+                </tr>
+                </thead>
 
+                <tbody>
+                    <g:each in="${users}" var="user">
+                        <tr>
+                            <g:each in="${fields}">
+                                <td>${user.getProperty(it.name)}</td>
+                            </g:each>
+                        </tr>
+                    </g:each>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>

@@ -1,6 +1,6 @@
 dataSource {
     pooled = true
-    dbCreate = "create-drop"
+    dbCreate = "update"
     url = "jdbc:mysql://localhost/adventuregoa"
     driverClassName = "com.mysql.jdbc.Driver"
     dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"

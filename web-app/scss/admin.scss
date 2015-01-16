@@ -2,7 +2,7 @@
 
 *{
   font-family: "Open Sans", sans-serif !important;
-  font-weight: 600;
+//  font-weight: 600;
 }
 
 a{
@@ -51,6 +51,31 @@ a{
 
       &:hover{
         text-decoration: none;
+      }
+    }
+  }
+}
+
+.table-container{
+  overflow-x: auto;
+
+  table{
+    width: 100%;
+
+    //thead
+    thead{
+      tr{
+        th{
+          font-weight: 400;
+        }
+      }
+    }
+
+    tbody{
+      tr{
+        td{
+          max-width: (100%/6);
+        }
       }
     }
   }

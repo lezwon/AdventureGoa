@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
+    <title><g:layoutTitle/></title>
     <title>System Administrator</title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:700italic,700,400' rel='stylesheet' type='text/css'>
     <g:external dir="components/bootflat/bootstrap" file="bootstrap.min.css"/>
@@ -54,6 +55,7 @@
                 <li class="list-group-item"><g:link action="users">Users</g:link></li>
                 <li class="list-group-item"><g:link>Packages</g:link></li>
                 <li class="list-group-item"><g:link>Orders</g:link></li>
+                <li class="list-group-item"><g:link>Admins</g:link></li>
             </ul>
         </div>
 
