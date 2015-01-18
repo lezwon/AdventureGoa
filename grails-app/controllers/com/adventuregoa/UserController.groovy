@@ -1,5 +1,6 @@
 package com.adventuregoa
 
+import adventuregoa.AdminCheckService
 import com.coderberry.faker.Faker
 import grails.plugin.springsecurity.annotation.Secured
 import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass
@@ -38,15 +39,28 @@ class UserController extends grails.plugin.springsecurity.ui.UserController {
     }
 
     def edit(User user){
-        render(view: "edit", model: ["user":user])
+        boolean admin = AdminCheckService.check(user)
+        render(view: "edit", model: ["user":user, admin: admin])
     }
 
-    def update(){
+    def update(User user){
         try {
-            User realUser = User.get(params.id as int);
+            User realUser = User.get(user.id);
             String name = realUser.username
-            realUser.properties = params
 
+            if(params.admin){ //check if ticked
+//               if (!AdminCheckService.check(realUser))  // if not admin
+               UserRole.findOrSaveByUserAndRole(realUser,Role.findByAuthority("ROLE_ADMIN"))
+            }
+            else{
+                if (AdminCheckService.check(realUser))  // if admin
+                    UserRole.remove(realUser,Role.findByAuthority("ROLE_ADMIN"))
+                    UserRole.findOrSaveByUserAndRole(realUser,Role.findByAuthority("ROLE_USER"))
+            }
+
+
+
+            realUser.properties = params
 
             if (!realUser.save(flush: true,failOnError: true)) {
                 realUser.errors.each {
@@ -58,7 +72,7 @@ class UserController extends grails.plugin.springsecurity.ui.UserController {
             redirect(uri: "/user/index")
         } catch (Exception e) {
             e.printStackTrace()
-            flash.message = "Error"
+            render "Error"
         }
     }
 

@@ -33,7 +33,7 @@
 
             <div class="form-group">
                 <label for="password">Password</label>
-                <g:textField class="form-control" name="password" value="${user.password}"/>
+                <g:textField class="form-control" name="password" value="${user.password}" disabled="disabled"/>
             </div>
 
             <div class="form-group">
@@ -50,6 +50,11 @@
                 <label class="checkbox-inline">
                     <g:checkBox value="${user.accountLocked}" name="accountLocked" />
                     Account Locked
+                </label>
+
+                <label class="checkbox-inline">
+                    <g:checkBox value="${admin}" name="admin" />
+                    Admin
                 </label>
             </div>
 

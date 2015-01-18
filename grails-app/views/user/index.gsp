@@ -30,6 +30,7 @@
                     <th>Edit</th>
                     <th>Delete</th>
                     <th>ID</th>
+                    %{--<th>Type</th>--}%
                     <g:each in="${fields}" var="field">
                         <th>${field.name.capitalize()}</th>
                     </g:each>
@@ -50,6 +51,8 @@
                             </td>
 
                             <td>${user.id}</td>
+
+                            %{--<td>${user.getAuthorities()[0].getAuthority()}</td>--}%
 
                             <g:each in="${fields}" var="field">
                                 <td>${user.getProperty(field.name)}</td>
