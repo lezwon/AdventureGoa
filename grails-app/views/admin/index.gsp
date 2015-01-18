@@ -1,41 +1,51 @@
 <%--
   Created by IntelliJ IDEA.
   User: Lezwon
-  Date: 14-01-2015
-  Time: 18:27
+  Date: 18-01-2015
+  Time: 17:21
 --%>
 
-<!doctype html>
-<html lang="en">
+<%@ page contentType="text/html;charset=UTF-8" %>
+<html>
 <head>
-    <meta charset="UTF-8">
     <meta name="layout" content="admin-layout">
-    <title>Home</title>
+    <title></title>
 </head>
 
 <body>
-    <ul class="small-block-grid-4" id="dashboard-grid">
-        <li>
-            <a class="dashboard-block">
-                <h4>Users</h4>
-                <h2>119</h2>
-            </a>
-        </li><li>
-        <a class="dashboard-block">
-            <h4>Packages</h4>
-            <h2>9</h2>
-        </a>
-    </li><li>
-        <a class="dashboard-block">
-            <h4>Orders</h4>
-            <h2>145</h2>
-        </a>
-    </li><li>
-        <a class="dashboard-block">
-            <h4>Lorem</h4>
-            <h2>334</h2>
-        </a>
-    </li>
-    </ul>
+<g:if test="${flash.message}">
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="alert alert-success">
+                ${flash.message}
+            </div>
+        </div>
+    </div>
+</g:if>
+
+<div class="table-container table-responsive">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <g:each in="${fields}" var="field">
+                <th>${field.name.capitalize()}</th>
+            </g:each>
+        </tr>
+        </thead>
+
+        <tbody>
+        <g:each in="${admins}" var="admin">
+            <tr>
+                <td>${admin.id}</td>
+
+                <g:each in="${fields}" var="field">
+                    <td>${admin.getProperty(field.name)}</td>
+                </g:each>
+            </tr>
+        </g:each>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

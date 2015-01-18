@@ -6,20 +6,19 @@ import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass
 @Secured("ROLE_ADMIN")
 class AdminController {
 
-
-    def index() {
-//        render("Hello");
-    }
-
-    def users(){
-//        def fields = User.declaredFields
-//        print fields
-
+    def index(){
         def d = new DefaultGrailsDomainClass(User.class)
         def fields = d.persistentProperties.reverse() as Object[]
+        def admins = UserRole.findAllByRole(Role.findByAuthority("ROLE_ADMIN"))*.user
+        render(view: "index", model: [admins: admins, fields: fields])
+    }
 
-        def users = User.list()
+    def home() {
+        int userCount = User.count();
+        int packageCount = Package.count();
+        int adminCount = UserRole.findAllByRole(Role.findByAuthority("ROLE_ADMIN"))*.user.size()
+//        int orderCount = User.count();
 
-        render view: "users", model: ["fields":fields, "users": users]
+        render view: "home", model: ["userCount":userCount,"packageCount":packageCount, adminCount: adminCount]
     }
 }

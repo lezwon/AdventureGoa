@@ -1,6 +1,8 @@
 import com.adventuregoa.Role
 import com.adventuregoa.User
 import com.adventuregoa.UserRole
+import com.coderberry.faker.FakerService
+
 
 class BootStrap {
 
@@ -31,6 +33,19 @@ class BootStrap {
 //            UserRole.create(tempUser, roleUser)
 
             index == 0 ? UserRole.create(tempUser,roleAdmin) : UserRole.create(tempUser,roleUser)
+        }
+
+
+        /*Faker Users*/
+        def fakerService = new FakerService();
+
+        for ( i in 0..9 ) {
+            def tempUser = new User(
+                username: fakerService.firstName(),
+                password: fakerService.letterify("????????"),
+                email   : fakerService.email()
+            ).save();
+            UserRole.create(tempUser, roleUser)
         }
 
 

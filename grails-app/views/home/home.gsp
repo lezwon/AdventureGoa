@@ -14,23 +14,7 @@
     </head>
 
     <body>
-        <div class="row">
-            <div class="medium-3 columns">
-                <div class="side-menu">
-                    <div class="list-group">
-                        <a class="list-group-item" href="">Lorem ipsum.</a>
-                        <a class="list-group-item" href="">Lorem ipsum.</a>
-                        <a class="list-group-item" href="">Lorem ipsum.</a>
-                        <a class="list-group-item" href="">Lorem ipsum.</a>
-                        <a class="list-group-item" href="">Lorem ipsum.</a>
-                    </div>
-                </div>
-            </div>
 
-            <div class="medium-9 columns">
-
-            </div>
-        </div>
 
     </body>
 </html>

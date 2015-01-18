@@ -14,6 +14,28 @@ a{
   margin-top: 25px;
 }
 
+
+/* enable absolute positioning */
+.inner-addon {
+  position: relative;
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+
 #side-nav.list-group{
   .list-group-item{
     padding: 0;
@@ -56,11 +78,23 @@ a{
   }
 }
 
+.crud-bar{
+  .btn-add{
+    float: left;
+  }
+
+  .form-inline{
+    float: right;
+  }
+}
+
 .table-container{
   overflow-x: auto;
+  max-height: 1000px;
 
   table{
     width: 100%;
+    font-size: 0.8em;
 
     //thead
     thead{
@@ -74,9 +108,37 @@ a{
     tbody{
       tr{
         td{
-          max-width: (100%/6);
+          max-width: 215px;
+          overflow: hidden;
+          padding: 5px;
+
+          /*Form Button as link*/
+          form{
+            margin: 0;
+
+            input[type=submit] {
+              background:none!important;
+              border:none;
+              padding:0!important;
+              cursor: pointer;
+              color: #428bca;
+              outline: none;
+
+              &:hover{
+                text-decoration: underline;
+                color: #2a6496;
+              }
+            }
+
+          }
         }
       }
     }
+  }
+}
+
+#form-admin{
+  .btn{
+    outline: none;
   }
 }

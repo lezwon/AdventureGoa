@@ -10,6 +10,14 @@ class UrlMappings {
         "/"(view: "/index")
         "500"(view: '/error')
         "/home"(controller: "home", action: "index")
-        "/$username/home"(controller: "home", action: "home")
+
+        "/$username/home" {
+            controller= "home"
+            action= "home"
+            constraints {
+                username(validator: { !['admin'].contains(it) })
+            }
+        }
+
     }
 }

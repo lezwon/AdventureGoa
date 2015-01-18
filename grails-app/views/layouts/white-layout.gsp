@@ -62,7 +62,7 @@
                                 <li><a href="#">Account</a></li>
 
                                 <sec:ifAnyGranted roles="ROLE_ADMIN">
-                                    <li><g:link controller="admin">Administrator Page</g:link> </li>
+                                    <li><g:link controller="admin" action="home">Administrator Page</g:link> </li>
                                 </sec:ifAnyGranted>
 
                                 <li>
