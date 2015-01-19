@@ -53,7 +53,7 @@
                 <li class="list-group-item"><h2>Menu</h2></li>
                 <li class="list-group-item"><g:link controller="admin" action="home">Home</g:link></li>
                 <li class="list-group-item"><g:link controller="user" action="index">Users</g:link></li>
-                <li class="list-group-item"><g:link>Packages</g:link></li>
+                <li class="list-group-item"><g:link controller="package" action="index">Packages</g:link></li>
                 <li class="list-group-item"><g:link>Orders</g:link></li>
                 <li class="list-group-item"><g:link controller="admin" action="index">Admins</g:link></li>
             </ul>

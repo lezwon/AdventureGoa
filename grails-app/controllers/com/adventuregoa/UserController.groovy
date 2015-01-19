@@ -1,6 +1,7 @@
 package com.adventuregoa
 
 import adventuregoa.AdminCheckService
+import adventuregoa.DomainClassPropertiesService
 import com.coderberry.faker.Faker
 import grails.plugin.springsecurity.annotation.Secured
 import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass
@@ -19,8 +20,7 @@ class UserController extends grails.plugin.springsecurity.ui.UserController {
     ]
 
     def index(){
-        def d = new DefaultGrailsDomainClass(User.class)
-        def fields = d.persistentProperties.reverse() as Object[]
+        def fields = DomainClassPropertiesService.getStructure(User.class)
 
         def users = User.list()
 
@@ -99,8 +99,8 @@ class UserController extends grails.plugin.springsecurity.ui.UserController {
     }
 
     def search(){
-        def d = new DefaultGrailsDomainClass(User.class)
-        def fields = d.persistentProperties.reverse() as Object[]
+
+        def fields = DomainClassPropertiesService.getStructure(User.class)
 
         def results = User.findAll("from User where username like '%$params.string%' or email like '%$params.string%' ")
         render(view: "index", model: ["fields":fields, users: results, string: params.string])

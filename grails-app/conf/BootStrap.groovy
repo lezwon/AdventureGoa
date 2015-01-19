@@ -1,10 +1,11 @@
 import com.adventuregoa.Role
 import com.adventuregoa.User
 import com.adventuregoa.UserRole
-import com.coderberry.faker.FakerService
 
 
 class BootStrap {
+
+    def fakerService;
 
     def init = { servletContext ->
 
@@ -37,7 +38,7 @@ class BootStrap {
 
 
         /*Faker Users*/
-        def fakerService = new FakerService();
+
 
         for ( i in 0..9 ) {
             def tempUser = new User(

@@ -1,5 +1,7 @@
 package com.adventuregoa
 
+import org.apache.tools.ant.taskdefs.Pack
+
 class User {
 
 	transient springSecurityService
@@ -12,12 +14,15 @@ class User {
 	boolean accountLocked
 	boolean passwordExpired
 
+	static hasMany = [packages: Package]
+
 	static transients = ['springSecurityService']
 
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false, display: false
 		email blank: false
+		packages display:false
 	}
 
 	static mapping = {

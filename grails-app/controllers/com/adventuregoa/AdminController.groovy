@@ -6,6 +6,8 @@ import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass
 @Secured("ROLE_ADMIN")
 class AdminController {
 
+    static defaultAction = "home"
+
     def index(){
         def d = new DefaultGrailsDomainClass(User.class)
         def fields = d.persistentProperties.reverse() as Object[]
