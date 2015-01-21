@@ -1,6 +1,6 @@
 package com.adventuregoa
 
-class Booking{
+class Booking extends Base{
 
     int noOfPeople
     int totalPrice

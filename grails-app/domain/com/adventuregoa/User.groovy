@@ -6,6 +6,7 @@ class User extends Base{
 	String lastName
 	String phone
 	Date dob
+	Address address
 
 	transient springSecurityService
 
@@ -19,11 +20,9 @@ class User extends Base{
 
 	static hasMany = [
 		booking: Booking,
-	  	address:Address,
+//	  	address:Address,
 		paymentCard:PaymentCard
 	]
-
-	static belongsTo = [Address]
 
 	static transients = ['springSecurityService']
 
@@ -38,7 +37,7 @@ class User extends Base{
 
 	static mapping = {
 		password column: '`password`'
-		address defaultValue: null
+//		address defaultValue: null
 		paymentCard defaultValue: null
 	}
 
@@ -51,6 +50,7 @@ class User extends Base{
 	}
 
 	def beforeUpdate() {
+		super.beforeUpdate()
 		if (isDirty('password')) {
 			encodePassword()
 		}

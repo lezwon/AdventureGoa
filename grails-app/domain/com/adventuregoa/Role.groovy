@@ -1,6 +1,6 @@
 package com.adventuregoa
 
-class Role{
+class Role extends Base{
 
 	String authority
 

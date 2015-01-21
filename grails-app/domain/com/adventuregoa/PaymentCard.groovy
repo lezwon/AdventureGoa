@@ -1,6 +1,6 @@
 package com.adventuregoa
 
-class PaymentCard {
+class PaymentCard extends Base{
 
     long cardNumber
     String cardName
