@@ -23,15 +23,6 @@
 			</g:if>
 			<ol class="property-list package">
 			
-				<g:if test="${packageInstance?.date}">
-				<li class="fieldcontain">
-					<span id="date-label" class="property-label"><g:message code="package.date.label" default="Date" /></span>
-					
-						<span class="property-value" aria-labelledby="date-label"><g:formatDate date="${packageInstance?.date}" /></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${packageInstance?.description}">
 				<li class="fieldcontain">
 					<span id="description-label" class="property-label"><g:message code="package.description.label" default="Description" /></span>

@@ -1,6 +1,7 @@
 package com.adventuregoa
 
 import adventuregoa.DomainClassPropertiesService
+import adventuregoa.FileUploadService
 import grails.plugin.springsecurity.annotation.Secured
 
 import static org.springframework.http.HttpStatus.*
@@ -15,7 +16,7 @@ class PackageController {
     def index() {
         def packages = Package.list()
         def fields = DomainClassPropertiesService.getStructure(Package.class)
-        respond packages,model: [fields:fields]
+        render view: "index", model: [fields:fields, packages: packages]
     }
 
     def show(Package packageInstance) {
@@ -27,26 +28,29 @@ class PackageController {
     }
 
     @Transactional
-    def save(Package packageInstance) {
-        if (packageInstance == null) {
-            notFound()
-            return
-        }
+    def save() {
+        String contextPath = servletContext.getRealPath('/')
+        String dir = FileUploadService.uploadFile(params.image,contextPath)
+        if (dir)
+        {
+            String name = params.name
+            params.image = dir
 
-        if (packageInstance.hasErrors()) {
-            respond packageInstance.errors, view: 'create'
-            return
-        }
-
-        packageInstance.save flush: true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'package.label', default: 'Package'), packageInstance.id])
-                redirect packageInstance
+            try {
+                new Package(params).save(failOnError: true)
+            } catch (Exception e) {
+                e.printStackTrace()
             }
-            '*' { respond packageInstance, [status: CREATED] }
+
+            flash.message = message(code: "com.adventuregoa.package.create", args: [name])
         }
+        else
+        {
+            flash.message = "Error"
+        }
+
+        redirect(action: "index")
+
     }
 
     def edit(Package packageInstance) {

@@ -1,8 +1,11 @@
 package com.adventuregoa
 
-import org.apache.tools.ant.taskdefs.Pack
+class User extends Base{
 
-class User {
+	String firstName
+	String lastName
+	long phone
+	Date dob
 
 	transient springSecurityService
 
@@ -14,11 +17,13 @@ class User {
 	boolean accountLocked
 	boolean passwordExpired
 
-	static hasMany = [packages: Package]
+	static hasOne = [Address,PaymentCard]
+	static hasMany = [booking: Booking]
 
 	static transients = ['springSecurityService']
 
 	static constraints = {
+		super.constraints
 		username blank: false, unique: true
 		password blank: false, display: false
 		email blank: false
@@ -34,11 +39,13 @@ class User {
 	}
 
 	def beforeInsert() {
+		super.beforeInsert()
 		encodePassword()
 	}
 
 	def beforeUpdate() {
 		if (isDirty('password')) {
+			super.beforeUpdate()
 			encodePassword()
 		}
 	}

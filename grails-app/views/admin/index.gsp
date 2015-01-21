@@ -9,19 +9,15 @@
 <html>
 <head>
     <meta name="layout" content="admin-layout">
-    <title></title>
+    <g:set var="entityName" value="Admins" />
+    <title>${entityName}</title>
 </head>
 
 <body>
-<g:if test="${flash.message}">
-    <div class="row">
-        <div class="small-12 columns">
-            <div class="alert alert-success">
-                ${flash.message}
-            </div>
-        </div>
-    </div>
-</g:if>
+
+<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+<hr />
+<g:render template="/templates/flash"/>
 
 <div class="table-container table-responsive">
     <table class="table table-bordered">
