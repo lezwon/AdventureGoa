@@ -3,7 +3,7 @@ package com.adventuregoa
 class Address{
 
     String streetAddress
-	String country
+	String country = "INDIA"
 	String state
     String landmark
 	int postCode
@@ -24,6 +24,6 @@ class Address{
 
     static  mapping = {
         streetAddress sqlType: "text"
-        country defaultValue:"INDIA"
+//        country defaultValue: 'INDIA'
     }
 }

@@ -16,7 +16,7 @@ class BootStrap {
                         email   : "lezwon@gmail.com",
                         firstName: "Lezwon",
                         lastName: "Castellino",
-                        phone: 9405334893,
+                        phone: "9405334893",
                         dob: new Date(1993,12,8)
                 ],
                 [
@@ -25,7 +25,7 @@ class BootStrap {
                         email   : "lester@gmail.com",
                         firstName: "Lester",
                         lastName: "Castellino",
-                        phone: 2342354254,
+                        phone: "2342354254",
                         dob: new Date(1989,11,26)
                 ]
         ]
@@ -38,10 +38,15 @@ class BootStrap {
         roleAdmin.save()
 
         users.eachWithIndex { user,index ->
-            def tempUser = new User(user).save();
+
+            try {
+                def tempUser = new User(user).save(failOnError: true,flush: true);
+                index == 0 ? UserRole.create(tempUser,roleAdmin) : UserRole.create(tempUser,roleUser)
+            } catch (Exception e) {
+                e.printStackTrace()
+            }
 //            UserRole.create(tempUser, roleUser)
 
-            index == 0 ? UserRole.create(tempUser,roleAdmin) : UserRole.create(tempUser,roleUser)
         }
 
 
@@ -49,16 +54,22 @@ class BootStrap {
 
 
         for ( i in 0..9 ) {
-            def tempUser = new User(
-                username: fakerService.userName(),
-                password: fakerService.letterify("????????"),
-                email   : fakerService.email(),
-                firstName: fakerService.firstName(),
-                lastName: fakerService.lastName(),
-                phone: fakerService.phoneNumber('##########'),
-                dob: new Date()
-            ).save();
-            UserRole.create(tempUser, roleUser)
+            try {
+
+                def tempUser = new User(
+                    username: fakerService.userName(),
+                    password: fakerService.letterify("????????"),
+                    email   : fakerService.email(),
+                    firstName: fakerService.firstName(),
+                    lastName: fakerService.lastName(),
+                    phone: fakerService.phoneNumber('##########'),
+                    dob: new Date()
+                ).save(failOnError: true);
+                UserRole.create(tempUser, roleUser)
+
+            } catch (Exception e) {
+                e.printStackTrace()
+            }
         }
 
 

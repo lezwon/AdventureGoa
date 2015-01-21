@@ -1,10 +1,10 @@
 package com.adventuregoa
 
-class User{
+class User extends Base{
 
 	String firstName
 	String lastName
-	long phone
+	String phone
 	Date dob
 
 	transient springSecurityService
@@ -17,8 +17,12 @@ class User{
 	boolean accountLocked
 	boolean passwordExpired
 
-	static hasOne = [paymentCard:PaymentCard, address:Address]
-	static hasMany = [booking: Booking]
+	static hasMany = [
+		booking: Booking,
+	  	address:Address,
+		paymentCard:PaymentCard
+	]
+
 	static belongsTo = [Address]
 
 	static transients = ['springSecurityService']
@@ -28,10 +32,14 @@ class User{
 		password blank: false, display: false
 		email blank: false
 		booking display:false
+		address blank: true, nullable: true
+		paymentCard blank:true, nullable: true
 	}
 
 	static mapping = {
 		password column: '`password`'
+		address defaultValue: null
+		paymentCard defaultValue: null
 	}
 
 	Set<Role> getAuthorities() {

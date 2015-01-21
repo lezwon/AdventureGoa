@@ -1,18 +1,11 @@
 package com.adventuregoa
 
-class Package extends BaseClass{
+class Package extends Base{
 
     String name
     String description
     String image
     double price
-
-    def created_at = new Date()
-    def updated_at = new Date()
-
-    def beforeUpdate(){
-        updated_at = new Date()
-    }
 
     static hasMany = [
             booking:Booking,
