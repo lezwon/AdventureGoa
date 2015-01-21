@@ -1,6 +1,6 @@
 package com.adventuregoa
 
-class Address {
+class Address{
 
     String streetAddress
 	String country
@@ -8,7 +8,11 @@ class Address {
     String landmark
 	int postCode
 
-    static belongsTo = [User,Hotel,AdventureActivity]
+    static hasOne = [
+            user: User,
+            hotel: Hotel,
+            adventureActivity: AdventureActivity
+    ]
 
     static constraints = {
         streetAddress blank: false

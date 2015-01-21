@@ -1,6 +1,6 @@
 package com.adventuregoa
 
-class User extends Base{
+class User{
 
 	String firstName
 	String lastName
@@ -17,17 +17,17 @@ class User extends Base{
 	boolean accountLocked
 	boolean passwordExpired
 
-	static hasOne = [Address,PaymentCard]
+	static hasOne = [paymentCard:PaymentCard, address:Address]
 	static hasMany = [booking: Booking]
+	static belongsTo = [Address]
 
 	static transients = ['springSecurityService']
 
 	static constraints = {
-		super.constraints
 		username blank: false, unique: true
 		password blank: false, display: false
 		email blank: false
-		packages display:false
+		booking display:false
 	}
 
 	static mapping = {
@@ -39,13 +39,11 @@ class User extends Base{
 	}
 
 	def beforeInsert() {
-		super.beforeInsert()
 		encodePassword()
 	}
 
 	def beforeUpdate() {
 		if (isDirty('password')) {
-			super.beforeUpdate()
 			encodePassword()
 		}
 	}

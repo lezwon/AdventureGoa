@@ -13,12 +13,20 @@ class BootStrap {
                 [
                         username: "lezwon",
                         password: "password",
-                        email   : "lezwon@gmail.com"
+                        email   : "lezwon@gmail.com",
+                        firstName: "Lezwon",
+                        lastName: "Castellino",
+                        phone: 9405334893,
+                        dob: new Date(1993,12,8)
                 ],
                 [
                         username: "lester",
                         password: "password",
-                        email   : "lester@gmail.com"
+                        email   : "lester@gmail.com",
+                        firstName: "Lester",
+                        lastName: "Castellino",
+                        phone: 2342354254,
+                        dob: new Date(1989,11,26)
                 ]
         ]
 
@@ -42,9 +50,13 @@ class BootStrap {
 
         for ( i in 0..9 ) {
             def tempUser = new User(
-                username: fakerService.firstName(),
+                username: fakerService.userName(),
                 password: fakerService.letterify("????????"),
-                email   : fakerService.email()
+                email   : fakerService.email(),
+                firstName: fakerService.firstName(),
+                lastName: fakerService.lastName(),
+                phone: fakerService.phoneNumber('##########'),
+                dob: new Date()
             ).save();
             UserRole.create(tempUser, roleUser)
         }

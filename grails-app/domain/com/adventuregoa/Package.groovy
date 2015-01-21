@@ -1,11 +1,18 @@
 package com.adventuregoa
 
-class Package extends  Base{
+class Package extends BaseClass{
 
     String name
     String description
     String image
     double price
+
+    def created_at = new Date()
+    def updated_at = new Date()
+
+    def beforeUpdate(){
+        updated_at = new Date()
+    }
 
     static hasMany = [
             booking:Booking,
@@ -13,7 +20,6 @@ class Package extends  Base{
             adventureActivities:AdventureActivity
     ]
 
-    static  belongsTo = [User]
 
     static  mapping = {
         description sqlType: "text"

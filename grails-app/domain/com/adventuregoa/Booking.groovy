@@ -1,6 +1,6 @@
 package com.adventuregoa
 
-class Booking extends Base{
+class Booking{
 
     int noOfPeople
     int totalPrice
@@ -8,7 +8,10 @@ class Booking extends Base{
     Date endDate
     String paymentReference
 
-    static belongsTo = [user: User, package: Package]
+
+
+    static belongsTo = [User,Package]
+    static hasOne = [user: User]
     static hasMany = [tickets: Ticket]
 
     static constraints = {

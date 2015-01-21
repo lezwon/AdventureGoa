@@ -1,6 +1,6 @@
 package com.adventuregoa
 
-class Ticket extends Base {
+class Ticket{
 
     String reference
 

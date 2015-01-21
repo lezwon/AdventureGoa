@@ -7,6 +7,7 @@ class PaymentCard {
     Date expiry
     String type
 
+    static hasOne = [user:User]
     static belongsTo = [User]
 
     static constraints = {
