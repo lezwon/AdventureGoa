@@ -11,7 +11,7 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class PackageController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+//    static allowedMethods = [save: ['POST'], delete: ['DELETE'], update: ['PUT'], search: ['POST']]
 
     def index() {
         def packages = Package.list()
@@ -31,10 +31,8 @@ class PackageController {
     def save() {
 
         Package packageInstance = new Package(params)
-
         String contextPath = servletContext.getRealPath('/') //get server root path
-
-        FileUploadService.uploadFile(packageInstance,params,contextPath) //upload image successful
+        def imageUploadSuccess = FileUploadService.uploadFile(packageInstance,params,contextPath) //upload image successful
 
 
         //name of package
@@ -44,6 +42,10 @@ class PackageController {
         packageInstance.clearErrors()
         packageInstance.validate()
         if(packageInstance.hasErrors()){
+            if(imageUploadSuccess){ //delete file
+                FileUploadService.deleteFile(packageInstance,contextPath)
+            }
+
             respond packageInstance.errors, view: 'create'
             return
         }
@@ -72,25 +74,49 @@ class PackageController {
 
     @Transactional
     def update(Package packageInstance) {
+
+        def imageUploadSuccess =false;
+
         if (packageInstance == null) {
             notFound()
             return
         }
 
+        String contextPath = servletContext.getRealPath('/') //get server root path
+
+        if(params.image.size != 0){
+            imageUploadSuccess = FileUploadService.updateFile(packageInstance,params,contextPath)
+        }
+
+        packageInstance.clearErrors()
+        packageInstance.validate()
+
         if (packageInstance.hasErrors()) {
+
+            if(imageUploadSuccess){ //delete file
+                FileUploadService.deleteFile(packageInstance,contextPath)
+            }
+
             respond packageInstance.errors, view: 'edit'
             return
         }
 
-        packageInstance.save flush: true
+        try {
+            //save package
+            packageInstance.save(failOnError: true)
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Package.label', default: 'Package'), packageInstance.id])
-                redirect packageInstance
-            }
-            '*' { respond packageInstance, [status: OK] }
+        } catch (Exception e) {
+            //if save not successfull
+            e.printStackTrace()
+            flash.message = message(code: "databaseQuery.failed", args: [actionName])
         }
+
+
+        flash.message = message(code: 'default.updated.message', args: ['Package', packageInstance.id])
+        redirect action: "index"
+
+//        respond packageInstance, [status: OK]
+
     }
 
     @Transactional

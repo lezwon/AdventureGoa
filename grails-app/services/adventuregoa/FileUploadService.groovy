@@ -1,6 +1,8 @@
 package adventuregoa
+
+import com.adventuregoa.Package
 import grails.transaction.Transactional
-import org.springframework.validation.FieldError
+import org.codehaus.groovy.grails.web.servlet.mvc.GrailsParameterMap
 
 
 @Transactional
@@ -28,8 +30,6 @@ class FileUploadService {
 
         //if has content type
         if (!allowedContentTypes.contains(image.contentType)){
-//            domain.image = "Invalid"
-//            domain.errors.rejectValue('image','com.adventuregoa.package.image.invalidfile')
             return
         }
 
@@ -53,13 +53,45 @@ class FileUploadService {
             else{
                 image.transferTo(imageDir)
                 domain.image = filename
+                return  true
             }
 
         } catch (Exception e) {
             e.printStackTrace()
-//            domain.image = "Invalid"
-//            domain.errors.rejectValue('image','com.adventuregoa.package.image.failed')
+
         }
 
+        return false
+
+    }
+
+    static boolean deleteFile(def domain, String contextPath) {
+
+        if(domain.image.isEmpty())
+            return false
+
+        def folder = domain.class.simpleName.toString().toLowerCase().concat("/")
+        String absolutePath = contextPath + savePath + folder
+
+        try{
+
+            File imageDir = new File(absolutePath, domain.image as String)
+            domain.image = null
+
+            if(imageDir.exists())
+            {
+                imageDir.delete()
+                return true
+            }
+        }catch (Exception e){
+            e.printStackTrace()
+        }
+
+        return false
+    }
+
+    static updateFile(def domain ,params, String contextPath) {
+        deleteFile(domain,contextPath)
+        return uploadFile(domain,params,contextPath)
     }
 }
