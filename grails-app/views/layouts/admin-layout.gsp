@@ -58,8 +58,11 @@
                 <li class="list-group-item"><g:link controller="admin" action="home">Home</g:link></li>
                 <li class="list-group-item"><g:link controller="user" action="index">Users</g:link></li>
                 <li class="list-group-item"><g:link controller="package" action="index">Packages</g:link></li>
-                <li class="list-group-item"><g:link>Orders</g:link></li>
+                <li class="list-group-item"><g:link controller="booking" action="index">Bookings</g:link></li>
                 <li class="list-group-item"><g:link controller="admin" action="index">Admins</g:link></li>
+                <li class="list-group-item"><g:link controller="admin" action="index">Hotels</g:link></li>
+                <li class="list-group-item"><g:link controller="admin" action="index">Adventure Activities</g:link></li>
+                <li class="list-group-item"><g:link controller="admin" action="index">Tickets</g:link></li>
             </ul>
         </div>
 

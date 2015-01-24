@@ -58,6 +58,10 @@ a{
         background: transparentize(gray, .8);
         color: #000000;
       }
+
+      &:focus{
+        text-decoration: none;
+      }
     }
   }
 }

@@ -12,7 +12,7 @@ class FileUploadService {
 
 
     static uploadFile(def domain,params, String contextPath){
-
+        domain.clearErrors()
         def allowedContentTypes = ['image/jpeg']
 
         //image variable
@@ -30,6 +30,8 @@ class FileUploadService {
 
         //if has content type
         if (!allowedContentTypes.contains(image.contentType)){
+            domain.clearErrors()
+            domain.errors.rejectValue('image','com.adventuregoa.Package.image.typeMismatch.error')
             return
         }
 
@@ -52,7 +54,7 @@ class FileUploadService {
                 domain.image = filename
             else{
                 image.transferTo(imageDir)
-                domain.image = filename
+                domain.image = "/"+folder+filename
                 return  true
             }
 

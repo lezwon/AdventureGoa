@@ -3,6 +3,7 @@ package com.adventuregoa
 import adventuregoa.DomainClassPropertiesService
 import adventuregoa.FileUploadService
 import grails.plugin.springsecurity.annotation.Secured
+import org.apache.tomcat.jni.File
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -39,7 +40,7 @@ class PackageController {
         String name = packageInstance.name
 
         //if has errors
-        packageInstance.clearErrors()
+
         packageInstance.validate()
         if(packageInstance.hasErrors()){
             if(imageUploadSuccess){ //delete file
@@ -127,6 +128,8 @@ class PackageController {
             return
         }
 
+        String contextPath = servletContext.getRealPath('/') //get server root path
+        FileUploadService.deleteFile(packageInstance,contextPath)
         packageInstance.delete flush: true
 
         request.withFormat {
@@ -146,5 +149,12 @@ class PackageController {
             }
             '*' { render status: NOT_FOUND }
         }
+    }
+
+    def search(){
+        String search = params.string
+        def fields = DomainClassPropertiesService.getStructure(Package.class)
+        def results = Package.findAllByNameOrDescriptionLike("%$search%","%$search%")
+        render(view: "index", model: ["fields":fields, packages: results, string: search])
     }
 }
