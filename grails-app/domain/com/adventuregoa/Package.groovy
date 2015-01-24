@@ -5,7 +5,7 @@ class Package extends Base{
     String name
     String description
     String image
-    double price
+    int price
 
     static hasMany = [
             booking:Booking,
@@ -21,7 +21,7 @@ class Package extends Base{
     static constraints = {
         name blank: false, unique: true
         description blank: false, maxSize: 500
-        image blank: false, unique: true
-        price blank:false
+        image blank: false, unique: true, nullable: false
+        price blank:false, min: 1000, max: 50000
     }
 }

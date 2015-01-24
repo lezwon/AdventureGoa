@@ -18,10 +18,10 @@ class User extends Base{
 	boolean accountLocked
 	boolean passwordExpired
 
+	static hasOne = [paymentCard:PaymentCard]
+
 	static hasMany = [
 		booking: Booking,
-//	  	address:Address,
-		paymentCard:PaymentCard
 	]
 
 	static transients = ['springSecurityService']
@@ -29,7 +29,7 @@ class User extends Base{
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false, display: false
-		email blank: false
+		email blank: false, email: true
 		booking display:false
 		address blank: true, nullable: true
 		paymentCard blank:true, nullable: true
@@ -37,8 +37,6 @@ class User extends Base{
 
 	static mapping = {
 		password column: '`password`'
-//		address defaultValue: null
-		paymentCard defaultValue: null
 	}
 
 	Set<Role> getAuthorities() {

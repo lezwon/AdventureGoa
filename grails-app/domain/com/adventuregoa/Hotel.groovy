@@ -11,11 +11,10 @@ class Hotel extends Base{
     int rating
     long phone
     double price
+
     int roomsCapacity
+    int roomsAvailable
 
-    static int roomsAvailable
-
-//    static hasOne = [ address:Address ]
     static hasMany = [packages: Package]
     static belongsTo = [Package]
 

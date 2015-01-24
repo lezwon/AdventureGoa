@@ -29,26 +29,39 @@ class PackageController {
 
     @Transactional
     def save() {
-        String contextPath = servletContext.getRealPath('/')
-        String dir = FileUploadService.uploadFile(params.image,contextPath)
-        if (dir)
-        {
-            String name = params.name
-            params.image = dir
 
-            try {
-                new Package(params).save(failOnError: true)
-            } catch (Exception e) {
-                e.printStackTrace()
-            }
+        Package packageInstance = new Package(params)
 
-            flash.message = message(code: "com.adventuregoa.package.create", args: [name])
+        String contextPath = servletContext.getRealPath('/') //get server root path
+
+        FileUploadService.uploadFile(packageInstance,params,contextPath) //upload image successful
+
+
+        //name of package
+        String name = packageInstance.name
+
+        //if has errors
+        packageInstance.clearErrors()
+        packageInstance.validate()
+        if(packageInstance.hasErrors()){
+            respond packageInstance.errors, view: 'create'
+            return
         }
-        else
-        {
-            flash.message = "Error"
+
+        try {
+            //save package
+            packageInstance.save(failOnError: true)
+
+        } catch (Exception e) {
+            //if save not successfull
+            e.printStackTrace()
+            flash.message = message(code: "databaseQuery.failed", args: [actionName])
         }
 
+        //successfully created
+        flash.message = message(code: "com.adventuregoa.package.create", args: [name])
+
+        //show package index
         redirect(action: "index")
 
     }

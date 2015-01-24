@@ -8,11 +8,8 @@ class Booking extends Base{
     Date endDate
     String paymentReference
 
-
-
     static belongsTo = [User,Package]
-    static hasOne = [user: User]
-    static hasMany = [tickets: Ticket]
+    static hasMany = [tickets:Ticket]
 
     static constraints = {
         noOfPeople max: 10

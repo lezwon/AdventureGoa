@@ -16,6 +16,7 @@
 <body>
 
 <g:render template="/templates/nonIndexHead"/>
-<g:render template="form" model="[action: 'save',method:'POST']"/>
+<g:render template="form" model="[action: 'save',method:'POST', user: user]"/>
+
 </body>
 </html>

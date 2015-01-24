@@ -12,7 +12,6 @@ class AdventureActivity extends Base{
     long phone
     double price
 
-//    static hasOne = [ address:Address ]
     static hasMany = [packages: Package]
     static belongsTo = [Package]
 

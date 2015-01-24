@@ -7,8 +7,7 @@ class PaymentCard extends Base{
     Date expiry
     String type
 
-    static hasOne = [user:User]
-    static belongsTo = [User]
+    static belongsTo = [user:User]
 
     static constraints = {
         cardNumber creditCard: true

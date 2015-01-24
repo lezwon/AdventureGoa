@@ -2,9 +2,7 @@ package com.adventuregoa
 
 import adventuregoa.AdminCheckService
 import adventuregoa.DomainClassPropertiesService
-import com.coderberry.faker.Faker
 import grails.plugin.springsecurity.annotation.Secured
-import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass
 
 @Secured("ROLE_ADMIN")
 class UserController extends grails.plugin.springsecurity.ui.UserController {
@@ -27,14 +25,25 @@ class UserController extends grails.plugin.springsecurity.ui.UserController {
         render view: "index", model: ["fields":fields, "users": users]
     }
 
+    def create(User user){
+        render(model: [user: user], view: "create")
+    }
 
     def save(User user){
+
+        if (user.hasErrors()) {
+            render view: "create", user.errors
+            return
+        }
+
         try {
             user.save(failOnError: true)
             flash.message = message(code: "com.adventuregoa.user.create")
             redirect(action: "index")
         }catch (Exception e){
             e.printStackTrace()
+            flash.message = message(code: "databaseQuery.failed")
+            render(view: "create",model: [user:user])
         }
     }
 
@@ -44,6 +53,12 @@ class UserController extends grails.plugin.springsecurity.ui.UserController {
     }
 
     def update(User user){
+
+        if (user.hasErrors()) {
+            respond view: "edit", user.errors
+            return
+        }
+
         try {
             User realUser = User.get(user.id);
             String name = realUser.username
@@ -58,8 +73,6 @@ class UserController extends grails.plugin.springsecurity.ui.UserController {
                     UserRole.findOrSaveByUserAndRole(realUser,Role.findByAuthority("ROLE_USER"))
             }
 
-
-
             realUser.properties = params
 
             if (!realUser.save(flush: true,failOnError: true)) {
@@ -69,10 +82,11 @@ class UserController extends grails.plugin.springsecurity.ui.UserController {
             }
 
             flash.message = message(code: "com.adventuregoa.user.update", args: [name])
-            redirect(uri: "/user/index")
+            redirect(action: "index")
         } catch (Exception e) {
             e.printStackTrace()
-            render "Error"
+            flash.message = message(code: "databaseQuery.failed", args: [actionName])
+            respond(view: "edit")
         }
     }
 

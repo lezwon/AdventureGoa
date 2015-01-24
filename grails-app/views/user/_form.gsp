@@ -1,14 +1,43 @@
 <div class="row">
     <div class="small-12 columns">
         <g:form action="${action}" method="${method}" name="form-admin" id="${user?.id}">
+
+            <g:hasErrors bean="${user}">
+                <g:eachError bean="${user}" var="error">
+                    <div class="alert alert-danger" role="alert">
+                        <g:message error="${error}"/>
+                    </div>
+                </g:eachError>
+            </g:hasErrors>
+
             <div class="form-group">
                 <label for="id">User ID</label>
                 <g:textField class="form-control" name="id" value="${user?.id}" disabled="disabled"/>
             </div>
 
             <div class="form-group">
+                <label for="firstName">Firstname</label>
+                <g:textField class="form-control" name="firstName" value="${user?.firstName}"/>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Lastname</label>
+                <g:textField class="form-control" name="lastName" value="${user?.lastName}"/>
+            </div>
+
+            <div class="form-group">
                 <label for="username">Username</label>
                 <g:textField class="form-control" name="username" value="${user?.username}"/>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <g:textField class="form-control" name="phone" value="${user?.phone}"/>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <g:datePicker class="form-control" name="dob" value="${user?.dob}" precision="day"/>
             </div>
 
             <div class="form-group">
