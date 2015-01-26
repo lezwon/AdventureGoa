@@ -1,5 +1,6 @@
 package com.adventuregoa
 
+
 class Booking extends Base{
 
     int noOfPeople
@@ -7,6 +8,9 @@ class Booking extends Base{
     Date startDate
     Date endDate
     String paymentReference
+
+    User user
+    Package packageName
 
     static belongsTo = [User,Package]
     static hasMany = [tickets:Ticket]

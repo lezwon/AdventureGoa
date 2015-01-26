@@ -1,6 +1,5 @@
 package com.adventuregoa
 
-import adventuregoa.AdminCheckService
 import adventuregoa.DomainClassPropertiesService
 import grails.plugin.springsecurity.annotation.Secured
 

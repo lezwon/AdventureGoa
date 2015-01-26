@@ -28,9 +28,9 @@
         </g:link>
         </li>
         <li>
-        <g:link class="dashboard-block" controller="orders" action="index">
-            <h4>Orders</h4>
-            <h2>145</h2>
+        <g:link class="dashboard-block" controller="booking" action="index">
+            <h4>Bookings</h4>
+            <h2>${bookingCount}</h2>
         </g:link>
         </li>
         <li>
