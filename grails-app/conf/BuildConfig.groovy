@@ -67,6 +67,7 @@ grails.project.dependency.resolution = {
         compile ":spring-security-ui:1.0-RC2"
         compile ":mail:1.0.7"
         compile ":faker:0.7"
+        compile ":phonenumbers:0.9"
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.6.1" // or ":hibernate:3.6.10.18"

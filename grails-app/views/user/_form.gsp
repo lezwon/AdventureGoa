@@ -47,7 +47,7 @@
 
             <div class="form-group">
                 <label for="password">Password</label>
-                <g:textField class="form-control" name="password" value="${user?.password}"/>
+                <g:passwordField class="form-control" name="password" value="${user?.password}"/>
             </div>
 
             <div class="form-group">
@@ -65,11 +65,33 @@
                     <g:checkBox value="${user?.accountLocked}" name="accountLocked" />
                     Account Locked
                 </label>
+            </div>
 
-                <label class="checkbox-inline">
-                    <g:checkBox value="${admin}" name="admin" />
-                    Admin
-                </label>
+            <div class="form-group">
+                %{--<g:select optionKey="id" optionValue="authority" name="role" from="${roles}" multiple="" class="form-control" value="1"/>--}%
+                <g:each in="${roles}">
+                    <g:if test="${userRoles != null}">
+                        <g:if test="${userRoles*.authority.contains(it.authority)}">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="role[]" id="${it.authority}" value="${it.id}" checked/>
+                                ${it.authority}
+                            </label>
+                        </g:if>
+
+                        <g:else>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="role[]" id="${it.authority}" value="${it.id}"/>
+                                ${it.authority}
+                            </label>
+                        </g:else>
+                    </g:if>
+                    <g:else>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="role[]" id="${it.authority}" value="${it.id}"/>
+                            ${it.authority}
+                        </label>
+                    </g:else>
+                </g:each>
             </div>
 
             <div class="form-group">

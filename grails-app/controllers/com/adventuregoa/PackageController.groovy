@@ -42,6 +42,7 @@ class PackageController {
         //if has errors
 
         packageInstance.validate()
+
         if(packageInstance.hasErrors()){
             if(imageUploadSuccess){ //delete file
                 FileUploadService.deleteFile(packageInstance,contextPath)

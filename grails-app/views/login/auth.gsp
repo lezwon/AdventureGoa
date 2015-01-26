@@ -31,7 +31,7 @@
             <g:form url="${postUrl}" name="form-login">
                 <div class="form-group">
                     <g:textField name="j_username" value=""
-                                 placeholder="Username" class="form-control"/>
+                                 placeholder="Email" class="form-control"/>
                 </div>
 
                 <div class="form-group">

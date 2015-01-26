@@ -33,6 +33,7 @@ class User extends Base{
 		booking display:false
 		address blank: true, nullable: true
 		paymentCard blank:true, nullable: true
+		phone(maxSize: 13, minSize: 10)
 	}
 
 	static mapping = {

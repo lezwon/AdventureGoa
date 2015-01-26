@@ -2,7 +2,7 @@ package com.adventuregoa
 
 import grails.plugin.springsecurity.annotation.Secured
 
-@Secured("IS_AUTHENTICATED_REMEMBERED")
+@Secured(["ROLE_USER","ROLE_ADMIN"])
 class HomeController {
 
     def springSecurityService
@@ -20,7 +20,6 @@ class HomeController {
 
         if( params.username != user.username ){
             render(status: 403,'You are Unauthorized to access this page');
-            return
         }
 
 

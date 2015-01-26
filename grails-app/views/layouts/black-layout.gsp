@@ -46,7 +46,7 @@
                         <div>
                             <a class="btn btn-default dropdown-toggle" type="button" id="dropdown-user"
                                data-toggle="dropdown" aria-expanded="true">
-                                <sec:username/>
+                                <sec:loggedInUserInfo field="username"/>
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-user">

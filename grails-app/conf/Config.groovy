@@ -137,19 +137,8 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 ]
 
 
-grails {
-    mail {
-        host = "smtp.gmail.com"
-        port = 465
-        username = "lezwon@gmail.com"
-        password = "Lezbofranklin93"
-        props = ["mail.smtp.auth"                  : "true",
-                 "mail.smtp.socketFactory.port"    : "465",
-                 "mail.smtp.socketFactory.class"   : "javax.net.ssl.SSLSocketFactory",
-                 "mail.smtp.socketFactory.fallback": "false"]
-    }
-}
 
+grails.plugin.springsecurity.userLookup.loginPropertyName = 'email'
 grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'
 grails.plugin.springsecurity.ui.register.postResetUrl = ''
 grails.plugin.springsecurity.successHandler.alwaysUseDefault = true
