@@ -147,4 +147,11 @@ class HotelController {
             '*' { render status: NOT_FOUND }
         }
     }
+
+    def search(){
+        String search = params.string
+        def fields = DomainClassPropertiesService.getStructure(Hotel.class)
+        def results = Hotel.findAllByNameLike("%$search%")
+        render(view: "index", model: ["fields":fields, hotels: results, string: search])
+    }
 }

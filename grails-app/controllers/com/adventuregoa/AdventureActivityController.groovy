@@ -12,7 +12,6 @@ import grails.transaction.Transactional
 class AdventureActivityController {
 
 //    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-
     def index() {
         def adventureActivities = AdventureActivity.list()
         def fields = DomainClassPropertiesService.getStructure(AdventureActivity.class)
@@ -141,5 +140,12 @@ class AdventureActivityController {
             }
             '*' { render status: NOT_FOUND }
         }
+    }
+
+    def search(){
+        String search = params.string
+        def fields = DomainClassPropertiesService.getStructure(AdventureActivity.class)
+        def results = AdventureActivity.findAllByNameLike("%$search%")
+        render(view: "index", model: ["fields":fields, adventureActivities: results, string: search])
     }
 }

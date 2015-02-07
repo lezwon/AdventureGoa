@@ -54,7 +54,7 @@ class FileUploadService {
                 domain.image = filename
             else{
                 image.transferTo(imageDir)
-                domain.image = "/"+folder+filename
+                domain.image = "/"+relativePath+filename
                 return  true
             }
 

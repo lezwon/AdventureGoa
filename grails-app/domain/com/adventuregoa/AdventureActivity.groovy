@@ -9,7 +9,6 @@ class AdventureActivity extends Base{
     String phone
 
     Address address
-    int rating
     int price
 
     static hasMany = [packages: Package]
@@ -17,5 +16,9 @@ class AdventureActivity extends Base{
 
     static constraints = {
         importFrom(Hotel)
+    }
+
+    static mapping = {
+        description sqlType: "text"
     }
 }

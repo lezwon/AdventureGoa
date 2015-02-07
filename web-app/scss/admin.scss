@@ -97,7 +97,7 @@ a{
   max-height: 800px;
 
   table{
-    width: 100%;
+    width: 5000px;
     font-size: 0.8em;
 
     //thead
@@ -112,7 +112,8 @@ a{
     tbody{
       tr{
         td{
-          max-width: 300px;
+//          max-width: 300px;
+//          max-height: 50px;
           overflow: hidden;
           padding: 5px;
 

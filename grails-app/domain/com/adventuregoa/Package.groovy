@@ -7,8 +7,6 @@ class Package extends Base{
     String image
     int price
 
-    transient
-
     static hasMany = [
             booking:Booking,
             hotels:Hotel,
@@ -23,7 +21,7 @@ class Package extends Base{
     static constraints = {
         name blank: false, unique: true
         description blank: false, maxSize: 500
-        image blank: false, unique: true, nullable: false
+        image blank: false, nullable: false
         price blank:false, min: 1000, max: 50000
     }
 }

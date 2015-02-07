@@ -36,6 +36,7 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
+
                     <li>
                         <g:link controller="home">Go to Website</g:link>
                     </li>

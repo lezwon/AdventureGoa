@@ -35,7 +35,7 @@
 			<g:if test="${packageInstance?.image}">
 				%{--<img src="${packageInstance?.image}" alt="" />--}%
 				%{--<g:img file="${packageInstance?.image}"  />--}%
-				<g:link uri="/images${packageInstance?.image}" target="_blank">
+				<g:link uri="${packageInstance?.image}" target="_blank">
 					${packageInstance?.image}
 				</g:link>
 			</g:if>

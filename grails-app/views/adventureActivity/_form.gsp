@@ -42,10 +42,6 @@
                 <g:field type="email" class="form-control" name="email" value="${adventureActivityInstance?.email}"/>
             </div>
 
-            <div class="form-group">
-                <label for="rating">Rating</label>
-                <g:field type="number" class="form-control" name="rating" value="${adventureActivityInstance?.rating}"/>
-            </div>
 
             <div class="form-group">
                 <label for="phone">Phone</label>
@@ -60,7 +56,7 @@
             <g:if test="${adventureActivityInstance?.image}">
             %{--<img src="${packageInstance?.image}" alt="" />--}%
             %{--<g:img file="${packageInstance?.image}"  />--}%
-                <g:link uri="/images${adventureActivityInstance?.image}" target="_blank">
+                <g:link uri="${adventureActivityInstance?.image}" target="_blank">
                     ${adventureActivityInstance?.image}
                 </g:link>
             </g:if>

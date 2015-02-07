@@ -1,6 +1,9 @@
+import com.adventuregoa.AdventureActivity
+import com.adventuregoa.Hotel
 import com.adventuregoa.Role
 import com.adventuregoa.User
 import com.adventuregoa.UserRole
+import com.adventuregoa.Package
 
 
 class BootStrap {
@@ -66,6 +69,62 @@ class BootStrap {
                     dob: new Date()
                 ).save(failOnError: true);
                 UserRole.create(tempUser, roleUser)
+
+            } catch (Exception e) {
+                e.printStackTrace()
+            }
+        }
+
+        /*Package records*/
+
+        for ( i in 0..9 ) {
+            try {
+                new Package(
+                        name: fakerService.sentence(2),
+                        description: fakerService.paragraph(6),
+                        image: 'http://lorempixel.com/1280/300',
+                        price: Integer.parseInt(fakerService.numerify("3####"))
+                ).save(failOnError: true)
+
+            } catch (Exception e) {
+                e.printStackTrace()
+            }
+        }
+
+
+        /*Hotel records*/
+
+        for ( i in 0..9 ) {
+            try {
+                new Hotel(
+                        name: fakerService.sentence(2),
+                        description: fakerService.paragraph(6),
+                        image: 'http://lorempixel.com/1280/300',
+                        price: Integer.parseInt(fakerService.numerify("8##")),
+                        email: fakerService.email(),
+                        phone: fakerService.phoneNumber('##########'),
+                        star:  3
+                ).save(failOnError: true)
+
+            } catch (Exception e) {
+                e.printStackTrace()
+            }
+        }
+
+
+        /*AdventureActivity records*/
+
+        for ( i in 0..9 ) {
+            try {
+                new AdventureActivity(
+                        name: fakerService.sentence(3),
+                        description: fakerService.paragraph(6),
+                        image: 'http://lorempixel.com/1280/300',
+                        price: Integer.parseInt(fakerService.numerify("8##")),
+                        email: fakerService.email(),
+                        phone: fakerService.phoneNumber('##########'),
+                        duration: "30 Minutes"
+                ).save(failOnError: true)
 
             } catch (Exception e) {
                 e.printStackTrace()
