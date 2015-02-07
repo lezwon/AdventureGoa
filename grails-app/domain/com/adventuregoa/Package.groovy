@@ -7,6 +7,8 @@ class Package extends Base{
     String image
     int price
 
+    transient
+
     static hasMany = [
             booking:Booking,
             hotels:Hotel,

@@ -45,7 +45,7 @@ class FileUploadService {
             File folderDir = new File(absolutePath)
 
             if (!folderDir.exists())
-                folderDir.canWrite() ? folderDir.mkdirs(): null
+               folderDir.mkdirs()
 
 
             File imageDir = new File(absolutePath,filename)

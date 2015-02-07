@@ -36,11 +36,30 @@ class RegisterController extends AbstractS2UiController {
         }
 
         String salt = saltSource instanceof NullSaltSource ? null : command.username
-        def user = lookupUserClass().newInstance(email: command.email, username: command.username,
-                accountLocked: false, enabled: true)
+        User user = lookupUserClass().newInstance(email: command.email, username: command.username,
+                accountLocked: false, enabled: true) as User
 
         user.properties = command.properties
-        user.save()
+
+
+        try {
+            user.save(failOnError: true)
+
+            def userRole = Role.findOrCreateByAuthority("ROLE_USER");
+
+            try {
+                UserRole.create(user,userRole,true)
+            } catch (e) {
+                e.printStackTrace()
+                user.delete()
+            }
+
+        } catch (e) {
+            e.printStackTrace()
+            flash.message = "There was an error trying to create the account. Please try again."
+            render view: 'index', model: [command: command]
+            return
+        }
 
 //        RegistrationCode registrationCode = springSecurityUiService.register(user, command.password, salt)
 //        if (registrationCode == null || registrationCode.hasErrors()) {

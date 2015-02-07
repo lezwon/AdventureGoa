@@ -4,17 +4,18 @@ class AdventureActivity extends Base{
     String name
     String description
     String email
-    String type
+    String image
     String duration
-    Address address
+    String phone
 
+    Address address
     int rating
-    long phone
-    double price
+    int price
 
     static hasMany = [packages: Package]
     static belongsTo = [Package]
 
     static constraints = {
+        importFrom(Hotel)
     }
 }

@@ -9,6 +9,6 @@
 	</head>
 	<body>
 		<g:render template="/templates/indexHead"/>
-		<g:render template="/templates/table" model="[fields:fields, packages: packages]"/>
+		<g:render template="/templates/table" model="[fields:fields, data: packages]"/>
 	</body>
 </html>

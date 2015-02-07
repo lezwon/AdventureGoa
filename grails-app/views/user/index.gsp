@@ -15,6 +15,6 @@
 
     <body>
         <g:render template="/templates/indexHead"/>
-        <g:render template="/templates/table" model="[fields:fields, packages: users]"/>
+        <g:render template="/templates/table" model="[fields:fields, data: users]"/>
     </body>
 </html>

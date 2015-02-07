@@ -36,6 +36,13 @@
                     <h1>Sign Up</h1>
                     <hr/>
 
+                    <g:if test='${registerSuccess == false}'>
+                        <div class="alert alert-danger">
+                            ${flash.message}
+                        </div>
+
+                    </g:if>
+
                     <g:hasErrors bean="${command}">
                         <g:eachError bean="${command}" var="error">
                             <div class="alert alert-danger" role="alert">

@@ -29,9 +29,8 @@ class PackageController {
     }
 
     @Transactional
-    def save() {
+    def save(Package packageInstance) {
 
-        Package packageInstance = new Package(params)
         String contextPath = servletContext.getRealPath('/') //get server root path
         def imageUploadSuccess = FileUploadService.uploadFile(packageInstance,params,contextPath) //upload image successful
 
@@ -48,7 +47,7 @@ class PackageController {
                 FileUploadService.deleteFile(packageInstance,contextPath)
             }
 
-            respond packageInstance.errors, view: 'create'
+            render model: [packageInstance:packageInstance], view: 'create'
             return
         }
 

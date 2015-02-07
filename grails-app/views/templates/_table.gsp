@@ -13,7 +13,7 @@
         </thead>
 
         <tbody>
-        <g:each in="${packages}">
+        <g:each in="${data}">
             <tr>
                 <td>
                     <g:link action="edit" id="${it.id}">Edit</g:link>

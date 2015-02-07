@@ -40,4 +40,4 @@
 /target
 
 classes
-web-app/images/package
+web-app/images/*/

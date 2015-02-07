@@ -34,6 +34,12 @@ class User extends Base{
 		address blank: true, nullable: true
 		paymentCard blank:true, nullable: true
 		phone(maxSize: 13, minSize: 10)
+
+
+        firstName nullable: true
+        lastName nullable: true
+        phone nullable: true
+        dob nullable: true
 	}
 
 	static mapping = {
@@ -55,7 +61,20 @@ class User extends Base{
 		}
 	}
 
+//    def afterInsert(){
+//        def userRole = Role.findOrCreateByAuthority("ROLE_USER");
+//
+//        try {
+//            print this
+//            UserRole.create(this,userRole,true)
+//        } catch (e) {
+//            e.printStackTrace()
+//            this.delete()
+//        }
+//    }
+
 	protected void encodePassword() {
 		password = springSecurityService?.passwordEncoder ? springSecurityService.encodePassword(password) : password
 	}
+
 }

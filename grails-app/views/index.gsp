@@ -114,7 +114,7 @@
     </div>
 </div>
 
-<div id="fourth-container" class="outer-container">
+%{--<div id="fourth-container" class="outer-container">
     <div class="flexslider">
         <ul class="slides">
             <li><img src="http://placehold.it/1980x1081"/></li>
@@ -122,7 +122,7 @@
             <li><img src="http://placehold.it/1980x1083"/></li>
         </ul>
     </div>
-</div>
+</div>--}%
 
 <div id="fifth-container" class="outer-container">
     <div class="inner-container">
