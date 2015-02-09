@@ -29,7 +29,7 @@
 
         <div class="row">
             <div class="small-12 columns">
-                <ul class="large-block-grid-5 package-grid">
+                <ul class="large-block-grid-5 entity-grid">
                     <g:each in="${packageInstanceList}">
                         <li>
                             <g:link action="show" id="${it.id}" style="background-image: url(${it.image})">

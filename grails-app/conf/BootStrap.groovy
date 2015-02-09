@@ -9,6 +9,7 @@ import com.adventuregoa.Package
 class BootStrap {
 
     def fakerService;
+    def random = new Random();
 
     def init = { servletContext ->
 
@@ -82,7 +83,7 @@ class BootStrap {
                 new Package(
                         name: fakerService.sentence(2),
                         description: fakerService.paragraph(6),
-                        image: 'http://lorempixel.com/1280/300',
+                        image: 'http://lorempixel.com/1900/500/',
                         price: Integer.parseInt(fakerService.numerify("3####"))
                 ).save(failOnError: true)
 
@@ -99,7 +100,7 @@ class BootStrap {
                 new Hotel(
                         name: fakerService.sentence(2),
                         description: fakerService.paragraph(6),
-                        image: 'http://lorempixel.com/1980/500',
+                        image: 'http://lorempixel.com/1900/500/',
                         price: Integer.parseInt(fakerService.numerify("8##")),
                         email: fakerService.email(),
                         phone: fakerService.phoneNumber('##########'),
@@ -119,7 +120,7 @@ class BootStrap {
                 new AdventureActivity(
                         name: fakerService.sentence(3),
                         description: fakerService.paragraph(6),
-                        image: 'http://lorempixel.com/1280/300',
+                        image: 'http://lorempixel.com/1900/500/',
                         price: Integer.parseInt(fakerService.numerify("8##")),
                         email: fakerService.email(),
                         phone: fakerService.phoneNumber('##########'),
@@ -131,8 +132,17 @@ class BootStrap {
             }
         }
 
+        /*Hotels and Adventures to Packages records*/
+        Package.list().each { packageInstance ->
+            (0..5).each{
+                packageInstance.addToAdventureActivities(AdventureActivity.get(random.nextInt(9) + 1))
+                packageInstance.addToHotels(Hotel.get(random.nextInt(9) + 1))
+            }
+            packageInstance.save()
+        }
 
     }
     def destroy = {
+
     }
 }

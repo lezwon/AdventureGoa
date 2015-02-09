@@ -19,9 +19,6 @@ class HotelController {
         render view: "index", model: ["fields":fields, "hotels": hotels]
     }
 
-    def show(Hotel hotelInstance) {
-        respond hotelInstance
-    }
 
     def create() {
         respond new Hotel(params)
@@ -153,5 +150,15 @@ class HotelController {
         def fields = DomainClassPropertiesService.getStructure(Hotel.class)
         def results = Hotel.findAllByNameLike("%$search%")
         render(view: "index", model: ["fields":fields, hotels: results, string: search])
+    }
+
+    @Secured("IS_AUTHENTICATED_ANONYMOUSLY")
+    def display(){
+        respond Hotel.list()
+    }
+
+    @Secured("IS_AUTHENTICATED_ANONYMOUSLY")
+    def show(Hotel hotelInstance) {
+        respond hotelInstance
     }
 }

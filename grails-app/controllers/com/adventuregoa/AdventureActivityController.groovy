@@ -18,10 +18,6 @@ class AdventureActivityController {
         render view: "index", model: [fields:fields, adventureActivities: adventureActivities]
     }
 
-    def show(AdventureActivity adventureActivityInstance) {
-        respond adventureActivityInstance
-    }
-
     def create() {
         respond new AdventureActivity(params)
     }
@@ -147,5 +143,15 @@ class AdventureActivityController {
         def fields = DomainClassPropertiesService.getStructure(AdventureActivity.class)
         def results = AdventureActivity.findAllByNameLike("%$search%")
         render(view: "index", model: ["fields":fields, adventureActivities: results, string: search])
+    }
+
+    @Secured("IS_AUTHENTICATED_ANONYMOUSLY")
+    def display(){
+        respond AdventureActivity.list()
+    }
+
+    @Secured("IS_AUTHENTICATED_ANONYMOUSLY")
+    def show(AdventureActivity adventureActivityInstance) {
+        respond adventureActivityInstance
     }
 }

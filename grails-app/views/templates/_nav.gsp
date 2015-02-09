@@ -19,8 +19,8 @@
         <div class="collapse navbar-collapse navbar-right" id="menu">
             <ul class="nav navbar-nav">
                 <li><g:link uri="/packages">Packages</g:link></li>
-                <li><a href="">Hotels</a></li>
-                <li><a href="">Sports</a></li>
+                <li><g:link uri="/hotels">Hotels</g:link></li>
+                <li><g:link uri="/sports">Sports</g:link></li>
                 <li><a href="">Experiences</a></li>
                 <li><a href="">Culture</a></li>
                 <li><a href="" class="btn btn-sm btn-primary">Book Your Trip</a></li>

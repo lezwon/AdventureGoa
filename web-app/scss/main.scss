@@ -582,7 +582,7 @@ footer{
   }
 }
 
-.package-grid{
+.entity-grid{
 
   *{
     font-family: 'Raleway', sans-serif !important;
@@ -600,14 +600,14 @@ footer{
       .slide-top{
         padding: 10px;
         position: relative;
-        bottom: -170px;
+        bottom: -160px;
         height: inherit;
         color: darken(white,10);
         background: transparentize(#000000,.7);
         @include transition(all .3s ease);
 
         span{
-          margin: 10px 0;
+          margin: 20px 0;
         }
       }
 
@@ -631,15 +631,26 @@ footer{
   background-size: cover;
 }
 
+.package-details-container{
+  display: inline-table;
+  background: #ffffff;
+  padding: 30px 20px;
+  @include border-radius(0 0 10px 10px);
+  @include single-box-shadow(darken(white,20),0,5px,5px,0);
+
+  *{
+    font-family: "Raleway",sans-serif !important;
+  }
+}
+
 .package-details{
 
 }
 
 .package-features{
   &>li>div{
-    background: darken(white,5);
+    border: 1px solid darken(white,20);
     padding: 20px;
-    @include border-radius(10px);
 
     h3{
       margin: 10px 0;
@@ -666,24 +677,35 @@ footer{
   }
 }
 
-.price-details{
+.price-container{
   padding: 20px 10px;
   margin: 20px 0;
-//  background: darken(white,10);
+  background: darken(white,5);
+  min-height: 300px;
   @include single-box-shadow(darken(white,20),0,5px,5px,0);
+  @include border-radius(5px);
 
-  .btn{
-    width: 100%;
-  }
-
-  .price-container{
-    margin-bottom: 30px;
+  .price-details{
 
     .tag-header{
       padding:10px;
-      background: #b9c5c8;
+      background: darken(white,30);
       width: 100%;
-      color: #ffffff;
+      color: white;
+      margin-bottom: 0;
+    }
+
+    .price{
+      margin: 0;
+      background: #ffffff;
+      padding: 10px;
     }
   }
+
+  .btn{
+    width: 100%;
+    border: 5px solid white;
+    @include border-radius(0);
+  }
+
 }

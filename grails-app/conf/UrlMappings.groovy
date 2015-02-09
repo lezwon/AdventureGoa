@@ -23,5 +23,13 @@ class UrlMappings {
                 controller: "package", action: "display"
         )
 
+        "/hotels"(
+                controller: "hotel", action: "display"
+        )
+
+        "/sports"(
+                controller: "adventureActivity", action: "display"
+        )
+
     }
 }

@@ -246,13 +246,13 @@ class PackageController {
     /*CUSTOMER SIDE*/
 
 //    @Secured(["ROLE_USER","ROLE_ADMIN"])
-    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
+    @Secured("IS_AUTHENTICATED_ANONYMOUSLY")
     def display(){
 
         respond(Package.list())
     }
 
-    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
+    @Secured("IS_AUTHENTICATED_ANONYMOUSLY")
     def show(Package packageInstance) {
         respond packageInstance
     }
