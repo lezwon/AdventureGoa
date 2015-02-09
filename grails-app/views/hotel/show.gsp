@@ -24,15 +24,7 @@
         </div>
 
         <div class="small-4 columns">
-            <div class="price-container">
 
-                <div class="price-details">
-                    <h4 class="tag-header">Price</h4>
-                    <h2 class="price">Rs.${hotelInstance.price}/-</h2>
-                </div>
-
-                <a href="" class="btn btn-primary btn-lg">Add to Cart</a>
-            </div>
         </div>
     </div>
 </div>

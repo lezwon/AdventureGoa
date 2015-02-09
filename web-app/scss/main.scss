@@ -705,7 +705,17 @@ footer{
   .btn{
     width: 100%;
     border: 5px solid white;
+    outline: none;
     @include border-radius(0);
   }
 
+}
+
+/*BOOKING PAGE*/
+#booking-form-container{
+  margin-top: 150px;
+  background: #ffffff;
+  padding: 30px;
+  @include border-radius(10px);
+  @include single-box-shadow(darken(white,20),0,5px,5px,0);
 }

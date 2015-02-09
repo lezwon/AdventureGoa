@@ -31,5 +31,9 @@ class UrlMappings {
                 controller: "adventureActivity", action: "display"
         )
 
+        "/book"(
+                controller: "booking", action: "create"
+        )
+
     }
 }

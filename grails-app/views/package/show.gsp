@@ -58,7 +58,11 @@
                         <h2 class="price">Rs.${packageInstance.price}/-</h2>
                     </div>
 
-                    <a href="" class="btn btn-primary btn-lg">Add to Cart</a>
+                    <g:form uri="/book">
+                        <input name="package" type="hidden" value="${packageInstance.id}"/>
+                        <input type="submit" value="Book Now" class="btn btn-primary btn-lg" />
+                    </g:form>
+
                 </div>
             </div>
         </div>

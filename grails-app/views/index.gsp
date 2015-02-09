@@ -124,7 +124,7 @@
     </div>
 </div>--}%
 
-<div id="fifth-container" class="outer-container">
+%{--<div id="fifth-container" class="outer-container">
     <div class="inner-container">
         <div class="row">
             <div class="large-5 columns">
@@ -154,7 +154,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>--}%
 
 <div id="sixth-container" class="outer-container">
     <div class="inner-container">

@@ -6,23 +6,26 @@ import grails.plugin.springsecurity.annotation.Secured
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
-@Secured("ROLE_ADMIN")
+@Secured(["ROLE_USER","ROLE_ADMIN"])
 @Transactional(readOnly = true)
 class BookingController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    @Secured("ROLE_ADMIN")
     def index() {
         def fields = DomainClassPropertiesService.getStructure(Booking.class)
         respond Booking.list(), model: [fields: fields]
     }
+
+    /*CUSTOMER SIDE*/
 
     def show(Booking bookingInstance) {
         respond bookingInstance
     }
 
     def create() {
-        respond new Booking(params)
+        respond new Booking(params), model:[packageInstanceList:Package.list()]
     }
 
     @Transactional
@@ -31,6 +34,7 @@ class BookingController {
             notFound()
             return
         }
+
 
         if (bookingInstance.hasErrors()) {
             respond bookingInstance.errors, view: 'create'

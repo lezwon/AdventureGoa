@@ -1,38 +1,44 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'booking.label', default: 'Booking')}" />
-		<title><g:message code="default.create.label" args="[entityName]" /></title>
-	</head>
-	<body>
-		<a href="#create-booking" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="create-booking" class="content scaffold-create" role="main">
-			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<g:hasErrors bean="${bookingInstance}">
-			<ul class="errors" role="alert">
-				<g:eachError bean="${bookingInstance}" var="error">
-				<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
-				</g:eachError>
-			</ul>
-			</g:hasErrors>
-			<g:form url="[resource:bookingInstance, action:'save']" >
-				<fieldset class="form">
-					<g:render template="form"/>
-				</fieldset>
-				<fieldset class="buttons">
-					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-				</fieldset>
-			</g:form>
-		</div>
-	</body>
+<head>
+    <meta name="layout" content="white-layout">
+    <title>Book Package</title>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
+    <style>
+    .wrapper{
+        background-image: url("<g:resource dir="images" file="swirl_pattern.png" />");
+    }
+    </style>
+</head>
+<body>
+
+<div class="row">
+    <div class="small-8 columns small-centered">
+        <div id="booking-form-container">
+            <g:form action="save" class="form">
+                <h1>Book Your Package</h1>
+                <hr />
+                <div class="form-group">
+                    <g:select name="package" from="${packageInstanceList}" value="${bookingInstance.package.id}"
+                    optionKey="id" optionValue="name" class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <g:field type="number" name="noOfPeople" value="${bookingInstance?.noOfPeople}" class="form-control" min="1" max="5"/>
+                </div>
+
+                <div class="form-group">
+                    <g:datePicker name="startDate" value="${new Date()}" precision="day" relativeYears="[0..2]"/>
+                </div>
+
+                <div class="form-group">
+                    <input type="button" onclick="window.history.back()" value="Back" class="btn btn-default"/>
+                    <input type="submit" value="Confirm Booking" class="btn btn-primary"/>
+                </div>
+            </g:form>
+        </div>
+    </div>
+</div>
+
+</body>
 </html>
