@@ -8,7 +8,11 @@
 
 <body>
     <g:render template="/templates/nonIndexHead"/>
-
-    <g:render template="form" model="[action:'save',method:'POST', packageInstance: packageInstance]"/>
+    <g:render template="form" model="[
+              action:'save',method:'POST',
+              packageInstance: packageInstance,
+              hotels: hotels,
+              adventureActivities: adventureActivities
+    ]"/>
 </body>
 </html>

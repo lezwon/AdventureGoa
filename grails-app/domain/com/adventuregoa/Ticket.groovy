@@ -6,6 +6,7 @@ class Ticket extends Base{
     Booking booking
 
     static belongsTo = [Booking]
+    static hasOne = [Booking]
 
     static constraints = {
         reference unique: true

@@ -99,7 +99,7 @@ class BootStrap {
                 new Hotel(
                         name: fakerService.sentence(2),
                         description: fakerService.paragraph(6),
-                        image: 'http://lorempixel.com/1280/300',
+                        image: 'http://lorempixel.com/1980/500',
                         price: Integer.parseInt(fakerService.numerify("8##")),
                         email: fakerService.email(),
                         phone: fakerService.phoneNumber('##########'),

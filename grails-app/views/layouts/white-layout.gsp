@@ -18,75 +18,65 @@
 </head>
 
 <body>
-<nav class="navbar fixed-white" role="navigation">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
-            <g:link uri="/" class="navbar-brand">
-                <g:img dir="images" file="logo.png" alt="AdventureGoa"/>
-            </g:link>
-
-        </div>
-
-
-        <div class="collapse navbar-collapse navbar-right" id="menu">
-            <ul class="nav navbar-nav">
-                <li><a href="">Events</a></li>
-                <li><a href="">Packages</a></li>
-                <li><a href="">Sports</a></li>
-                <li><a href="">Experiences</a></li>
-                <li><a href="">Culture</a></li>
-                <li><a href="" class="btn btn-sm btn-primary">Book Your Trip</a></li>
-
-
-                <sec:ifLoggedIn>
-                %{--<li><g:link controller="auth" action="signOut" class="btn btn-sm btn-default">Log Out</g:link></li>--}%
-                    <li>
-                        <div>
-                            <a class="btn btn-default dropdown-toggle" type="button" id="dropdown-user"
-                               data-toggle="dropdown" aria-expanded="true">
-                                <sec:loggedInUserInfo field="username"/>
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-user">
-                                <li>
-                                    <g:link uri="/home">Home</g:link>
-                                </li>
-                                <li><a href="#">Account</a></li>
-
-                                <sec:ifAnyGranted roles="ROLE_ADMIN">
-                                    <li><g:link controller="admin" action="home">Administrator Page</g:link> </li>
-                                </sec:ifAnyGranted>
-
-                                <li>
-                                    <g:link uri="/j_spring_security_logout">Log Out</g:link>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                </sec:ifLoggedIn>
-
-                <sec:ifNotLoggedIn>
-                    <li>
-                        <g:link controller="auth" action="login" class="btn btn-sm btn-default">Log In</g:link>
-                    </li>
-                </sec:ifNotLoggedIn>
-
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container -->
-</nav>
+<g:render template="/templates/nav" model="[type: 'fixed-white']"/>
 
 <div class="wrapper">
     <g:layoutBody/>
+
+    <footer>
+        <div class="row">
+        <div class="large-12 columns">
+            <div id="footer">
+                <ul class="small-block-grid-4">
+                    <li>
+                        <ul>
+                            <li class="nav-header">Lorem.</li>
+                            <li><a href="">Lorem.</a></li>
+                            <li><a href="">Assumenda!</a></li>
+                            <li><a href="">Voluptatum.</a></li>
+                            <li><a href="">Voluptates.</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li class="nav-header">Voluptates!</li>
+                            <li><a href="">Lorem.</a></li>
+                            <li><a href="">Illum!</a></li>
+                            <li><a href="">Reiciendis!</a></li>
+                            <li><a href="">Nulla.</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li class="nav-header">Quod.</li>
+                            <li><a href="">Lorem.</a></li>
+                            <li><a href="">Voluptatum.</a></li>
+                            <li><a href="">Veritatis!</a></li>
+                            <li><a href="">Quia?</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li class="nav-header">Lorem.</li>
+                            <li><a href="">Lorem.</a>
+                            </li><li><a href="">Numquam?</a></li>
+                            <li><a href="">Odit?</a></li>
+                            <li><a href="">Ipsum.</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <hr/>
+
+                <p id="copyright">Copyright © 2014 AdventureGoa. All rights reserved.</p>
+            </div>
+
+        </div>
+    </div>
+    </footer>
 </div>
+
+
 
 <g:external dir="components/bootflat/js" file="bootstrap.min.js"/>
 <g:javascript src="main.js"/>

@@ -34,11 +34,24 @@
         </g:link>
         </li>
         <li>
-        <g:link class="dashboard-block" controller="admin" action="index">
-            <h4>Admin</h4>
-            <h2>${adminCount}</h2>
-        </g:link>
-    </li>
+            <g:link class="dashboard-block" controller="hotel" action="index">
+                <h4>Hotels</h4>
+                <h2>${hotelCount}</h2>
+            </g:link>
+        </li>
+        <li>
+            <g:link class="dashboard-block" controller="adventureActivity" action="index">
+                <h4>Adventure Activities</h4>
+                <h2>${adventureActivityCount}</h2>
+            </g:link>
+        </li>
+        <li>
+            <g:link class="dashboard-block" controller="ticket" action="index">
+                <h4>Tickets</h4>
+                <h2>${ticketCount}</h2>
+            </g:link>
+        </li>
+
     </ul>
 </body>
 </html>

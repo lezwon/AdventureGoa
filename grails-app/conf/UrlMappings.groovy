@@ -19,5 +19,9 @@ class UrlMappings {
             }
         }
 
+        "/packages"(
+                controller: "package", action: "display"
+        )
+
     }
 }

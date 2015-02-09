@@ -20,13 +20,17 @@ class AdminController {
         int packageCount = Package.count();
         int bookingCount = Booking.count();
         int adminCount = UserRole.findAllByRole(Role.findByAuthority("ROLE_ADMIN"))*.user.size()
-//        int orderCount = User.count();
+        int hotelCount = Hotel.count();
+        int adventureActivityCount = AdventureActivity.count();
+        int ticketCount = Ticket.count();
 
         render view: "home", model: [
                 "userCount":userCount,
                 "packageCount":packageCount,
-                adminCount: adminCount,
-                bookingCount: bookingCount
+                bookingCount: bookingCount,
+                hotelCount: hotelCount,
+                adventureActivityCount: adventureActivityCount,
+                ticketCount: ticketCount
         ]
     }
 }

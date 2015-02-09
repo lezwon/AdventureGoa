@@ -48,9 +48,10 @@ class UserController extends grails.plugin.springsecurity.ui.UserController {
             user.save(failOnError: true)
             flash.message = message(code: "com.adventuregoa.user.create")
 
-            if(params.containsKey("role[]")){
-                params.get("role[]").each {
-                    UserRole.create(user,Role.findById(it as int),true)
+            if (!userRoles.isEmpty())
+            {
+                userRoles.each {
+                    UserRole.create(user,it as Role,true)
                 }
             }
 
