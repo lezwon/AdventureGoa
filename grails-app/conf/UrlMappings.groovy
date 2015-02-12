@@ -19,21 +19,11 @@ class UrlMappings {
             }
         }
 
-        "/packages"(
-                controller: "package", action: "display"
-        )
-
-        "/hotels"(
-                controller: "hotel", action: "display"
-        )
-
-        "/sports"(
-                controller: "adventureActivity", action: "display"
-        )
-
-        "/book"(
-                controller: "booking", action: "create"
-        )
+        "/packages"(controller: "package", action: "display")
+        "/hotels"(controller: "hotel", action: "display")
+        "/sports"(controller: "adventureActivity", action: "display")
+        "/book"(controller: "booking", action: "create")
+        "/checkout"(controller: "booking", action: "save")
 
     }
 }

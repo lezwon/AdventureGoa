@@ -3,10 +3,12 @@ package com.adventuregoa
 import adventuregoa.DomainClassPropertiesService
 import grails.plugin.springsecurity.annotation.Secured
 
+import java.text.SimpleDateFormat
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
-@Secured(["ROLE_USER","ROLE_ADMIN"])
+@Secured("IS_AUTHENTICATED_REMEMBERED")
 @Transactional(readOnly = true)
 class BookingController {
 
@@ -35,21 +37,19 @@ class BookingController {
             return
         }
 
+        bookingInstance.startDate = new SimpleDateFormat("yyyy-MM-dd").parse(params.startDate as String)
+
+        bookingInstance.clearErrors()
+        bookingInstance.validate()
 
         if (bookingInstance.hasErrors()) {
-            respond bookingInstance.errors, view: 'create'
+            render view: "create", model: [packageInstanceList: Package.list(), bookingInstance: bookingInstance]
             return
         }
 
         bookingInstance.save flush: true
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'booking.label', default: 'Booking'), bookingInstance.id])
-                redirect bookingInstance
-            }
-            '*' { respond bookingInstance, [status: CREATED] }
-        }
+        render(view: "checkout", model: [bookingInstance:bookingInstance])
     }
 
     def edit(Booking bookingInstance) {

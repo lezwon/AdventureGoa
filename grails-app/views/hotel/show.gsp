@@ -11,7 +11,16 @@
     </style>
 </head>
 <body>
-<div class="package-cover" style="background-image: url(${hotelInstance.image})"></div>
+
+<g:if test="${hotelInstance.image.startsWith('http')}">
+    <g:set var="image" value="${hotelInstance.image}"/>
+</g:if>
+<g:else>
+    <g:set var="image" value="${resource(file: hotelInstance.image)}"/>
+</g:else>
+
+
+<div class="package-cover" style="background-image: url(${image})"></div>
 
 <div class="row">
     <div class="package-details-container">

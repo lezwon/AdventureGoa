@@ -11,7 +11,14 @@
     </style>
 </head>
 <body>
-<div class="package-cover" style="background-image: url(${adventureActivityInstance.image})"></div>
+<g:if test="${adventureActivityInstance.image.startsWith('http')}">
+    <g:set var="image" value="${adventureActivityInstance.image}"/>
+</g:if>
+<g:else>
+    <g:set var="image" value="${resource(file: adventureActivityInstance.image)}"/>
+</g:else>
+
+<div class="package-cover" style="background-image: url(${image})"></div>
 
 <div class="row">
     <div class="package-details-container">

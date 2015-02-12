@@ -625,7 +625,6 @@ footer{
 
 /*SHOW PACKAGE*/
 .package-cover{
-  margin-top: 60px;
   height: 300px;
   width: 100%;
   background-size: cover;
@@ -633,6 +632,7 @@ footer{
 
 .package-details-container{
   display: inline-table;
+  width: 100%;
   background: #ffffff;
   padding: 30px 20px;
   @include border-radius(0 0 10px 10px);
@@ -718,4 +718,70 @@ footer{
   padding: 30px;
   @include border-radius(10px);
   @include single-box-shadow(darken(white,20),0,5px,5px,0);
+}
+
+/*CHECKOUT PAGE*/
+.accordion-row-container{
+  margin-top: 100px;
+  .accordion-container{
+
+    .panel{
+      //    padding: 0;
+      background: white;
+      color: black;
+      padding: 10px;
+      @include border-radius(5px);
+      @include single-box-shadow(lighten(gray,30),0, 3px, 8px, -1px);
+
+      &>div{
+        //      padding: 0 20px;
+      }
+
+      hr{
+        margin: 0;
+      }
+
+      .panel-heading{
+        .panel-title{
+          a{
+            font-weight: 600;
+            text-decoration: none;
+          }
+        }
+      }
+
+      .panel-body{
+        padding: 10px 25px;
+
+        form{
+          label{
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*ORDER SUMMARY*/
+#summary-container{
+  table{
+    font-size: .8em;
+    margin-top: 25px;
+  }
+}
+
+/*payment card*/
+
+.paymentCard{
+  width: 50%;
+  margin-bottom: 50px;
+  background: darken(white,5);
+  padding: 20px;
+  @include border-radius(10px);
+  @include single-box-shadow(0, 1px, 9px, -1px, darken(white,30));
+
+  label{
+    font-weight: 600 !important;
+  }
 }

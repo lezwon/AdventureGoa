@@ -11,7 +11,15 @@
     </style>
 </head>
 <body>
-    <div class="package-cover" style="background-image: url(${packageInstance.image})"></div>
+
+    <g:if test="${packageInstance.image.startsWith('http')}">
+        <g:set var="image" value="${packageInstance.image}"/>
+    </g:if>
+    <g:else>
+        <g:set var="image" value="${resource(file: packageInstance.image)}"/>
+    </g:else>
+
+    <div class="package-cover" style="background-image: url(${image})"></div>
 
     <div class="row">
         <div class="package-details-container">
@@ -55,7 +63,7 @@
 
                     <div class="price-details">
                         <h4 class="tag-header">Price</h4>
-                        <h2 class="price">Rs.${packageInstance.price}/-</h2>
+                        <h2><g:formatNumber number="${packageInstance.price}" currencyCode="INR" format="Rs ##,###/-"/></h2>
                     </div>
 
                     <g:form uri="/book">

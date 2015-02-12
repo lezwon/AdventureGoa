@@ -32,6 +32,14 @@
     <div class="small-12 columns">
         <ul class="large-block-grid-5 entity-grid">
             <g:each in="${hotelInstanceList}">
+
+                <g:if test="${it.image.startsWith('http')}">
+                    <g:set var="image" value="${it.image}"/>
+                </g:if>
+                <g:else>
+                    <g:set var="image" value="${resource(file: it.image)}"/>
+                </g:else>
+
                 <li>
                     <g:link action="show" id="${it.id}" style="background-image: url(${it.image})">
                         <div class="slide-top">

@@ -6,7 +6,7 @@ class Address extends Base{
 	String country = "INDIA"
 	String state
     String landmark
-	int postCode
+	int zipCode
 
 //    static belongsTo = [
 //            User,
@@ -18,12 +18,13 @@ class Address extends Base{
         streetAddress blank: false
         country blank: false
         state blank: false
-        postCode blank: false
+        zipCode blank: false
         landmark blank: true, nullable: true
     }
 
     static  mapping = {
         streetAddress sqlType: "text"
 //        country defaultValue: 'INDIA'
+        landmark nullable:true
     }
 }

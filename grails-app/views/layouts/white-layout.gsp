@@ -14,6 +14,11 @@
     <g:external dir="css" file="foundation.min.css"/>
     <g:external dir="css" file="main.css"/>
     <g:external dir="components/bootflat/js" file="jquery-1.10.1.min.js"/>
+    <style>
+    .wrapper{
+        padding-top: 60px;
+    }
+    </style>
     <g:layoutHead/>
 </head>
 
