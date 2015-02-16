@@ -1,5 +1,7 @@
 package com.adventuregoa
 
+import java.text.SimpleDateFormat
+
 
 class Booking extends Base{
 
@@ -9,7 +11,9 @@ class Booking extends Base{
     int totalPrice
     Date startDate
     Date endDate
+    String reference
     String paymentStatus = "pending"
+    String bookingStatus = "Payment Pending"
     String paymentReference
 
 
@@ -19,15 +23,22 @@ class Booking extends Base{
 
     static constraints = {
         noOfPeople max: 10
-        startDate min: new Date()
+        startDate shared: "currentDay"
         noOfPeople min:1, max: 10
         paymentReference nullable: true
         endDate nullable: true
+        reference nullable: true
     }
 
     def beforeValidate(){
         this.totalPrice = this.package.price * this.noOfPeople
         this.user = springSecurityService.currentUser as User
+    }
+
+    def afterInsert(){
+        String date = new SimpleDateFormat("yyMMdd").format(this.startDate);
+        this.reference = "D"+date+"-B"+String.format("%03d", this.id)
+        this.save()
     }
 
 

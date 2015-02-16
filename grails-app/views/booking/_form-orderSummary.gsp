@@ -11,6 +11,11 @@
             <table class="table">
                 <tbody>
                 <tr>
+                    <td>Booking ID</td>
+                    <td id="bookingId">${bookingInstance.id}</td>
+                </tr>
+
+                <tr>
                     <td>Package</td>
                     <td>${bookingInstance.package.name}</td>
                 </tr>
@@ -18,6 +23,11 @@
                 <tr>
                     <td>No of People</td>
                     <td>${bookingInstance.noOfPeople}</td>
+                </tr>
+
+                <tr>
+                    <td>Booking Reference</td>
+                    <td>${bookingInstance.reference}</td>
                 </tr>
 
                 <tr>
@@ -36,7 +46,7 @@
 
             <div>
                 <a href="" class="btn btn-lg btn-default">Back</a>
-                <a href="" class="btn btn-lg btn-success">Next</a>
+                <a href="" class="btn btn-lg btn-success" id="btn-order">Next</a>
             </div>
         </div>
     </div>

@@ -29,7 +29,7 @@
 
 			<div class="form-group">
 				<label for="price">Price</label>
-				<g:textField class="form-control" name="price" value="${packageInstance?.price}"/>
+				<g:textField type="number" class="form-control" name="price" value="${packageInstance?.price}" maxlength="5"/>
 			</div>
 
 			<g:if test="${packageInstance?.image}">

@@ -9,25 +9,33 @@
     <div id="personal-container" class="panel-collapse collapse in">
         <hr />
         <div class="panel-body">
-            <g:form>
+
+            <div class="errors"></div>
+
+            <g:form controller="user" action="ajaxUpdate" method="POST" name="form-personalDetails">
+
+                <input name="id" type="hidden" value="<sec:loggedInUserInfo field="id"/>"/>
+
                 <div class="form-group">
                     <label for="firstName">First Name</label>
-                    <g:textField name="firstName" class="form-control"/>
+                    <g:textField name="firstName" class="form-control" value="${userInstance.firstName}"/>
                 </div>
 
                 <div class="form-group">
                     <label for="lastName">Last Name</label>
-                    <g:textField name="lastName" class="form-control"/>
+                    <g:textField name="lastName" class="form-control" value="${userInstance.lastName}"/>
                 </div>
 
                 <div class="form-group">
                     <label for="phone">Phone</label>
-                    <g:textField name="phone" class="form-control"/>
+                    <g:textField name="phone" class="form-control" maxlength="13" value="${userInstance.phone}"/>
                 </div>
 
                 <div class="form-group">
                     <label for="dob">Date of Birth</label>
-                    <g:field type="date" name="dob" class="form-control"/>
+                    <div class="datepicker-container">
+                        <g:datePicker type="date" name="dob" class="form-control" value="${userInstance.dob}" precision="day"/>
+                    </div>
                 </div>
 
                 <div class="form-group">

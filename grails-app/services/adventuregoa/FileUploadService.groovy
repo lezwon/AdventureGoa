@@ -51,7 +51,7 @@ class FileUploadService {
             File imageDir = new File(absolutePath,filename)
 
             if(imageDir.exists())
-                domain.image = filename
+                domain.image = "/"+relativePath+filename
             else{
                 image.transferTo(imageDir)
                 domain.image = "/"+relativePath+filename

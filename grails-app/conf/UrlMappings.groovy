@@ -10,6 +10,7 @@ class UrlMappings {
         "/"(view: "/index")
         "500"(view: '/error')
         "/home"(controller: "home", action: "index")
+        "/auth/login"(controller: "home", action: "index")
 
         "/$username/home" {
             controller= "home"

@@ -9,7 +9,8 @@
 <html>
 <head>
     <title><g:layoutTitle/></title>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:700italic,700,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
     <g:external dir="components/bootflat/bootstrap" file="bootstrap.min.css"/>
     <g:external dir="css" file="foundation.min.css"/>
     <g:external dir="css" file="main.css"/>

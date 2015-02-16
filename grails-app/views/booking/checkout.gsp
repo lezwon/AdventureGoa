@@ -23,5 +23,7 @@
         </div>
     </div>
 </div>
+<g:javascript src="jquery.cookie.js"/>
+<g:javascript src="booking.js" />
 </body>
 </html>

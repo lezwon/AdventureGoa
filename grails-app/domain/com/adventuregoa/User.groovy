@@ -7,6 +7,7 @@ class User extends Base{
 	String phone
 	Date dob
 	Address address
+    PaymentCard paymentCard
 
 	transient springSecurityService
 
@@ -17,8 +18,6 @@ class User extends Base{
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
-
-	static hasOne = [paymentCard:PaymentCard]
 
 	static hasMany = [
 		booking: Booking,

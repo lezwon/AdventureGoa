@@ -3,6 +3,7 @@ package com.adventuregoa
 import adventuregoa.DomainClassPropertiesService
 import grails.plugin.springsecurity.annotation.Secured
 
+import javax.servlet.http.Cookie
 import java.text.SimpleDateFormat
 
 import static org.springframework.http.HttpStatus.*
@@ -12,6 +13,7 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class BookingController {
 
+    def springSecurityService
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     @Secured("ROLE_ADMIN")
@@ -49,7 +51,12 @@ class BookingController {
 
         bookingInstance.save flush: true
 
-        render(view: "checkout", model: [bookingInstance:bookingInstance])
+        Cookie domainUrlCookie = new Cookie("domainUrl",g.createLink(controller: "ticket", action: "generateTickets", id: bookingInstance.id) as String);
+        domainUrlCookie.maxAge = 60*60
+        response.addCookie(domainUrlCookie)
+
+        def user = User.get(springSecurityService.currentUser.id as int)
+        render(view: "checkout", model: [bookingInstance:bookingInstance, userInstance: user])
     }
 
     def edit(Booking bookingInstance) {
@@ -106,5 +113,17 @@ class BookingController {
             }
             '*' { render status: NOT_FOUND }
         }
+    }
+
+
+    def success(Booking bookingInstance){
+
+        if(bookingInstance.bookingStatus != "Tickets Generated" || bookingInstance.paymentStatus != "Paid"){
+            notFound();
+            return
+        }
+
+        flash.message = message(code: "booking.successful");
+        render(view: "success", model: [bookingInstance:bookingInstance])
     }
 }

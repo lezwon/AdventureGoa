@@ -1,14 +1,18 @@
 package com.adventuregoa
 
 import adventuregoa.DomainClassPropertiesService
+import adventuregoa.TicketGeneratorService
+import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
-@Secured("ROLE_ADMIN")
+@Secured("IS_AUTHENTICATED_REMEMBERED")
 class TicketController {
+
+    def springSecurityService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -96,12 +100,28 @@ class TicketController {
     }
 
     protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'ticket.label', default: 'Ticket'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*' { render status: NOT_FOUND }
+        render(status: NOT_FOUND,"Invalid Page")
+    }
+
+
+    @Transactional
+    def generateTickets(Booking bookingInstance){
+        User user = springSecurityService.currentUser as User
+        if(!user.booking.contains(bookingInstance)){
+            notFound();
+            return
         }
+
+        if(bookingInstance.paymentStatus != "Paid"){
+            render("The amount for this booking isn't paid!")
+            return
+        }
+
+        TicketGeneratorService.generate(bookingInstance);
+        redirect(controller: "booking", action: "success", id: bookingInstance.id)
+    }
+
+    def printTickets(Booking bookingInstance){
+        render(view: "printTickets", model: [ticketInstanceList: bookingInstance.tickets])
     }
 }

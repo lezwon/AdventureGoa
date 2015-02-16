@@ -119,6 +119,48 @@ log4j.main = {
             'net.sf.ehcache.hibernate'
 }
 
+/*GLOBAL CONSTRAINTS*/
+
+//current date constraint
+grails.gorm.default.constraints = {
+    currentDay(validator: { val->
+        Calendar cal = Calendar.getInstance()
+        cal.setTime(new Date())
+
+        cal.set(Calendar.MILLISECOND, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+
+        Date currentDay = cal.getTime()
+
+        if(val.before(currentDay)){
+            return ['date.min.invalid']
+        }
+
+    })
+
+    currentMonth(
+            validator: { val->
+                Calendar cal = Calendar.getInstance()
+                cal.setTime(new Date())
+
+                cal.set(Calendar.MILLISECOND, 0);
+                cal.set(Calendar.SECOND, 0);
+                cal.set(Calendar.MINUTE, 0);
+                cal.set(Calendar.HOUR_OF_DAY, 0);
+                cal.set(Calendar.DAY_OF_MONTH, 1)
+
+                Date currentDay = cal.getTime()
+
+                if(val.before(currentDay)){
+                    return ['date.min.invalid']
+                }
+
+            }
+    )
+}
+
 // Added by the Spring Security Core plugin:
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.adventuregoa.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.adventuregoa.UserRole'

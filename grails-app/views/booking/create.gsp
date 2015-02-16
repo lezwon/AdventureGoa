@@ -39,7 +39,7 @@
 
                 <div class="form-group">
                     <label for="noOfPeople">Number of People</label>
-                    <g:field type="number" name="noOfPeople" value="${bookingInstance?.noOfPeople}" class="form-control" min="1" max="10"/>
+                    <g:select name="noOfPeople" from="${1..10}" value="${bookingInstance?.noOfPeople}" class="form-control" />
                 </div>
 
                 <div class="form-group">

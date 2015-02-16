@@ -9,16 +9,18 @@
         <hr />
 
         <div class="panel-body">
+
+            <div class="errors"></div>
             
-            <g:form>
+            <g:form name="form-payment" controller="paymentCard" action="ajaxUpdate">
                 <div class="form-group">
                     <label class="checkbox-inline">
-                        <input type="radio" name="type" value="1" />
+                        <input type="radio" name="type" value="Debit Card" checked/>
                         Debit Card
                     </label>
 
                     <label class="checkbox-inline">
-                        <input type="radio" name="type" value="2" />
+                        <input type="radio" name="type" value="Credit Card" />
                         Credit Card
                     </label>
                 </div>
@@ -26,28 +28,22 @@
                 <div class="paymentCard">
                     <div class="form-group">
                         <label for="cardNumber">Card Number</label>
-                        <g:field type="number" name="cardNumber" class="form-control"/>
+                        <g:textField name="cardNumber" class="form-control" maxlength="16"/>
                     </div>
 
                     <div class="row">
                         <div class="small-4 columns">
                             <div class="form-group">
                                 <label for="cvv">CVV</label>
-                                <g:field type="number" maxlength="3" name="cvv" class="form-control"/>
+                                <g:textField maxlength="3" name="cvv" class="form-control"/>
                             </div>
                         </div>
 
-                        <div class="small-4 columns">
-                            <div class="form-group">
-                                <label for="year">Year</label>
-                                <g:select name="year" from="${2015..2030}" class="form-control"/>
-                            </div>
-                        </div>
 
-                        <div class="small-4 columns end">
-                            <div class="form-group">
-                                <label for="month">Month</label>
-                                <g:select name="month" from="${01..12}" class="form-control"/>
+                        <div class="small-8 columns">
+                            <label for="expiry">Expiry</label>
+                            <div class="datepicker-container">
+                                <g:datePicker name="expiry" precision="month" noSelection="['':'-Choose-']" relativeYears="[0..30]"/>
                             </div>
                         </div>
                     </div>

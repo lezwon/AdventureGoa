@@ -1,0 +1,86 @@
+@import "compass";
+
+.ticket{
+  background: #ffffff;
+  font-family: Georgia, serif;
+  border-bottom: 2px dashed #000000;
+  margin: 10px 0;
+  overflow: auto;
+
+  &:nth-of-type(2n){
+    page-break-after: always;
+  }
+
+  .row{
+    overflow: auto;
+    padding: 10px;
+  }
+
+  .t-reference{
+    text-align: right;
+    padding: 10px 20px;
+    display: block;
+  }
+
+  .logo{
+    float: left;
+    width: 145px;
+    padding: 0 10px;
+  }
+
+  .ticket-title{
+    float: right;
+    padding: 0 10px;
+    margin: 10px 0;
+  }
+
+  .details-column{
+    width: 49%;
+    display: inline-table;
+    margin: 10px 0;
+    vertical-align: top;
+  }
+
+  .footer-column{
+    width: (90%/3);
+    display: inline-table;
+    min-height: 75px;
+    padding: 1.5%;
+
+    .footer-title{
+      padding-bottom: 2px;
+      border-bottom: 1px solid darken(white,15);
+      margin: 0 0 2px;
+    }
+
+    .footer-description{
+      margin: 0;
+      text-align: left;
+      font-size: .9em;
+      font-family: Calibri, sans-serif;
+    }
+  }
+
+  table{
+    width: 100%;
+    margin: 0 5px;
+    font-family: "Courier New", Courier, monospace;
+    border-collapse: collapse;
+
+    tr{
+      border: 1px solid gray;
+
+    }
+
+  }
+}
+
+.border{
+  border: 1px solid gray;
+  border-right: none;
+  border-left: none;
+}
+
+.shade{
+  background: darken(white,5);
+}

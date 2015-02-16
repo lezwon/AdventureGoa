@@ -21,7 +21,7 @@ class BootStrap {
                         firstName: "Lezwon",
                         lastName: "Castellino",
                         phone: "9405334893",
-                        dob: new Date(1993,12,8)
+                        dob: new GregorianCalendar(1993,12,8).getTime()
                 ],
                 [
                         username: "lester",
@@ -30,7 +30,7 @@ class BootStrap {
                         firstName: "Lester",
                         lastName: "Castellino",
                         phone: "2342354254",
-                        dob: new Date(1989,11,26)
+                        dob: new GregorianCalendar(1989,11,26).getTime()
                 ]
         ]
 
@@ -68,7 +68,7 @@ class BootStrap {
                     lastName: fakerService.lastName(),
                     phone: fakerService.phoneNumber('##########'),
                     dob: new Date()
-                ).save(failOnError: true);
+                ).save(failOnError: true,flush: true);
                 UserRole.create(tempUser, roleUser)
 
             } catch (Exception e) {
@@ -86,7 +86,7 @@ class BootStrap {
 //                        image: '/images/package/colossus-cover.jpg',
                         image: 'http://lorempixel.com/1920/500',
                         price: Integer.parseInt(fakerService.numerify("3####"))
-                ).save(failOnError: true)
+                ).save(failOnError: true, flush: true)
 
             } catch (Exception e) {
                 e.printStackTrace()

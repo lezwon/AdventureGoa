@@ -2,15 +2,17 @@ package com.adventuregoa
 
 class PaymentCard extends Base{
 
-    long cardNumber
-    int cvv
+    String cardNumber
+    String cvv
     String cardName
     Date expiry
     String type
 
-    static belongsTo = [user:User]
+    static belongsTo = [User]
 
     static constraints = {
         cardNumber creditCard: true
+        cvv size: 3..3
+        expiry shared: "currentMonth"
     }
 }

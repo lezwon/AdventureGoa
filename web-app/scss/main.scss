@@ -2,16 +2,45 @@
 @import "variables";
 
 * {
-  font-family: "Open Sans", sans-serif !important;
+  font-family: "Raleway", sans-serif !important;
 }
 
 .white {
   background-color: white;
 }
 
+.btn{
+  @include transition(all .3s ease);
+}
+
 .radius {
   @include border-radius(10px);
+  overflow: hidden;
 }
+
+.shadow{
+  @include single-box-shadow(0, 1px, 9px, -1px, darken(white,30));
+}
+
+.datepicker-container{
+  label{
+    width: 100%;
+  }
+
+  select[name*=day],select[name*=month],select[name*=year]{
+    border: 1px solid darken(white,20);
+    padding: 5px;
+    @include border-radius(5px);
+    @include transition(all .5s ease);
+
+    &:active{
+      @include single-box-shadow(0,0,8px,transparentize(deepskyblue,.6));
+      //    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    }
+  }
+}
+
+
 
 .dropdown {
   background: white;
@@ -44,7 +73,7 @@
 }
 
 .icon-compass {
-  padding: 0 20px;
+  padding: 0 18px;
   background: url("../images/compass.ico");
   background-size: contain;
   margin-right: 10px;
@@ -308,6 +337,7 @@ footer{
           font-weight: 700;
           text-transform: uppercase;
           font-style: italic;
+          font-family: "Open sans", sans-serif !important;
         }
 
         p {
@@ -563,9 +593,9 @@ footer{
 .intro-head{
   margin: 150px 0 50px 0;
 
-  *{
-    font-family: 'Raleway', sans-serif !important;
-  }
+//  *{
+//    font-family: 'Raleway', sans-serif !important;
+//  }
 
   h1{
     font-weight: 400;
@@ -584,9 +614,9 @@ footer{
 
 .entity-grid{
 
-  *{
-    font-family: 'Raleway', sans-serif !important;
-  }
+//  *{
+//    font-family: 'Raleway', sans-serif !important;
+//  }
 
   li{
 
@@ -638,9 +668,9 @@ footer{
   @include border-radius(0 0 10px 10px);
   @include single-box-shadow(darken(white,20),0,5px,5px,0);
 
-  *{
-    font-family: "Raleway",sans-serif !important;
-  }
+//  *{
+//    font-family: "Raleway",sans-serif !important;
+//  }
 }
 
 .package-details{
@@ -723,6 +753,16 @@ footer{
 /*CHECKOUT PAGE*/
 .accordion-row-container{
   margin-top: 100px;
+
+  .errors{
+    width: 50%;
+
+    .alert{
+      padding: 5px 15px;
+    }
+  }
+
+
   .accordion-container{
 
     .panel{
@@ -763,6 +803,16 @@ footer{
   }
 }
 
+#personal-container{
+  form{
+    .datepicker-container{
+      select{
+        width: 20%;
+      }
+    }
+  }
+}
+
 /*ORDER SUMMARY*/
 #summary-container{
   table{
@@ -784,4 +834,52 @@ footer{
   label{
     font-weight: 600 !important;
   }
+
+  .datepicker-container{
+    select{
+      width: 150px;
+
+      &:first-of-type{
+        margin-right: 24px;
+      }
+    }
+  }
+}
+
+/*BOOKING SUCCESS*/
+
+.success-container{
+  margin-top: 150px;
+
+  .alert-booking{
+//    font-family: "Raleway", sans-serif !important;
+    font-size: 2.5em;
+    color: #ffffff;
+    margin-bottom: 0;
+    background: #00C4CB;
+  }
+
+  hr{
+    margin-top: 0;
+  }
+
+  .booking-details{
+    padding: 25px 0;
+
+    table{
+      width: 60%;
+      margin: 0 auto;
+      font-size: .8em;
+      color: gray;
+    }
+
+  }
+}
+
+.btn-tickt{
+  padding: 25px 50px;
+  text-transform: uppercase;
+  @include transition(all .3s ease);
+  @include background(linear-gradient(transparent 0%,ghostwhite 100%));
+  @include border-radius(0);
 }

@@ -66,7 +66,7 @@
                         <h2><g:formatNumber number="${packageInstance.price}" currencyCode="INR" format="Rs ##,###/-"/></h2>
                     </div>
 
-                    <g:form uri="/book">
+                    <g:form uri="/book" method="GET">
                         <input name="package" type="hidden" value="${packageInstance.id}"/>
                         <input type="submit" value="Book Now" class="btn btn-primary btn-lg" />
                     </g:form>

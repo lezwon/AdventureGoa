@@ -1,7 +1,10 @@
 package com.adventuregoa
 
 import adventuregoa.DomainClassPropertiesService
+import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured
+
+import java.text.SimpleDateFormat
 
 @Secured("ROLE_ADMIN")
 class UserController extends grails.plugin.springsecurity.ui.UserController {
@@ -13,7 +16,8 @@ class UserController extends grails.plugin.springsecurity.ui.UserController {
             save: ['POST'],
             delete: ['DELETE'],
             update: ['PUT'],
-            search: ['POST']
+            search: ['POST'],
+            ajaxUpdate: ['POST']
     ]
 
     def index(){
@@ -136,5 +140,27 @@ class UserController extends grails.plugin.springsecurity.ui.UserController {
 
         def results = User.findAll("from User where username like '%$params.string%' or email like '%$params.string%' ")
         render(view: "index", model: ["fields":fields, users: results, string: params.string])
+    }
+
+    @Secured(['IS_AUTHENTICATED_REMEMBERED'])
+    def ajaxUpdate(User user){
+
+        if(user.id != springSecurityService.currentUser.id){
+            return false
+        }
+
+        if (user.hasErrors()) {
+            render user.errors as JSON
+            return
+        }
+
+        try{
+            user.save(failOnError: true, flush: true)
+        }catch (e){
+            e.printStackTrace()
+            render message(code: "default.update.error") as JSON
+        }
+
+        render 1
     }
 }
