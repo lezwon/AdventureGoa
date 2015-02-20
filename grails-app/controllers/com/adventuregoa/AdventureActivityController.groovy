@@ -24,6 +24,10 @@ class AdventureActivityController {
 
     @Transactional
     def save(AdventureActivity adventureActivityInstance) {
+
+        adventureActivityInstance.address = new Address(params.address as HashMap)
+
+
         String contextPath = servletContext.getRealPath('/') //get server root path
         def imageUploadSuccess = FileUploadService.uploadFile(adventureActivityInstance,params,contextPath) //upload image successful
 
@@ -34,8 +38,9 @@ class AdventureActivityController {
         //if has errors
 
         adventureActivityInstance.validate()
+        adventureActivityInstance.address.validate()
 
-        if(adventureActivityInstance.hasErrors()){
+        if(adventureActivityInstance.hasErrors()|| adventureActivityInstance.address.hasErrors()){
             if(imageUploadSuccess){ //delete file
                 FileUploadService.deleteFile(adventureActivityInstance,contextPath)
             }
@@ -46,6 +51,7 @@ class AdventureActivityController {
 
         try {
             //save package
+            adventureActivityInstance.address.save(failOnError: true)
             adventureActivityInstance.save(failOnError: true)
 
         } catch (Exception e) {
@@ -82,14 +88,15 @@ class AdventureActivityController {
 
         adventureActivityInstance.clearErrors()
         adventureActivityInstance.validate()
+        adventureActivityInstance.address.validate()
 
-        if (adventureActivityInstance.hasErrors()) {
+        if (adventureActivityInstance.hasErrors()|| adventureActivityInstance.address.hasErrors()) {
 
             if(imageUploadSuccess){ //delete file
                 FileUploadService.deleteFile(adventureActivityInstance,contextPath)
             }
 
-            respond adventureActivityInstance.errors, view: 'edit'
+            render model: [adventureActivityInstance: adventureActivityInstance], view: 'edit'
             return
         }
 
@@ -101,6 +108,8 @@ class AdventureActivityController {
             //if save not successfull
             e.printStackTrace()
             flash.message = message(code: "databaseQuery.failed", args: [actionName])
+            render(view: "index")
+            return
         }
 
 

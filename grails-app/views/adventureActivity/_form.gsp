@@ -10,6 +10,14 @@
                 </g:eachError>
             </g:hasErrors>
 
+            <g:hasErrors bean="${adventureActivityInstance?.address}">
+                <g:eachError bean="${adventureActivityInstance.address}" var="error">
+                    <div class="alert alert-danger" role="alert">
+                        <g:message error="${error}"/>
+                    </div>
+                </g:eachError>
+            </g:hasErrors>
+
             <div class="form-group">
                 <label for="id">Adventure Activity ID</label>
                 <g:textField class="form-control" name="id" value="${adventureActivityInstance?.id}" disabled="disabled"/>
@@ -28,13 +36,14 @@
             <div class="form-group">
                 <label for="duration">Duration</label>
 
-                <select name="duration" id="duration" class="form-control">
-                    <option value="30 Minutes">30 Minutes</option>
-                    <option value="60 Minutes">60 Minutes</option>
-                    <option value="90 Minutes">90 Minutes</option>
-                    <option value="2 Hours">2 Hours</option>
-                    <option value="3 Hours">3 Hours</option>
-                </select>
+                <g:select name="duration" value="${adventureActivityInstance.duration}"  class="form-control"
+                          from="${[
+                        "30 Minutes",
+                        "60 Minutes",
+                        "90 Minutes",
+                        "2 Hours",
+                        "3 Hours"
+                ]}" />
             </div>
 
             <div class="form-group">
@@ -65,6 +74,33 @@
                 <label for="image">Image</label>
 
                 <g:field class="form-control" name="image" type="file" accept=".jpg"/>
+            </div>
+
+            <div>
+                <h2>Address</h2>
+                <hr />
+
+                <input name="address.id" type="hidden" value="${adventureActivityInstance?.address?.id}"/>
+
+                <div class="form-group">
+                    <label for="address.state">State</label>
+                    <g:textField name="address.state" class="form-control" value="${adventureActivityInstance?.address?.state}"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="address.streetAddress">Street Address</label>
+                    <g:textArea name="address.streetAddress" class="form-control" value="${adventureActivityInstance?.address?.streetAddress}"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="address.landmark">Landmark (optional)</label>
+                    <g:textArea name="address.landmark" class="form-control" value="${adventureActivityInstance?.address?.landmark}"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="address.zipCode">Zip Code</label>
+                    <g:field type="number" name="address.zipCode" class="form-control" maxlength="6" value="${adventureActivityInstance?.address?.zipCode}"/>
+                </div>
             </div>
 
             <div class="form-group">

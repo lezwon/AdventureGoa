@@ -68,32 +68,32 @@
                 <g:field class="form-control" name="image" value="${hotelInstance?.image}" type="file" accept=".jpg"/>
             </div>
 
+            <div>
+                <h2>Address</h2>
+                <hr />
 
-            <h2>Address</h2>
-            <hr />
+                <input name="address.id" type="hidden" value="${hotelInstance?.address?.id}"/>
 
-            <input name="address.id" type="hidden" value="${hotelInstance?.address?.id}"/>
+                <div class="form-group">
+                    <label for="address.state">State</label>
+                    <g:textField name="address.state" class="form-control" value="${hotelInstance?.address?.state}"/>
+                </div>
 
-            <div class="form-group">
-                <label for="address.state">State</label>
-                <g:textField name="address.state" class="form-control" value="${hotelInstance?.address?.state}"/>
+                <div class="form-group">
+                    <label for="address.streetAddress">Street Address</label>
+                    <g:textArea name="address.streetAddress" class="form-control" value="${hotelInstance?.address?.streetAddress}"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="address.landmark">Landmark (optional)</label>
+                    <g:textArea name="address.landmark" class="form-control" value="${hotelInstance?.address?.landmark}"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="address.zipCode">Zip Code</label>
+                    <g:field type="number" name="address.zipCode" class="form-control" maxlength="6" value="${hotelInstance?.address?.zipCode}"/>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label for="address.streetAddress">Street Address</label>
-                <g:textArea name="address.streetAddress" class="form-control" value="${hotelInstance?.address?.streetAddress}"/>
-            </div>
-
-            <div class="form-group">
-                <label for="address.landmark">Landmark (optional)</label>
-                <g:textArea name="address.landmark" class="form-control" value="${hotelInstance?.address?.landmark}"/>
-            </div>
-
-            <div class="form-group">
-                <label for="address.zipCode">Zip Code</label>
-                <g:field type="number" name="address.zipCode" class="form-control" maxlength="6" value="${hotelInstance?.address?.zipCode}"/>
-            </div>
-
 
             <div class="form-group">
                 <input type="reset" value="Reset" class="btn btn-default btn-lg" />

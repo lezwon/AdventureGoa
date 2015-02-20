@@ -41,7 +41,7 @@
                 </g:else>
 
                 <li>
-                    <g:link action="show" id="${it.id}" style="background-image: url(${it.image})">
+                    <g:link action="show" id="${it.id}" style="background-image: url(${image})">
                         <div class="slide-top">
                             <h4>${it.name}</h4>
                             <h5>Rs. ${it.price}/-</h5>
