@@ -45,7 +45,7 @@
             </table>
 
             <div>
-                <a href="" class="btn btn-lg btn-default">Back</a>
+                <a href="" class="btn btn-lg btn-default btn-back">Back</a>
                 <a href="" class="btn btn-lg btn-success" id="btn-order">Next</a>
             </div>
         </div>

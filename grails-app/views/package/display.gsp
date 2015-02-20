@@ -10,7 +10,6 @@
     <head>
         <meta name="layout" content="white-layout">
         <title>Packages</title>
-        <link href='http://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <div class="row">

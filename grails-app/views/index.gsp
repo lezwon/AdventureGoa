@@ -3,6 +3,7 @@
 <head>
     <meta name="layout" content="black-layout"/>
     <title>AdventureGoa</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:700italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="components/WOW/css/libs/animate.css"/>
     <link rel="stylesheet" href="components/flexslider/flexslider.css"/>
     <link rel="stylesheet" href="css/BeatPicker.min.css"/>

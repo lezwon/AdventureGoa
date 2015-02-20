@@ -120,3 +120,17 @@ function generateTickets() {
 
     window.location.href = hostOrigin + url;
 }
+
+/*BACK BUTTON*/
+
+$(".btn-back").click(function(e){
+    e.preventDefault();
+
+    var allPanels = $(".panel-collapse");
+    var currentPanel = $(this).closest(".panel-collapse");
+    var panelNumber = $.inArray(currentPanel[0],allPanels);
+    var nextPanel = allPanels.eq(panelNumber-1);
+
+    currentPanel.collapse('hide');
+    nextPanel.collapse('show');
+});

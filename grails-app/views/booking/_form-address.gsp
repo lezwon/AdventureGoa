@@ -37,8 +37,8 @@
                 </div>
 
                 <div class="form-group">
-                    <a href="" class="btn btn-lg btn-default">Back</a>
-                    <g:submitButton name="Next" class="btn btn-lg btn-success"/>
+                    <a href="" class="btn btn-lg btn-default btn-back">Back</a>
+                    <input type="submit" class="btn btn-lg btn-success" value="Next"/>
                 </div>
             </g:form>
         </div>

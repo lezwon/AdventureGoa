@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="form-group">
-                    <g:submitButton name="Next" class="btn btn-success btn-lg"/>
+                    <input type="submit" class="btn btn-success btn-lg" value="Next"/>
                 </div>
             </g:form>
         </div>

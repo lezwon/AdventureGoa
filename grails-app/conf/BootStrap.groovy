@@ -9,6 +9,7 @@ import com.adventuregoa.Package
 class BootStrap {
 
     def fakerService;
+    def servletContext
     def random = new Random();
 
     def init = { servletContext ->
@@ -146,6 +147,16 @@ class BootStrap {
 
     }
     def destroy = {
+        def contextPath = servletContext.getRealPath('/') //get server root path
+        def imageFolder = "images/";
+        def entityFolders= ["package","hotel","adventureactivity"]
 
+        entityFolders.each {
+            String absolutePath = contextPath+imageFolder+entityFolders
+            File folderDir = new File(absolutePath)
+
+            if (folderDir.exists())
+                folderDir.delete()
+        }
     }
 }

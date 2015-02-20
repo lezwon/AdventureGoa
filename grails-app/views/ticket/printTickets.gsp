@@ -37,12 +37,12 @@
 
                     <tr>
                         <td>Date</td>
-                        <td><g:formatDate date="${it.booking.startDate}" /> </td>
+                        <td><g:formatDate date="${it.booking.startDate}" format="dd/MM/yyyy"/> </td>
                     </tr>
 
                     <tr>
                         <td>Price</td>
-                        <td><g:formatNumber number="${it.booking.package.price}" currencyCode="INR" /> </td>
+                        <td><g:formatNumber number="${it.booking.package.price}" format="INR #,##,###/-" /> </td>
                     </tr>
 
                 </table>

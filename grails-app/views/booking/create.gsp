@@ -7,7 +7,6 @@
 <head>
     <meta name="layout" content="white-layout">
     <title>Book Package</title>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
     <style>
     .wrapper{
         background-image: url("<g:resource dir="images" file="swirl_pattern.png" />");

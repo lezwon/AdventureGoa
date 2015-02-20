@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta name="layout" content="white-layout">
-        <title><sec:username/>'s Home</title>
+        <title>Home</title>
 
     </head>
 

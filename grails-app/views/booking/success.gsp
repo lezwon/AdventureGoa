@@ -47,12 +47,12 @@
 
                                 <tr>
                                     <td>Start Date</td>
-                                    <td><g:formatDate date="${bookingInstance.startDate}" format="dd/MM/yyyy hh:mm"/> </td>
+                                    <td><g:formatDate date="${bookingInstance.startDate}" format="dd/MM/yyyym"/> </td>
                                 </tr>
 
                                 <tr>
                                     <td>Total Cost</td>
-                                    <td>${bookingInstance.totalPrice}</td>
+                                    <td><g:formatNumber number="${bookingInstance.totalPrice}" /> </td>
                                 </tr>
 
                                 <tr>

@@ -15,20 +15,21 @@
             <g:form name="form-payment" controller="paymentCard" action="ajaxUpdate">
                 <div class="form-group">
                     <label class="checkbox-inline">
-                        <input type="radio" name="type" value="Debit Card" checked/>
+                        <g:radio name="type" value="Debit Card" checked="true"/>
                         Debit Card
                     </label>
 
                     <label class="checkbox-inline">
-                        <input type="radio" name="type" value="Credit Card" />
+                        <g:radio name="type" value="Credit Card" />
                         Credit Card
                     </label>
+
                 </div>
                 
                 <div class="paymentCard">
                     <div class="form-group">
                         <label for="cardNumber">Card Number</label>
-                        <g:textField name="cardNumber" class="form-control" maxlength="16"/>
+                        <g:textField name="cardNumber" class="form-control" maxlength="16" value="${userInstance.paymentCard?.cardNumber}"/>
                     </div>
 
                     <div class="row">
@@ -50,12 +51,12 @@
 
                     <div class="form-group">
                         <label for="cardName">Name on the card</label>
-                        <g:textField name="cardName" class="form-control"/>
+                        <g:textField name="cardName" class="form-control" value="${userInstance.paymentCard?.cardName}"/>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <a href="" class="btn btn-lg btn-default">Back</a>
+                    <a href="" class="btn btn-lg btn-default btn-back">Back</a>
                     <g:submitButton name="Proceed to Payment" class="btn btn-lg btn-success"/>
                 </div>
                 

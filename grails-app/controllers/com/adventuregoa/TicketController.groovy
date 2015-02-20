@@ -122,6 +122,18 @@ class TicketController {
     }
 
     def printTickets(Booking bookingInstance){
+
+        if (bookingInstance == null) {
+            notFound()
+            return
+        }
+
+        User user = springSecurityService.currentUser as User
+        if(!user.booking.contains(bookingInstance)){
+            notFound();
+            return
+        }
+
         render(view: "printTickets", model: [ticketInstanceList: bookingInstance.tickets])
     }
 }
