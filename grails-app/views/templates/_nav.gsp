@@ -57,7 +57,7 @@
 
                 <sec:ifNotLoggedIn>
                     <li>
-                        <g:link controller="auth" action="login" class="btn btn-sm btn-default">Log In</g:link>
+                        <g:link controller="auth" action="login" class="btn btn-sm btn-default">Log In / Register</g:link>
                     </li>
                 </sec:ifNotLoggedIn>
 

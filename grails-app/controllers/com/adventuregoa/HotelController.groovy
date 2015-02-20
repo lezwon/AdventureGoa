@@ -31,6 +31,8 @@ class HotelController {
             return
         }
 
+        hotelInstance.address = new Address(params.address as HashMap)
+
         String contextPath = servletContext.getRealPath('/') //get server root path
         def imageUploadSuccess = FileUploadService.uploadFile(hotelInstance,params,contextPath) //upload image successful
 
@@ -39,20 +41,24 @@ class HotelController {
         String name = hotelInstance.name
 
         //if has errors
-
         hotelInstance.validate()
+        hotelInstance.address.validate()
 
-        if(hotelInstance.hasErrors()){
+        if(hotelInstance.hasErrors() || hotelInstance.address.hasErrors()){
             if(imageUploadSuccess){ //delete file
                 FileUploadService.deleteFile(hotelInstance,contextPath)
             }
 
-            render model: [hotelInstance:hotelInstance], view: "create"
+            render model: [
+                    hotelInstance:hotelInstance
+            ],
+                    view: "create"
             return
         }
 
         try {
             //save package
+            hotelInstance.address.save(failOnError: true)
             hotelInstance.save(failOnError: true)
 
         } catch (Exception e) {
@@ -74,6 +80,7 @@ class HotelController {
 
     @Transactional
     def update(Hotel hotelInstance) {
+
         def imageUploadSuccess = false
 
         if (hotelInstance == null) {
@@ -89,8 +96,9 @@ class HotelController {
 
         hotelInstance.clearErrors()
         hotelInstance.validate()
+        hotelInstance.address.validate()
 
-        if (hotelInstance.hasErrors()) {
+        if (hotelInstance.hasErrors() || hotelInstance.address.hasErrors()) {
 
             if(imageUploadSuccess){ //delete file
                 FileUploadService.deleteFile(hotelInstance,contextPath)
@@ -108,6 +116,8 @@ class HotelController {
             //if save not successfull
             e.printStackTrace()
             flash.message = message(code: "databaseQuery.failed", args: [actionName])
+            render(view: "index")
+            return
         }
 
 

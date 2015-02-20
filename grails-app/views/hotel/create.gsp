@@ -9,7 +9,7 @@
 <body>
 
 <g:render template="/templates/nonIndexHead"/>
-<g:render template="form" model="[action: 'save',method:'POST', hotel: hotel]"/>
+<g:render template="form" model="[action: 'save',method:'POST', hotelInstance: hotelInstance]"/>
 
 </body>
 </html>
