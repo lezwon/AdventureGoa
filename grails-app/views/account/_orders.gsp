@@ -26,13 +26,15 @@
 
                     <div class="booking-buttons">
                         <g:if test="${it.bookingStatus == "Tickets Generated"}">
-                            <g:link controller="ticket" action="printTickets" id="${it.id}" class="btn btn-success btn-lg">Print Tickets</g:link>
+                            <g:link controller="ticket" action="printTickets" id="${it.id}"
+                                    class="btn btn-success btn-lg" target="_blank">Print Tickets</g:link>
                         </g:if>
                         <g:else>
 
                         </g:else>
 
-                        <g:link class="btn btn-danger btn-lg">Cancel Booking</g:link>
+                        <g:link class="btn btn-danger btn-lg" controller="booking" action="cancel" id="${it.id}">Cancel Booking</g:link>
+                        <g:link class="btn btn-primary btn-lg">Clear</g:link>
                     </div>
                 </div>
             </g:each>

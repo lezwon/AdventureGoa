@@ -118,6 +118,11 @@ class BookingController {
 
     def success(Booking bookingInstance){
 
+        if(bookingInstance.bookingStatus == "Cancelled"){
+            redirect(action: "cancel", id: bookingInstance.id)
+            return
+        }
+
         if(bookingInstance.bookingStatus != "Tickets Generated" || bookingInstance.paymentStatus != "Paid"){
             notFound();
             return
@@ -126,4 +131,18 @@ class BookingController {
         flash.message = message(code: "booking.successful");
         render(view: "success", model: [bookingInstance:bookingInstance])
     }
+
+    @Transactional
+    def cancel(Booking bookingInstance){
+        bookingInstance.bookingStatus ="Cancelled";
+        try {
+            bookingInstance.save(failOnError: true, flush: true);
+        } catch (e) {
+            e.printStackTrace()
+        }
+        flash.message = message(code: "booking.cancelled");
+        render(view: "cancel", model: [bookingInstance: bookingInstance]);
+    }
+
 }
+

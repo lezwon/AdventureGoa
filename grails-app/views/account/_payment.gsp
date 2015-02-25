@@ -19,7 +19,7 @@
 
                 <tr>
                     <td>Expiry</td>
-                    <td><g:formatDate date="${paymentCardInstance?.expiry}" format="dd/MMM" /></td>
+                    <td><g:formatDate date="${paymentCardInstance?.expiry}" format="dd MMM" /></td>
                 </tr>
             </table>
         </div>

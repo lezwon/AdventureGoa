@@ -871,18 +871,28 @@ footer{
 
 /*BOOKING SUCCESS*/
 
-.success-container{
+.order-status-container{
   margin-top: 150px;
 
-  .alert-booking{
+  .alert{
 //    font-family: "Raleway", sans-serif !important;
-    font-size: 2.5em;
     color: #ffffff;
-    margin-bottom: 0;
     background: #00C4CB;
     border: none;
     border-radius: 0;
+    padding: 30px 0;
+    margin: 0;
+    @include border-radius(0);
   }
+
+  .alert-booking{
+    background: #00C4CB;
+  }
+
+  .white{
+    padding-bottom: 50px;
+  }
+
 
   hr{
     margin-top: 0;
@@ -904,6 +914,7 @@ footer{
 .btn-tickt{
   padding: 25px 50px;
   text-transform: uppercase;
+  width: 100%;
   @include transition(all .3s ease);
   @include background(linear-gradient(transparent 0%,ghostwhite 100%));
   @include border-radius(0);

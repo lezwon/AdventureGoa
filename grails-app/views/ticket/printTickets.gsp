@@ -9,7 +9,6 @@
 <html>
 <head>
     <title>Print Tickets</title>
-    %{--<g:external dir="css" file="foundation.min.css"/>--}%
     <g:external dir="css" file="print.css" media="print, screen"/>
 </head>
 <body>
@@ -90,6 +89,15 @@
     </div>
 </g:each>
 
+<script type="text/javascript">
+
+    document.body.onload = function(){
+        var mywindow = window.self;
+        mywindow.focus(); // necessary for IE >= 10
+        mywindow.print();
+    }
+
+</script>
 
 </body>
 </html>
