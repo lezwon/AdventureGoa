@@ -1,5 +1,7 @@
 package com.adventuregoa
 
+import org.apache.tools.ant.taskdefs.Pack
+
 import java.text.SimpleDateFormat
 
 
@@ -15,7 +17,6 @@ class Booking extends Base{
     String paymentStatus = "pending"
     String bookingStatus = "Payment Pending"
     String paymentReference
-
 
     static belongsTo = [User,Package]
     static hasOne = [user:User,package:Package]

@@ -22,10 +22,20 @@
 				<g:textField class="form-control" name="name" value="${packageInstance?.name}"/>
 			</div>
 
+            <div class="form-group">
+                <label for="shortDescription">Short Description</label>
+                <g:textArea class="form-control" name="shortDescription" rows="5" value="${packageInstance?.shortDescription}"/>
+            </div>
+
 			<div class="form-group">
 				<label for="description">Description</label>
 				<g:textArea class="form-control" name="description" rows="10" value="${packageInstance?.description}"/>
 			</div>
+
+            <div class="form-group">
+                <label for="duration">Duration</label>
+                <g:field type="number" name="duration" class="form-control" value="${packageInstance?.duration}"/>
+            </div>
 
 			<div class="form-group">
 				<label for="price">Price</label>
@@ -33,10 +43,8 @@
 			</div>
 
 			<g:if test="${packageInstance?.image}">
-				%{--<img src="${packageInstance?.image}" alt="" />--}%
-				%{--<g:img file="${packageInstance?.image}"  />--}%
 				<g:link uri="${packageInstance?.image}" target="_blank">
-					${packageInstance?.image}
+					View Image
 				</g:link>
 			</g:if>
 

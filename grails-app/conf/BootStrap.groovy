@@ -84,8 +84,10 @@ class BootStrap {
                 new Package(
                         name: fakerService.sentence(2),
                         description: fakerService.paragraph(6),
+                        shortDescription: fakerService.sentence(10) ,
 //                        image: '/images/package/colossus-cover.jpg',
                         image: 'http://lorempixel.com/1920/500',
+                        duration: random.nextInt(25)+15,
                         price: Integer.parseInt(fakerService.numerify("3####"))
                 ).save(failOnError: true, flush: true)
 

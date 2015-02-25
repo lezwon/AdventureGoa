@@ -8,9 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title><g:layoutTitle/></title>
+    <title>AdventureGoa :: <g:layoutTitle/></title>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
     <g:external dir="components/bootflat/bootstrap" file="bootstrap.min.css"/>
+    <g:external dir="components/bootflat/css" file="bootflat.css"/>
+    <g:external dir="components/bootflat/css" file="bootflat-extensions.css"/>
     <g:external dir="css" file="foundation.min.css"/>
     <g:external dir="css" file="main.css"/>
     <g:external dir="components/bootflat/js" file="jquery-1.10.1.min.js"/>

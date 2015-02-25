@@ -42,7 +42,12 @@
                                 <div class="slide-top">
                                     <h4>${it.name}</h4>
                                     <h5>Rs. ${it.price}/-</h5>
-                                    <span class="btn btn-warning">Read More...</span>
+
+                                    <div class="hidden-desc">
+                                        <p>${it.shortDescription}</p>
+                                        <span class="btn btn-warning">Read More...</span>
+                                    </div>
+
                                 </div>
                             </g:link>
                         </li>

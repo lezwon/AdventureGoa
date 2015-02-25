@@ -7,6 +7,10 @@ class Package extends Base{
     String image
     int price
 
+    int duration
+    String shortDescription
+
+
     static hasMany = [
             booking:Booking,
             hotels:Hotel,

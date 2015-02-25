@@ -41,7 +41,6 @@
 }
 
 
-
 .dropdown {
   background: white;
   position: absolute;
@@ -136,6 +135,7 @@
   .dropdown-menu {
     overflow: hidden;
     padding: 0;
+    background-color: #ffffff;
 
     li {
       margin: 0;
@@ -636,8 +636,12 @@ footer{
         background: transparentize(#000000,.7);
         @include transition(all .3s ease);
 
-        span{
-          margin: 20px 0;
+        .hidden-desc{
+          margin: 25px 0 0;
+
+          p{
+            font-size: .9em;
+          }
         }
       }
 
@@ -654,10 +658,19 @@ footer{
 }
 
 /*SHOW PACKAGE*/
-.package-cover{
+.cover-image{
   height: 300px;
   width: 100%;
   background-size: cover;
+  background-image:  linear-gradient(to bottom, rgba(102,102,102,0) 0%, rgba(0,0,0,1) 100%);
+
+  .cover-gradient{
+    width: 100%;
+    height: inherit;
+    position: relative;
+    bottom: 0;
+    @include background(linear-gradient(transparent 0%, transparentize(black,.2) 100%));
+  }
 }
 
 .package-details-container{
@@ -667,10 +680,6 @@ footer{
   padding: 30px 20px;
   @include border-radius(0 0 10px 10px);
   @include single-box-shadow(darken(white,20),0,5px,5px,0);
-
-//  *{
-//    font-family: "Raleway",sans-serif !important;
-//  }
 }
 
 .package-details{
@@ -707,36 +716,44 @@ footer{
   }
 }
 
-.price-container{
+.side-container {
   padding: 20px 10px;
   margin: 20px 0;
-  background: darken(white,5);
+  background: darken(white,3);
   min-height: 300px;
   @include single-box-shadow(darken(white,20),0,5px,5px,0);
   @include border-radius(5px);
 
-  .price-details{
+  .side-detail{
+    margin-bottom: 15px;
 
     .tag-header{
       padding:10px;
-      background: darken(white,30);
+      background: $lightgreen;
       width: 100%;
       color: white;
       margin-bottom: 0;
     }
 
-    .price{
+    .tag-value{
+      background: white;
       margin: 0;
-      background: #ffffff;
       padding: 10px;
     }
+
   }
 
-  .btn{
+  .bk-now-btn{
+    background: $lightblue;
+    border-color: darken($lightblue,2);
     width: 100%;
-    border: 5px solid white;
     outline: none;
+    font-size: 1.5em;
     @include border-radius(0);
+
+    &:hover{
+      background: darken($lightblue,5);
+    }
   }
 
 }
@@ -782,8 +799,13 @@ footer{
       }
 
       .panel-heading{
+        background-color: transparent;
+
+
+
         .panel-title{
           a{
+            color: #000000;
             font-weight: 600;
             text-decoration: none;
           }
@@ -792,6 +814,7 @@ footer{
 
       .panel-body{
         padding: 10px 25px;
+        border: none;
 
         form{
           label{
@@ -857,6 +880,8 @@ footer{
     color: #ffffff;
     margin-bottom: 0;
     background: #00C4CB;
+    border: none;
+    border-radius: 0;
   }
 
   hr{
@@ -882,4 +907,94 @@ footer{
   @include transition(all .3s ease);
   @include background(linear-gradient(transparent 0%,ghostwhite 100%));
   @include border-radius(0);
+}
+
+/*Account Settings*/
+.header-container{
+  margin-top: 50px;
+}
+
+
+.tabs-container{
+  margin-top: 25px;
+
+  .tabbable{
+
+    ul.nav{
+      width: 25%;
+      border: 1px solid #d3d3d3;
+      overflow: hidden;
+      @include border-radius(5px);
+
+      li{
+        margin: 0;
+
+        &:not(:last-child){
+          border-bottom: 1px solid #d3d3d3;
+        }
+
+        &.active>a{
+          background: darken(white,8);
+
+          &:hover{
+            background: darken(white,10);
+          }
+        }
+
+        a{
+          margin: 0;
+          width: 100%;
+          border: none;
+          background: none;
+          @include border-radius(0);
+          @include transition(all .3s ease);
+
+          &:hover{
+            background: darken(white,3);
+          }
+        }
+      }
+    }
+  }
+}
+
+.booking-item-container{
+  height: 250px;
+  border: 3px solid darkgray;
+  margin-bottom: 25px;
+  padding: 20px;
+
+  .booking-image{
+    height: 200px;
+    width: 35%;
+    border: 5px solid white;
+    background-size: cover;
+    float: left;
+  }
+
+  .booking-details{
+    width: 30%;
+    float: left;
+    margin: 0 15px;
+
+    h4{
+      font-weight: bold;
+    }
+
+    p{
+      font-size: .8em;
+      margin: 0;
+    }
+  }
+
+  .booking-buttons{
+    width: 30%;
+    float: right;
+    padding: 10px;
+
+    .btn{
+      margin-bottom: 10px;
+      width: 100%;
+    }
+  }
 }

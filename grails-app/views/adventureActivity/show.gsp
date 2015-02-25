@@ -17,7 +17,7 @@
     <g:set var="image" value="${resource(file: adventureActivityInstance.image)}"/>
 </g:else>
 
-<div class="package-cover" style="background-image: url(${image})"></div>
+<div class="cover-image" style="background-image: url(${image})"></div>
 
 <div class="row">
     <div class="package-details-container">

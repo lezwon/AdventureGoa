@@ -248,12 +248,11 @@ class PackageController {
 //    @Secured(["ROLE_USER","ROLE_ADMIN"])
     @Secured("IS_AUTHENTICATED_ANONYMOUSLY")
     def display(){
-
-        respond(Package.list())
+        render model: [packageInstanceList:Package.list()], view: "display"
     }
 
     @Secured("IS_AUTHENTICATED_ANONYMOUSLY")
     def show(Package packageInstance) {
-        respond packageInstance
+        render model: [packageInstance:packageInstance], view: "show"
     }
 }

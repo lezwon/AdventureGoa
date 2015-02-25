@@ -39,7 +39,7 @@
                                 <li>
                                     <g:link uri="/home">Home</g:link>
                                 </li>
-                                <li><a href="#">Account</a></li>
+                                <li><g:link controller="account">Account</g:link></li>
                                 <li>
                                     <sec:ifAnyGranted roles="ROLE_ADMIN">
                                         <g:link controller="admin" action="home">

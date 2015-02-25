@@ -6,7 +6,7 @@ class Address extends Base{
 	String country = "INDIA"
 	String state
     String landmark
-	int zipCode
+	String zipCode
 
 //    static belongsTo = [
 //            User,
@@ -18,7 +18,7 @@ class Address extends Base{
         streetAddress blank: false
         country blank: false
         state blank: false
-        zipCode blank: false
+        zipCode blank: false, minSize: 6
         landmark blank: true, nullable: true
     }
 

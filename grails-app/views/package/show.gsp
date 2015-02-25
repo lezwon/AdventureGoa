@@ -18,7 +18,9 @@
         <g:set var="image" value="${resource(file: packageInstance.image)}"/>
     </g:else>
 
-    <div class="package-cover" style="background-image: url(${image})"></div>
+    <div class="cover-image" style="background-image: url(${image})">
+        <div class="cover-gradient"></div>
+    </div>
 
     <div class="row">
         <div class="package-details-container">
@@ -58,16 +60,21 @@
             </div>
 
             <div class="small-4 columns">
-                <div class="price-container">
+                <div class="side-container">
 
-                    <div class="price-details">
+                    <div class="side-detail">
                         <h4 class="tag-header">Price</h4>
-                        <h2><g:formatNumber number="${packageInstance.price}" currencyCode="INR" format="Rs ##,###/-"/></h2>
+                        <h2 class="tag-value"><g:formatNumber number="${packageInstance.price}" currencyCode="INR" format="Rs ##,###/-"/></h2>
+                    </div>
+
+                    <div class="side-detail">
+                        <h4 class="tag-header">Duration</h4>
+                        <h2 class="tag-value">${packageInstance.duration} days</h2>
                     </div>
 
                     <g:form uri="/book" method="GET">
                         <input name="package" type="hidden" value="${packageInstance.id}"/>
-                        <input type="submit" value="Book Now" class="btn btn-primary btn-lg" />
+                        <input type="submit" value="Book Now" class="btn btn-primary btn-lg bk-now-btn" />
                     </g:form>
 
                 </div>
