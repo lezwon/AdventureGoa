@@ -1,37 +1,70 @@
 <div class="tab-pane fade active in" id="tab-profile">
     <div class="row">
         <div class="small-8 columns">
-            <table class="table">
-                <tr>
-                    <td>First Name</td>
-                    <td>${userInstance.firstName}</td>
-                </tr>
 
-                <tr>
-                    <td>Last Name</td>
-                    <td>${userInstance.lastName}</td>
-                </tr>
+            <h1 class="tab-content-header">Profile Details</h1>
+            <hr />
 
-                <tr>
-                    <td>Phone Number</td>
-                    <td>${userInstance.phone}</td>
-                </tr>
+            <g:form controller="user" action="ajaxUpdate" method="POST" name="ac-form-profile">
+                <g:field type="hidden" name="id" value="${userInstance?.id}"/>
 
-                <tr>
-                    <td>Date of Birth</td>
-                    <td><g:formatDate date="${userInstance.dob}" format="dd MMM yyyy"/> </td>
-                </tr>
+                <table class="table">
+                    <tr>
+                        <td>First Name</td>
+                        <td>
+                            <g:textField name="firstName" value="${userInstance?.firstName}" readonly="" class="form-control"/>
+                        </td>
 
-                <tr>
-                    <td>Username</td>
-                    <td>${userInstance.username}</td>
-                </tr>
+                        <td><a href="#" class="btn-change btn-sm btn-primary btn">Change</a></td>
+                    </tr>
 
-                <tr>
-                    <td>Email</td>
-                    <td>${userInstance.email}</td>
-                </tr>
-            </table>
+                    <tr>
+                        <td>Last Name</td>
+                        <td>
+                            <g:textField name="lastName" value="${userInstance?.lastName}" readonly="" class="form-control"/>
+                        </td>
+
+                        <td><a href="#" class="btn-change btn-sm btn-primary btn">Change</a></td>
+                    </tr>
+
+                    <tr>
+                        <td>Phone Number</td>
+                        <td>
+                            <g:textField name="phone" value="${userInstance?.phone}" readonly="" class="form-control"/>
+                        </td>
+
+                        <td><a href="#" class="btn-change btn-sm btn-primary btn">Change</a></td>
+                    </tr>
+
+                    <tr>
+                        <td>Date of Birth</td>
+                        <td>
+                        <input type="date" name="dob" value="<g:formatDate date="${userInstance?.dob}" format="yyyy-MM-dd"/>"
+                               readonly="" class="form-control" placeholder=""/>
+                        </td>
+
+                        <td><a href="#" class="btn-change btn-sm btn-primary btn">Change</a></td>
+                    </tr>
+
+                    <tr>
+                        <td>Username</td>
+                        <td>
+                            <g:textField name="username" value="${userInstance?.username}" readonly="" class="form-control"/>
+                        </td>
+
+                        <td><a href="#" class="btn-change btn-sm btn-primary btn">Change</a></td>
+                    </tr>
+
+                    <tr>
+                        <td>Email</td>
+                        <td>
+                        <g:textField name="email" value="${userInstance?.email}" readonly="" class="form-control"/>
+                        </td>
+
+                        <td><a href="#" class="btn-change btn-sm btn-primary btn">Change</a></td>
+                    </tr>
+                </table>
+            </g:form>
         </div>
     </div>
 </div>

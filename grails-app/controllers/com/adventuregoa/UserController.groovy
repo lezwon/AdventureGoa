@@ -149,6 +149,11 @@ class UserController extends grails.plugin.springsecurity.ui.UserController {
             return false
         }
 
+//        user.dob = new SimpleDateFormat("yyyy-MM-dd").format(params.dob)
+
+        user.clearErrors()
+        user.validate()
+
         if (user.hasErrors()) {
             render user.errors as JSON
             return
@@ -163,4 +168,5 @@ class UserController extends grails.plugin.springsecurity.ui.UserController {
 
         render 1
     }
+
 }

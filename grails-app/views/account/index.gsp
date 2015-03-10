@@ -47,10 +47,6 @@
 
                             %{--<g:render template="wishlist" model="[paymentCardInstance: paymentCardInstance]"/>--}%
 
-                            <div class="tab-pane fade" id="tab-orders">
-                                <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone...</p>
-                            </div>
-
                             <div class="tab-pane fade" id="tab-wishlist">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab autem cumque hic nesciunt nihil numquam voluptatem. Accusamus, alias asperiores aspernatur atque eos reiciendis, repudiandae sequi ut, veniam vero vitae voluptatum!</p>
                             </div>
@@ -61,5 +57,6 @@
         </div>
     </div>
 
+<g:javascript src="booking.js"/>
 </body>
 </html>

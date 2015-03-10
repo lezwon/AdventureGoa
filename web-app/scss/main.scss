@@ -27,6 +27,11 @@
     width: 100%;
   }
 
+  select{
+    width: 20%;
+  }
+
+
   select[name*=day],select[name*=month],select[name*=year]{
     border: 1px solid darken(white,20);
     padding: 5px;
@@ -65,10 +70,13 @@
   }
 }
 
-.form-control[readonly] {
+.form-control[readonly], .form-control[disabled] {
   opacity: 1;
   background-color: transparent;
-  cursor: pointer;
+  cursor: default;
+  border-color: transparent;
+  resize: none;
+  @include appearance(none);
 }
 
 .icon-compass {
@@ -760,7 +768,7 @@ footer{
 
 /*BOOKING PAGE*/
 #booking-form-container{
-  margin-top: 150px;
+  margin-top: 50px;
   background: #ffffff;
   padding: 30px;
   @include border-radius(10px);
@@ -828,11 +836,7 @@ footer{
 
 #personal-container{
   form{
-    .datepicker-container{
-      select{
-        width: 20%;
-      }
-    }
+
   }
 }
 
@@ -969,6 +973,29 @@ footer{
   }
 }
 
+.tab-pane{
+
+  .tab-content-header{
+    margin: 0;
+  }
+
+  hr{
+    margin: 10px 0 30px;
+  }
+
+  input:read-only{
+    outline: none;
+    background: none;
+    color: black;
+    cursor: default;
+    border: 1px solid transparent;
+  }
+
+  tr:first-child td{
+    border-top: none;
+  }
+}
+
 .booking-item-container{
   height: 250px;
   border: 3px solid darkgray;
@@ -1008,4 +1035,8 @@ footer{
       width: 100%;
     }
   }
+}
+
+.change-bar{
+  padding: 10px;
 }
