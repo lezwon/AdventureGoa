@@ -19,6 +19,7 @@
     "swiper": "~2.7.0",
     "unslider": "~1.0.0",
     "WOW": "~1.0.1",
-    "flexslider": "*"
+    "flexslider": "*",
+    "eonasdan-bootstrap-datetimepicker": "~4.7.14"
   }
 }

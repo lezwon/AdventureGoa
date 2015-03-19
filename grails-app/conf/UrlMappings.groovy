@@ -23,7 +23,7 @@ class UrlMappings {
         "/packages"(controller: "package", action: "display")
         "/hotels"(controller: "hotel", action: "display")
         "/sports"(controller: "adventureActivity", action: "display")
-        "/book"(controller: "booking", action: "create")
+        "/book"(controller: "booking", action: "book")
         "/checkout"(controller: "booking", action: "save")
 
     }

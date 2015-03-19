@@ -32,7 +32,7 @@
 
                 <tr>
                     <td>Start Date</td>
-                    <td><g:formatDate type="date" date="${bookingInstance.startDate}"/></td>
+                    <td><g:formatDate type="date" date="${bookingInstance.startDate}" format="dd-MMM-yyyy"/></td>
                 </tr>
 
                 <tr>

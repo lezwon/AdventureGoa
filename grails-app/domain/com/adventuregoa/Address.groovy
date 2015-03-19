@@ -18,7 +18,7 @@ class Address extends Base{
         streetAddress blank: false
         country blank: false
         state blank: false
-        zipCode blank: false, minSize: 6
+        zipCode blank: false, minSize: 6, shared: "number"
         landmark blank: true, nullable: true
     }
 

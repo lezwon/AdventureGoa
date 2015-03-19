@@ -28,7 +28,7 @@ class BookingController {
         respond bookingInstance
     }
 
-    def create() {
+    def book() {
         respond new Booking(params), model:[packageInstanceList:Package.list()]
     }
 
@@ -39,17 +39,21 @@ class BookingController {
             return
         }
 
-        bookingInstance.startDate = new SimpleDateFormat("yyyy-MM-dd").parse(params.startDate as String)
+        bookingInstance.startDate = new SimpleDateFormat("dd/MM/yyyy").parse(params.startDate as String)
 
         bookingInstance.clearErrors()
         bookingInstance.validate()
 
         if (bookingInstance.hasErrors()) {
-            render view: "create", model: [packageInstanceList: Package.list(), bookingInstance: bookingInstance]
+            render view: "book", model: [packageInstanceList: Package.list(), bookingInstance: bookingInstance]
             return
         }
 
-        bookingInstance.save flush: true
+        try {
+            bookingInstance.save flush: true
+        } catch (e) {
+            e.printStackTrace()
+        }
 
         Cookie domainUrlCookie = new Cookie("domainUrl",g.createLink(controller: "ticket", action: "generateTickets", id: bookingInstance.id) as String);
         domainUrlCookie.maxAge = 60*60

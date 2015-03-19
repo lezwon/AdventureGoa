@@ -31,8 +31,7 @@
                             <li  class="active"><a href="#tab-profile" data-toggle="tab">Profile</a></li>
                             <li><a href="#tab-address" data-toggle="tab">Address</a></li>
                             <li><a href="#tab-payment" data-toggle="tab">Payment Details</a></li>
-                            <li><a href="#tab-orders" data-toggle="tab">Orders</a></li>
-                            <li><a href="#tab-wishlist" data-toggle="tab">Wishlist</a></li>
+                            <li><a href="#tab-bookings" data-toggle="tab">Bookings</a></li>
                         </ul>
 
                         <div class="tab-content">
@@ -43,13 +42,7 @@
 
                             <g:render template="payment" model="[paymentCardInstance: paymentCardInstance]"/>
 
-                            <g:render template="orders" model="[bookingInstanceList: bookingInstanceList]"/>
-
-                            %{--<g:render template="wishlist" model="[paymentCardInstance: paymentCardInstance]"/>--}%
-
-                            <div class="tab-pane fade" id="tab-wishlist">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab autem cumque hic nesciunt nihil numquam voluptatem. Accusamus, alias asperiores aspernatur atque eos reiciendis, repudiandae sequi ut, veniam vero vitae voluptatum!</p>
-                            </div>
+                            <g:render template="bookings" model="[bookingInstanceList: bookingInstanceList]"/>
                         </div>
                     </div>
                 </div>

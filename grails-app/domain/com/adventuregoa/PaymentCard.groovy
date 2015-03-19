@@ -12,7 +12,7 @@ class PaymentCard extends Base{
 
     static constraints = {
         cardNumber creditCard: true
-        cvv size: 3..3
+        cvv size: 3..3, shared: "number"
         expiry shared: "currentMonth"
     }
 }

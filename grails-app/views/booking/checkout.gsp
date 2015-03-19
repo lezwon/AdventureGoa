@@ -17,7 +17,7 @@
             <div class="accordion-container panel-group panel-group-lists collapse in" id="accordion-container">
                 <g:render template="form-personalDetails" />
                 <g:render template="form-address" />
-                <g:render template="form-orderSummary" />
+                <g:render template="form-orderSummary" model="[bookingInstance:bookingInstance]"/>
                 <g:render template="form-paymentOptions" />
             </div>
         </div>

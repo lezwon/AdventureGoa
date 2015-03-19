@@ -1,7 +1,7 @@
 @import "compass";
 @import "variables";
 
-* {
+*:not(.glyphicon){
   font-family: "Raleway", sans-serif !important;
 }
 
@@ -20,6 +20,10 @@
 
 .shadow{
   @include single-box-shadow(0, 1px, 9px, -1px, darken(white,30));
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu{
+  background: white;
 }
 
 .datepicker-container{
@@ -70,7 +74,7 @@
   }
 }
 
-.form-control[readonly], .form-control[disabled] {
+.ac-field[readonly], .ac-field:disabled, .datepicker-container select:disabled {
   opacity: 1;
   background-color: transparent;
   cursor: default;
@@ -773,6 +777,21 @@ footer{
   padding: 30px;
   @include border-radius(10px);
   @include single-box-shadow(darken(white,20),0,5px,5px,0);
+
+  #startDate{
+
+    &:read-only {
+      background: transparent;
+      color: #000000;
+      border: 1px solid darkgray;
+      cursor: pointer;
+    }
+
+    @include input-placeholder{
+      color: #000000;
+    }
+
+  }
 }
 
 /*CHECKOUT PAGE*/

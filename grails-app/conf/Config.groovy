@@ -156,8 +156,11 @@ grails.gorm.default.constraints = {
                 if(val.before(currentDay)){
                     return ['date.min.invalid']
                 }
-
             }
+    )
+
+    number(
+            matches: "^\\d+\$"
     )
 }
 

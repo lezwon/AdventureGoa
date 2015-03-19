@@ -23,16 +23,8 @@ class PaymentCardController {
         }
 
         try{
+            card.save(failOnError: true);
             user.paymentCard = card
-
-            Booking booking = Booking.get(params.booking_id as int)
-
-            if(booking && user.booking.contains(booking)){
-                booking.paymentStatus = "Paid"
-                booking.bookingStatus = "Paid"
-                booking.save(failOnError: true,flush: true)
-            }
-
             user.save(failOnError: true,flush: true)
         }catch (e){
             e.printStackTrace()
