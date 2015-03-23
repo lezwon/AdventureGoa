@@ -1,4 +1,5 @@
 import com.adventuregoa.AdventureActivity
+import com.adventuregoa.Booking
 import com.adventuregoa.Hotel
 import com.adventuregoa.Role
 import com.adventuregoa.User
@@ -147,7 +148,33 @@ class BootStrap {
             packageInstance.save()
         }
 
+
+        /*Create Bookings*/
+
+        (0..5).each{
+//            booking.totalPrice = booking.package.price * booking.noOfPeople
+            Booking booking = new Booking();
+            booking.user = User.get(random.nextInt(10) + 1)
+            booking.package = Package.get(random.nextInt(10) + 1)
+            booking.startDate = randomDate()
+            booking.noOfPeople = random.nextInt(10) + 1
+            booking.paymentStatus = "Paid"
+            booking.bookingStatus = "Tickets Generated"
+            booking.save(failOnError: true)
+        }
+
+
+
+
     }
+
+    def randomDate(){
+        Calendar calendar = Calendar.getInstance()
+        calendar.setTime(new Date())
+        calendar.add(Calendar.DATE,random.nextInt(10)+1)
+        return calendar.getTime()
+    }
+
     def destroy = {
         def contextPath = servletContext.getRealPath('/') //get server root path
         def imageFolder = "images/";

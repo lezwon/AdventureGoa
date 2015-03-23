@@ -33,7 +33,8 @@ class Booking extends Base{
 
     def beforeValidate(){
         this.totalPrice = this.package.price * this.noOfPeople
-        this.user = springSecurityService.currentUser as User
+        if(springSecurityService.isLoggedIn())
+            this.user = springSecurityService.currentUser as User
     }
 
     def afterInsert(){

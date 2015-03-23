@@ -2,6 +2,7 @@ package com.adventuregoa
 
 import adventuregoa.DomainClassPropertiesService
 import grails.plugin.springsecurity.annotation.Secured
+import org.apache.tools.ant.taskdefs.Pack
 
 import javax.servlet.http.Cookie
 import java.text.SimpleDateFormat
@@ -146,6 +147,14 @@ class BookingController {
         }
         flash.message = message(code: "booking.cancelled");
         render(view: "cancel", model: [bookingInstance: bookingInstance]);
+    }
+
+    @Secured("ROLE_ADMIN")
+    def bookings(){
+        render(view: "bookings", model: [
+                bookingInstanceList: Booking.list(params),
+                packageInstanceList: Package.list()
+        ])
     }
 
 }

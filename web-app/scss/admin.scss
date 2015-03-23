@@ -147,3 +147,44 @@ a{
     outline: none;
   }
 }
+
+.booking-options-container{
+  .form-inline{
+    .selector-group{
+      width: 20%;
+      float: left;
+      padding: 10px 10px 10px 0;
+
+      .btn{
+        margin-top: 23px;
+        width: 100%;
+      }
+
+      &.date-range-selector{
+        width: 35%;
+
+        .form-group{
+          display: table-cell;
+          padding-right: 5px;
+        }
+      }
+
+      .form-group {
+        display: block;
+        .form-control{
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+
+.booking-table{
+  tbody{
+    td{
+      color: gray;
+      font-size: .8em;
+    }
+  }
+}
