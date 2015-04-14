@@ -1,7 +1,5 @@
 package com.adventuregoa
 
-import org.apache.tools.ant.taskdefs.Pack
-
 import java.text.SimpleDateFormat
 
 
@@ -11,6 +9,7 @@ class Booking extends Base{
 
     int noOfPeople = 1
     int totalPrice
+//    Date bookingDate
     Date startDate
     Date endDate
     String reference
@@ -32,7 +31,8 @@ class Booking extends Base{
     }
 
     def beforeValidate(){
-        this.totalPrice = this.package.price * this.noOfPeople
+        this.package ? this.totalPrice = this.package.price * this.noOfPeople: null
+//        this.bookingDate = new Date()
         if(springSecurityService.isLoggedIn())
             this.user = springSecurityService.currentUser as User
     }

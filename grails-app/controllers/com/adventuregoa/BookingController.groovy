@@ -2,7 +2,7 @@ package com.adventuregoa
 
 import adventuregoa.DomainClassPropertiesService
 import grails.plugin.springsecurity.annotation.Secured
-import org.apache.tools.ant.taskdefs.Pack
+
 
 import javax.servlet.http.Cookie
 import java.text.SimpleDateFormat
@@ -35,8 +35,14 @@ class BookingController {
 
     @Transactional
     def save(Booking bookingInstance) {
+
         if (bookingInstance == null) {
             notFound()
+            return
+        }
+
+        if(params.package == "" || params.startDate == ""){
+            render view: "book", model: [packageInstanceList: Package.list(), bookingInstance: bookingInstance]
             return
         }
 
@@ -151,8 +157,21 @@ class BookingController {
 
     @Secured("ROLE_ADMIN")
     def bookings(){
+
+
+
+        def bookingCriteria = Booking.createCriteria()
+        def bookingInstanceList = bookingCriteria.list {
+            def sdf = new SimpleDateFormat("dd/MM/yyyy");
+            params.fromDate ? ge("startDate",sdf.parse(params.fromDate as String)) : null
+            params.toDate ? le("startDate", sdf.parse(params.toDate as String)) : null
+            params.bookingStatus ? eq("bookingStatus",params.bookingStatus as String): null
+            params.package ? eq("package",Package.get(params.package as int)) : null
+            params.sort ? order(params.sort as String,params.order as String): null
+        }
+
         render(view: "bookings", model: [
-                bookingInstanceList: Booking.list(params),
+                bookingInstanceList: bookingInstanceList,
                 packageInstanceList: Package.list()
         ])
     }

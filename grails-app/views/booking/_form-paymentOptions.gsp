@@ -12,7 +12,7 @@
 
             <div class="errors"></div>
             
-            <g:form name="form-payment" controller="paymentCard" action="ajaxUpdate">
+            <g:form name="form-payment" controller="paymentCard" action="ajaxUpdate" useToken="true">
                 <div class="form-group">
                     <label class="checkbox-inline">
                         <g:radio name="type" value="Debit Card" checked="true"/>

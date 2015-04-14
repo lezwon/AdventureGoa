@@ -32,7 +32,7 @@
                     <div class="form-group">
                         <label for="package">Package</label>
                         <g:select name="package" from="${packageInstanceList}" value="${bookingInstance.package?.id}"
-                        optionKey="id" optionValue="name" class="form-control"/>
+                        optionKey="id" optionValue="name" class="form-control" noSelection="['':'-Choose your Package-']"/>
                     </div>
 
                     <div class="form-group">

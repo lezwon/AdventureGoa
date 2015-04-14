@@ -25,8 +25,8 @@
                     <div class="option-label">Select Date Range</div>
 
                     <div class="form-group">
-                        <div class="input-group date" id="datetimepicker1">
-                            <g:textField name="fromDate" class="form-control" placeholder="From Date" />
+                        <div class="input-group date" id="datetimepicker1" class="datetimepicker">
+                            <g:textField name="fromDate" class="form-control" placeholder="From Date" value="${params.fromDate}"/>
                             <span class="input-group-addon">
                                 <span class="glyphicon-calendar glyphicon"></span>
                             </span>
@@ -34,8 +34,8 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="input-group date" id="datetimepicker2">
-                            <g:textField name="toDate" class="form-control" placeholder="To Date" />
+                        <div class="input-group date" id="datetimepicker2" class="datetimepicker">
+                            <g:textField name="toDate" class="form-control" placeholder="To Date" value="${params.toDate}"/>
                             <span class="input-group-addon">
                                 <span class="glyphicon-calendar glyphicon"></span>
                             </span>
@@ -47,20 +47,26 @@
                 <div class="package-selector selector-group">
                     <div class="option-label">Select Package</div>
                     <div class="form-group">
-                        <g:select name="package" from="${packageInstanceList*.name}" class="form-control" noSelection="${['null':'Select One...']}"/>
+                        <g:select name="package" from="${packageInstanceList}" class="form-control" value="${params.package}"
+                                  optionKey="id" optionValue="name" noSelection="${["":'Select One...']}"/>
                     </div>
                 </div>
 
 
                 <div class="booking-status-selector selector-group">
-                    <div class="option-label">Select Package</div>
+                    <div class="option-label">Booking Status</div>
                     <div class="form-group">
-                        <g:select name="bookingStatus" from="${["Payment Pending","Paid","Tickets Generated"]}" class="form-control" noSelection="${['null':'Select One...']}" />
+                        <g:select name="bookingStatus" from="${["Payment Pending","Payment Paid","Tickets Generated"]}"
+                         value="${params.bookingStatus}" class="form-control" noSelection="${["":'Select One...']}" />
                     </div>
                 </div>
 
                 <div class="selector-group">
                     <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+
+                <div class="selector-group">
+                    <g:link action="bookings" class="btn btn-default">Clear</g:link>
                 </div>
             </g:form>
 
@@ -70,8 +76,8 @@
             <thead>
                 <tr>
                     <g:sortableColumn property="reference" defaultOrder="desc" title="Reference" action="bookings"/>
-                    <g:sortableColumn property="user.firstName" defaultOrder="desc" title="Customer Name" action="bookings"/>
-                    <g:sortableColumn property="package.name" defaultOrder="desc" title="Package" action="bookings"/>
+                    <g:sortableColumn property="user" defaultOrder="desc" title="Customer Name" action="bookings"/>
+                    <g:sortableColumn property="package" defaultOrder="desc" title="Package" action="bookings"/>
                     <g:sortableColumn property="noOfPeople" defaultOrder="desc" title="No of People" action="bookings"/>
                     <g:sortableColumn property="totalPrice" defaultOrder="desc" title="Total Cost" action="bookings"/>
                     <g:sortableColumn property="startDate" defaultOrder="desc" title="Start Date" action="bookings"/>
@@ -94,5 +100,41 @@
             </g:each>
         </table>
     </div>
+
+<g:external dir="components/jquery/dist/" file="jquery.min.js" />
+<g:external dir="components/moment/" file="moment.js" />
+<g:external dir="components/eonasdan-bootstrap-datetimepicker/build/js/" file="bootstrap-datetimepicker.min.js" />
+<g:external dir="components/eonasdan-bootstrap-datetimepicker/build/css/" file="bootstrap-datetimepicker.min.css" />
+<script>
+    $(document).ready(function(){
+        var datetimepicker1 = $("#datetimepicker1");
+        var datetimepicker2 = $("#datetimepicker2");
+//        var date = new Date();
+        var minDate = datetimepicker1.val();
+//        var maxDate = date.setDate(date.getDate()+100);
+
+        datetimepicker1.datetimepicker({
+            format: 'DD/MM/YYYY',
+            viewMode: 'days',
+            widgetPositioning: {
+                horizontal: 'left',
+                vertical: 'bottom'
+            }
+//            minDate: minDate,
+//            maxDate: maxDate
+        });
+
+        datetimepicker2.datetimepicker({
+            format: 'DD/MM/YYYY',
+            viewMode: 'days',
+            widgetPositioning: {
+                horizontal: 'right',
+                vertical: 'bottom'
+            },
+            minDate: minDate? minDate: false
+//            maxDate: maxDate
+        });
+    });
+</script>
 </body>
 </html>

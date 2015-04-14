@@ -149,14 +149,21 @@ a{
 }
 
 .booking-options-container{
+
+  .option-label{
+    font-size: small;
+    font-style: italic;
+    padding: 5px;
+  }
+
   .form-inline{
     .selector-group{
-      width: 20%;
+      width: 15%;
       float: left;
       padding: 10px 10px 10px 0;
 
       .btn{
-        margin-top: 23px;
+        margin-top: 28px;
         width: 100%;
       }
 
@@ -164,8 +171,9 @@ a{
         width: 35%;
 
         .form-group{
-          display: table-cell;
+          display: inline-block;
           padding-right: 5px;
+          width: 49%;
         }
       }
 

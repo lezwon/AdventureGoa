@@ -32,6 +32,17 @@ class PaymentCardController {
             return
         }
 
+        updatePaymentStatus();
+
         render 1
+    }
+
+    def updatePaymentStatus() {
+        def bookingId = params.booking_id
+        if(bookingId){
+            def bookingInstance = Booking.get(bookingId as int)
+            bookingInstance.bookingStatus = "Payment Paid"
+            bookingInstance.paymentStatus = "Paid"
+        }
     }
 }
