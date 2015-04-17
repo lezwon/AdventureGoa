@@ -31,25 +31,13 @@
 
                     <div class="form-group">
                         <label for="package">Package</label>
-                        <g:select name="package" from="${packageInstanceList}" value="${bookingInstance.package?.id}"
+                        <g:select name="_package" from="${packageInstanceList}" value="${bookingInstance._package?.id}"
                         optionKey="id" optionValue="name" class="form-control" noSelection="['':'-Choose your Package-']"/>
                     </div>
 
                     <div class="form-group">
                         <label for="noOfPeople">Number of People</label>
                         <g:select name="noOfPeople" from="${1..10}" value="${bookingInstance?.noOfPeople}" class="form-control" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="startDate">Date to Start</label>
-
-                        <div class="input-group date" id="datetimepicker">
-                        <g:textField name="startDate" class="form-control" placeholder="Select Date"/>
-                        <span class="input-group-addon">
-                            <span class="glyphicon-calendar glyphicon">
-                            </span>
-                        </span>
-                        </div>
                     </div>
 
                     <div class="form-group">
@@ -61,29 +49,6 @@
         </div>
     </div>
 
-<g:external dir="components/moment/" file="moment.js" />
-<g:external dir="components/eonasdan-bootstrap-datetimepicker/build/js/" file="bootstrap-datetimepicker.min.js" />
-<g:external dir="components/eonasdan-bootstrap-datetimepicker/build/css/" file="bootstrap-datetimepicker.min.css" />
-<script>
-    $(document).ready(function(){
-        var datetimepicker = $("#datetimepicker");
-        var date = new Date();
-        var minDate = date.setDate(date.getDate()+1);
-        var maxDate = date.setDate(date.getDate()+100);
-
-        datetimepicker.datetimepicker({
-            format: 'DD/MM/YYYY',
-            viewMode: 'days',
-            widgetParent: datetimepicker,
-            widgetPositioning: {
-                horizontal: 'left',
-                vertical: 'top'
-            },
-            minDate: minDate,
-            maxDate: maxDate
-        });
-    });
-</script>
 
 </body>
 </html>

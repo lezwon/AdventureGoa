@@ -15,7 +15,7 @@ import grails.transaction.Transactional
 class BookingController {
 
     def springSecurityService
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST", update: "PUT", delete: "GET"]
 
     @Secured("ROLE_ADMIN")
     def index() {
@@ -41,12 +41,11 @@ class BookingController {
             return
         }
 
-        if(params.package == "" || params.startDate == ""){
+        if(params.package == ""){
             render view: "book", model: [packageInstanceList: Package.list(), bookingInstance: bookingInstance]
             return
         }
 
-        bookingInstance.startDate = new SimpleDateFormat("dd/MM/yyyy").parse(params.startDate as String)
 
         bookingInstance.clearErrors()
         bookingInstance.validate()
@@ -105,15 +104,15 @@ class BookingController {
             return
         }
 
-        bookingInstance.delete flush: true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Booking.label', default: 'Booking'), bookingInstance.id])
-                redirect action: "index", method: "GET"
-            }
-            '*' { render status: NO_CONTENT }
+        if(bookingInstance.user != springSecurityService.currentUser){
+            render(status: UNAUTHORIZED, text:"Unauthorized Access");
+            return
         }
+
+        bookingInstance.delete flush: true
+        flash.message = message(code: "message.booking.clear")
+
+        redirect(controller: 'account')
     }
 
     protected void notFound() {
@@ -148,6 +147,9 @@ class BookingController {
         bookingInstance.bookingStatus ="Cancelled";
         try {
             bookingInstance.save(failOnError: true, flush: true);
+            Ticket.findAllByBooking(bookingInstance)*.delete();
+            bookingInstance._package.capacity += bookingInstance.noOfPeople
+            bookingInstance._package.save()
         } catch (e) {
             e.printStackTrace()
         }
@@ -158,15 +160,17 @@ class BookingController {
     @Secured("ROLE_ADMIN")
     def bookings(){
 
-
-
         def bookingCriteria = Booking.createCriteria()
         def bookingInstanceList = bookingCriteria.list {
             def sdf = new SimpleDateFormat("dd/MM/yyyy");
-            params.fromDate ? ge("startDate",sdf.parse(params.fromDate as String)) : null
-            params.toDate ? le("startDate", sdf.parse(params.toDate as String)) : null
+
+            _package{
+                params.fromDate ? ge("startDate",sdf.parse(params.fromDate as String)) : null
+                params.toDate ? le("startDate", sdf.parse(params.toDate as String)) : null
+            }
+
             params.bookingStatus ? eq("bookingStatus",params.bookingStatus as String): null
-            params.package ? eq("package",Package.get(params.package as int)) : null
+            params.package ? eq("_package",Package.get(params.package as int)) : null
             params.sort ? order(params.sort as String,params.order as String): null
         }
 

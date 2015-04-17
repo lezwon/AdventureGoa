@@ -603,7 +603,7 @@ footer{
 /*PACKAGES*/
 
 .intro-head{
-  margin: 150px 0 50px 0;
+  margin: 50px 0 50px 0;
 
 //  *{
 //    font-family: 'Raleway', sans-serif !important;
@@ -648,6 +648,10 @@ footer{
         background: transparentize(#000000,.7);
         @include transition(all .3s ease);
 
+        span.btn{
+          margin: 20px 0;
+        }
+
         .hidden-desc{
           margin: 25px 0 0;
 
@@ -674,6 +678,7 @@ footer{
   height: 300px;
   width: 100%;
   background-size: cover;
+  background-position-y: 35%;
   background-image:  linear-gradient(to bottom, rgba(102,102,102,0) 0%, rgba(0,0,0,1) 100%);
 
   .cover-gradient{
@@ -895,7 +900,7 @@ footer{
 /*BOOKING SUCCESS*/
 
 .order-status-container{
-  margin-top: 150px;
+  margin-top: 100px;
 
   .alert{
 //    font-family: "Raleway", sans-serif !important;

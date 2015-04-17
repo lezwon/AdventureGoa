@@ -18,6 +18,11 @@
             <div class="small-12-columns">
                 <h1>Account</h1>
                 <hr />
+                <g:if test="${flash.message}">
+                    <p class="alert alert-success">
+                        ${flash.message}
+                    </p>
+                </g:if>
             </div>
         </div>
     </div>

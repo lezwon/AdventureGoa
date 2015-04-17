@@ -36,7 +36,7 @@
                         <div class="small-4 columns">
                             <div class="form-group">
                                 <label for="cvv">CVV</label>
-                                <g:textField maxlength="3" name="cvv" class="form-control"/>
+                                <g:passwordField maxlength="3" name="cvv" class="form-control"/>
                             </div>
                         </div>
 

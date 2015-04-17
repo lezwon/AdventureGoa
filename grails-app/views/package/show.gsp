@@ -72,9 +72,20 @@
                         <h2 class="tag-value">${packageInstance.duration} days</h2>
                     </div>
 
+                    <div class="side-detail">
+                        <h4 class="tag-header">Start Date</h4>
+                        <h2 class="tag-value"><g:formatDate date="${packageInstance.startDate}" format="MMM dd, yyyy"/> </h2>
+                    </div>
+
                     <g:form uri="/book" method="GET">
                         <input name="package" type="hidden" value="${packageInstance.id}"/>
-                        <input type="submit" value="Book Now" class="btn btn-primary btn-lg bk-now-btn" />
+
+                        <g:if test="${packageInstance.capacity > 0 }">
+                            <input type="submit" value="Book Now" class="btn btn-primary btn-lg bk-now-btn" />
+                        </g:if>
+                        <g:else>
+                            <input type="submit" value="Sold Out" class="btn btn-primary btn-lg bk-now-btn" disabled />
+                        </g:else>
                     </g:form>
 
                 </div>

@@ -9,7 +9,7 @@ class UrlMappings {
 
         "/"(view: "/index")
         "500"(view: '/error')
-        "/home"(controller: "home", action: "index")
+        "/home"(controller: "package", action: "display")
         "/auth/login"(controller: "home", action: "index")
 
         "/$username/home" {

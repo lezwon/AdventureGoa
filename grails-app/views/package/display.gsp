@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta name="layout" content="white-layout">
+        <r:require modules="bootstrap"/>
         <title>Packages</title>
     </head>
     <body>
@@ -53,6 +54,12 @@
                         </li>
                     </g:each>
                 </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-12 columns">
+                <g:paginate  action="display" total="${packageInstanceTotal}" max="10"/>
             </div>
         </div>
     </body>

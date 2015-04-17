@@ -38,6 +38,10 @@
                 <ul class="nav navbar-nav navbar-right">
 
                     <li>
+                        <g:link controller="booking" action="bookings" target="_blank">View Bookings</g:link>
+                    </li>
+
+                    <li>
                         <g:link controller="home">Go to Website</g:link>
                     </li>
 
@@ -74,6 +78,42 @@
     </div>
 </div>
 <g:external dir="components/bootflat/js" file="jquery-1.10.1.min.js"/>
+
+<g:external dir="components/jquery/dist/" file="jquery.min.js" />
+<g:external dir="components/moment/" file="moment.js" />
+<g:external dir="components/eonasdan-bootstrap-datetimepicker/build/js/" file="bootstrap-datetimepicker.min.js" />
+<g:external dir="components/eonasdan-bootstrap-datetimepicker/build/css/" file="bootstrap-datetimepicker.min.css" />
 <g:javascript src="admin.js"/>
+<script>
+    $(document).ready(function(){
+        var datetimepicker1 = $("#datetimepicker1");
+        var datetimepicker2 = $("#datetimepicker2");
+//        var date = new Date();
+        var minDate = datetimepicker1.val();
+//        var maxDate = date.setDate(date.getDate()+100);
+
+        datetimepicker1.datetimepicker({
+            format: 'DD/MM/YYYY',
+            viewMode: 'days',
+            widgetPositioning: {
+                horizontal: 'left',
+                vertical: 'bottom'
+            }
+//            minDate: minDate,
+//            maxDate: maxDate
+        });
+
+        datetimepicker2.datetimepicker({
+            format: 'DD/MM/YYYY',
+            viewMode: 'days',
+            widgetPositioning: {
+                horizontal: 'right',
+                vertical: 'bottom'
+            },
+            minDate: minDate? minDate: false
+//            maxDate: maxDate
+        });
+    });
+</script>
 </body>
 </html>

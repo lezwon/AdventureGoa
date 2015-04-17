@@ -22,7 +22,7 @@
 
             <g:form class="form-inline" action="bookings" method="GET">
                 <div class="date-range-selector selector-group">
-                    <div class="option-label">Select Date Range</div>
+                    <div class="option-label">Select Start Date Range</div>
 
                     <div class="form-group">
                         <div class="input-group date" id="datetimepicker1" class="datetimepicker">
@@ -56,7 +56,7 @@
                 <div class="booking-status-selector selector-group">
                     <div class="option-label">Booking Status</div>
                     <div class="form-group">
-                        <g:select name="bookingStatus" from="${["Payment Pending","Payment Paid","Tickets Generated"]}"
+                        <g:select name="bookingStatus" from="${["Payment Pending","Payment Paid","Tickets Generated","Cancelled"]}"
                          value="${params.bookingStatus}" class="form-control" noSelection="${["":'Select One...']}" />
                     </div>
                 </div>
@@ -75,24 +75,26 @@
         <table class="table booking-table">
             <thead>
                 <tr>
-                    <g:sortableColumn property="reference" defaultOrder="desc" title="Reference" action="bookings"/>
-                    <g:sortableColumn property="user" defaultOrder="desc" title="Customer Name" action="bookings"/>
-                    <g:sortableColumn property="package" defaultOrder="desc" title="Package" action="bookings"/>
-                    <g:sortableColumn property="noOfPeople" defaultOrder="desc" title="No of People" action="bookings"/>
-                    <g:sortableColumn property="totalPrice" defaultOrder="desc" title="Total Cost" action="bookings"/>
-                    <g:sortableColumn property="startDate" defaultOrder="desc" title="Start Date" action="bookings"/>
-                    <g:sortableColumn property="paymentStatus" defaultOrder="desc" title="Payment Status" action="bookings"/>
-                    <g:sortableColumn property="bookingStatus" defaultOrder="desc" title="Booking Status" action="bookings"/>
+                    <g:sortableColumn property="reference" defaultOrder="desc" title="Reference" action="bookings" params="${params}"/>
+                    <g:sortableColumn property="user" defaultOrder="desc" title="Customer Name" action="bookings" params="${params}" />
+                    <g:sortableColumn property="_package" defaultOrder="desc" title="Package" action="bookings" params="${params}" />
+                    <g:sortableColumn property="noOfPeople" defaultOrder="desc" title="No of People" action="bookings" params="${params}" />
+                    <g:sortableColumn property="totalPrice" defaultOrder="desc" title="Total Cost" action="bookings" params="${params}" />
+                    <g:sortableColumn property="_package" defaultOrder="desc" title="Start Date" action="bookings" params="${params}" />
+                    <g:sortableColumn property="bookingDate" defaultOrder="desc" title="Booking Date" action="bookings" params="${params}" />
+                    <g:sortableColumn property="paymentStatus" defaultOrder="desc" title="Payment Status" action="bookings" params="${params}" />
+                    <g:sortableColumn property="bookingStatus" defaultOrder="desc" title="Booking Status" action="bookings" params="${params}" />
                 </tr>
             </thead>
             <g:each in="${bookingInstanceList}" var="bookingInstance">
                 <tr>
                     <td>${bookingInstance.reference}</td>
                     <td>${bookingInstance.user.firstName}</td>
-                    <td>${bookingInstance.package.name}</td>
+                    <td>${bookingInstance._package.name}</td>
                     <td>${bookingInstance.noOfPeople}</td>
                     <td><g:formatNumber number="${bookingInstance.totalPrice}"/></td>
-                    <td><g:formatDate date="${bookingInstance.startDate}" format="dd/MM/yyyy"/> </td>
+                    <td><g:formatDate date="${bookingInstance._package.startDate}" format="dd/MM/yyyy"/> </td>
+                    <td><g:formatDate date="${bookingInstance.bookingDate}" format="dd/MM/yyyy"/> </td>
                     <td>${bookingInstance.paymentStatus}</td>
                     <td>${bookingInstance.bookingStatus}</td>
 

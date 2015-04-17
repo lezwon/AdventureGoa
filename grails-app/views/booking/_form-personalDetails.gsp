@@ -34,7 +34,8 @@
                 <div class="form-group">
                     <label for="dob">Date of Birth</label>
                     <div class="datepicker-container">
-                        <g:datePicker type="date" name="dob" class="form-control" value="${userInstance.dob}" precision="day"/>
+                        <g:datePicker type="date" name="dob" class="form-control" value="${userInstance.dob}"
+                                      relativeYears="[20..-50]" precision="day"/>
                     </div>
                 </div>
 

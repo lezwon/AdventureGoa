@@ -11,8 +11,8 @@ class PaymentCard extends Base{
     static belongsTo = [User]
 
     static constraints = {
-        cardNumber creditCard: true
+//        cardNumber creditCard: true
         cvv size: 3..3, shared: "number"
-        expiry shared: "currentMonth"
+        expiry min: new Date()
     }
 }

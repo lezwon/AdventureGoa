@@ -18,7 +18,6 @@ class Hotel extends Base{
     static constraints = {
         importFrom(User)
         star max: 5, min: 1
-        price min: 500, max: 4000
     }
 
     static mapping = {

@@ -31,22 +31,17 @@
 
                                 <tr>
                                     <td>Package Booked</td>
-                                    <td>${bookingInstance.package.name}</td>
+                                    <td>${bookingInstance._package.name}</td>
                                 </tr>
 
                                 <tr>
                                     <td>Date of Booking </td>
-                                    <td><g:formatDate date="${bookingInstance.created_at}" format="dd/MM/yyyy hh:mm"/> </td>
+                                    <td><g:formatDate date="${bookingInstance.bookingDate}" format="dd/MM/yyyy"/> </td>
                                 </tr>
 
                                 <tr>
                                     <td>Number of seats</td>
                                     <td>${bookingInstance.noOfPeople}</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Start Date</td>
-                                    <td><g:formatDate date="${bookingInstance.startDate}" format="dd/MM/yyyym"/> </td>
                                 </tr>
 
                                 <tr>

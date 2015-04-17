@@ -9,6 +9,10 @@ a{
   @include transition(all .3s ease);
 }
 
+.glyphicon{
+  font-family: 'Glyphicons Halflings', sans-serif !important;
+}
+
 .container{
   padding: 0;
   margin-top: 25px;

@@ -1,5 +1,7 @@
 package com.adventuregoa
 
+import adventuregoa.DateGeneratorService
+
 class User extends Base{
 
 	String firstName
@@ -38,7 +40,11 @@ class User extends Base{
         firstName nullable: true
         lastName nullable: true
         phone nullable: true
-        dob nullable: true
+        dob nullable: true, validator: { val, obj, errors ->
+			if(val.after(DateGeneratorService.birthDate())){
+				errors.rejectValue('dob','com.adventuregoa.User.dob.min')
+			}
+		}
 	}
 
 	static mapping = {

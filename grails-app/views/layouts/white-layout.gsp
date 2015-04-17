@@ -54,25 +54,25 @@
                 <ul class="small-block-grid-4">
                     <li>
                         <ul>
-                            <li class="nav-header">Lorem.</li>
-                            <li><a href="">Lorem.</a></li>
-                            <li><a href="">Assumenda!</a></li>
-                            <li><a href="">Voluptatum.</a></li>
-                            <li><a href="">Voluptates.</a></li>
+                            <li class="nav-header">About us</li>
+                            <li><a href="">Team</a></li>
+                            <li><a href="">Location</a></li>
+                            <li><a href="">Terms</a></li>
+                            <li><a href="">Disclaimer</a></li>
                         </ul>
                     </li>
                     <li>
                         <ul>
-                            <li class="nav-header">Voluptates!</li>
-                            <li><a href="">Lorem.</a></li>
-                            <li><a href="">Illum!</a></li>
+                            <li class="nav-header">Contact us</li>
+                            <li><a href="">Helpline</a></li>
+                            <li><a href="">Office</a></li>
                             <li><a href="">Reiciendis!</a></li>
                             <li><a href="">Nulla.</a></li>
                         </ul>
                     </li>
                     <li>
                         <ul>
-                            <li class="nav-header">Quod.</li>
+                            <li class="nav-header">Jobs</li>
                             <li><a href="">Lorem.</a></li>
                             <li><a href="">Voluptatum.</a></li>
                             <li><a href="">Veritatis!</a></li>
@@ -81,9 +81,9 @@
                     </li>
                     <li>
                         <ul>
-                            <li class="nav-header">Lorem.</li>
-                            <li><a href="">Lorem.</a>
-                            </li><li><a href="">Numquam?</a></li>
+                            <li class="nav-header">Developers</li>
+                            <li><a href="">Lorem.</a></li>
+                            <li><a href="">Numquam?</a></li>
                             <li><a href="">Odit?</a></li>
                             <li><a href="">Ipsum.</a></li>
                         </ul>

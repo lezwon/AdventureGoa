@@ -6,6 +6,8 @@ import grails.plugin.springsecurity.annotation.Secured
 import org.apache.tomcat.jni.File
 import org.apache.tools.ant.taskdefs.Pack
 
+import java.text.SimpleDateFormat
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -35,10 +37,16 @@ class PackageController {
         String contextPath
         String name
         def imageUploadSuccess
+        def sdf = new SimpleDateFormat("dd/MM/yyyy")
 
         /*Image Upload*/
         contextPath = servletContext.getRealPath('/') //get server root path
         imageUploadSuccess = FileUploadService.uploadFile(packageInstance,params,contextPath) //upload image successful
+
+
+        packageInstance.startDate = sdf.parse(params.startDate as String)
+        packageInstance.endDate = sdf.parse(params.endDate as String)
+
 
         /*Hotels Addition*/
 //        hotelsList = new ArrayList()
@@ -248,7 +256,11 @@ class PackageController {
 //    @Secured(["ROLE_USER","ROLE_ADMIN"])
     @Secured("IS_AUTHENTICATED_ANONYMOUSLY")
     def display(){
-        render model: [packageInstanceList:Package.list()], view: "display"
+//        params.max=Math.min(params.max ? params.int('max') : 10,100)
+        render view: "display", model: [
+                packageInstanceList:Package.where{ capacity > 0 }.list(params),
+                packageInstanceTotal: Package.where{ capacity > 0 }.count()
+        ]
     }
 
     @Secured("IS_AUTHENTICATED_ANONYMOUSLY")

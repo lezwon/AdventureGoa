@@ -141,7 +141,7 @@ grails.gorm.default.constraints = {
     })
 
     currentMonth(
-            validator: { val->
+            validator: { val,obj,error->
                 Calendar cal = Calendar.getInstance()
                 cal.setTime(new Date())
 
@@ -182,8 +182,9 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 ]
 
 
-
+grails.plugins.twitterbootstrap.fixtaglib = true
 grails.plugin.springsecurity.userLookup.loginPropertyName = 'email'
+//grails.plugin.springsecurity.userLookup.usernamePropertyName ='email'
 grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'
 grails.plugin.springsecurity.ui.register.postResetUrl = ''
 grails.assets.excludes = ["*"]

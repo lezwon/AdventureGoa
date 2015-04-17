@@ -27,14 +27,35 @@
                 <g:textArea class="form-control" name="shortDescription" rows="5" value="${packageInstance?.shortDescription}"/>
             </div>
 
-			<div class="form-group">
-				<label for="description">Description</label>
-				<g:textArea class="form-control" name="description" rows="10" value="${packageInstance?.description}"/>
-			</div>
 
             <div class="form-group">
-                <label for="duration">Duration</label>
-                <g:field type="number" name="duration" class="form-control" value="${packageInstance?.duration}"/>
+                <label for="description">Description</label>
+                <g:textArea class="form-control" name="description" rows="10" value="${packageInstance?.description}"/>
+            </div>
+
+            <div class="form-group">
+                <label for="capacity">Capacity</label>
+                <g:textField class="form-control" name="capacity" value="${packageInstance?.capacity}"/>
+            </div>
+
+            <div class="form-group">
+                <label for="startDate">Start Date</label>
+                <div class="input-group date" id="datetimepicker1">
+                    <g:textField name="startDate" class="form-control" value="${packageInstance?.startDate}"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon-calendar glyphicon"></span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="endDate">End Date</label>
+                <div class="input-group date" id="datetimepicker2">
+                    <g:textField name="endDate" class="form-control" value="${packageInstance?.endDate}"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon-calendar glyphicon"></span>
+                    </span>
+                </div>
             </div>
 
 			<div class="form-group">
@@ -137,12 +158,6 @@
                 </li>
             </ul>
 
-
-
-
-
-
-
 			<div class="form-group">
 				<input type="reset" value="Reset" class="btn btn-default btn-lg" />
 				<input type="submit" value="Submit" class="btn btn-primary btn-lg"/>
@@ -150,3 +165,5 @@
 		</g:form>
 	</div>
 </div>
+
+

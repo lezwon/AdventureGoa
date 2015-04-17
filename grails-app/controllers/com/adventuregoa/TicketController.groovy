@@ -134,6 +134,13 @@ class TicketController {
             return
         }
 
-        render(view: "printTickets", model: [ticketInstanceList: bookingInstance.tickets])
+        def tickets = bookingInstance.tickets
+
+        if(tickets == null){
+            render(status: NOT_FOUND, text: "Content Not Found.")
+            return
+        }
+
+        render(view: "printTickets", model: [ticketInstanceList: tickets])
     }
 }

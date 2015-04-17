@@ -26,19 +26,22 @@
 
                     <tr>
                         <td>Card Name</td>
-                        <td><g:textField name="cardName" value="${paymentCardInstance?.cardName}" readonly="" class="form-control ac-field"/></td>
+                        <td><g:textField name="cardName" value="${paymentCardInstance?.cardName}" readonly=""
+                                         class="form-control ac-field"/></td>
                         <td><a href="#" class="btn-change btn-sm btn-primary btn">Change</a></td>
                     </tr>
 
                     <tr>
                         <td>Card Number</td>
-                        <td><g:textField name="cardNumber" value="${paymentCardInstance?.cardNumber}" readonly="" class="form-control ac-field" maxlength="16"/></td>
+                        <td><g:textField name="cardNumber"
+                             value="${paymentCardInstance?.cardNumber}" readonly="" class="form-control ac-field" maxlength="16"/></td>
                         <td><a href="#" class="btn-change btn-sm btn-primary btn">Change</a></td>
                     </tr>
 
                     <tr>
                         <td>CVV</td>
-                        <td><g:textField name="cvv" value="${paymentCardInstance?.cvv}" readonly="" class="form-control ac-field" maxlength="3"/></td>
+                        <td><g:textField name="cvv" value="${paymentCardInstance?.cvv}" readonly=""
+                                         class="form-control ac-field" maxlength="3"/></td>
                         <td><a href="#" class="btn-change btn-sm btn-primary btn">Change</a></td>
                     </tr>
 
@@ -47,7 +50,8 @@
                         <td>
                             <div class="datepicker-container">
                                 <g:datePicker name="expiry" readonly="" disabled="disabled"
-                                              value="${paymentCardInstance?.expiry}" precision="month" relativeYears="[0..30]" class="form-control ac-field" />
+                                              value="${paymentCardInstance?.expiry}" precision="month"
+                                              relativeYears="[0..30]" class="form-control ac-field" />
                             </div>
                         </td>
                         <td><a href="#" class="btn-change btn-sm btn-primary btn">Change</a></td>

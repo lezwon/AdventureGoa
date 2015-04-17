@@ -1,3 +1,4 @@
+import adventuregoa.DateGeneratorService
 import com.adventuregoa.AdventureActivity
 import com.adventuregoa.Booking
 import com.adventuregoa.Hotel
@@ -23,7 +24,7 @@ class BootStrap {
                         firstName: "Lezwon",
                         lastName: "Castellino",
                         phone: "9405334893",
-                        dob: new GregorianCalendar(1993,12,8).getTime()
+                        dob: DateGeneratorService.getDate(8,Calendar.DECEMBER,1993)
                 ],
                 [
                         username: "lester",
@@ -32,7 +33,7 @@ class BootStrap {
                         firstName: "Lester",
                         lastName: "Castellino",
                         phone: "2342354254",
-                        dob: new GregorianCalendar(1989,11,26).getTime()
+                        dob: DateGeneratorService.getDate(26,11,1989)
                 ]
         ]
 
@@ -69,7 +70,7 @@ class BootStrap {
                     firstName: fakerService.firstName(),
                     lastName: fakerService.lastName(),
                     phone: fakerService.phoneNumber('##########'),
-                    dob: new Date()
+                    dob: DateGeneratorService.birthDate()
                 ).save(failOnError: true,flush: true);
                 UserRole.create(tempUser, roleUser)
 
@@ -77,6 +78,10 @@ class BootStrap {
                 e.printStackTrace()
             }
         }
+
+
+
+
 
         /*Package records*/
 
@@ -87,6 +92,9 @@ class BootStrap {
                         description: fakerService.paragraph(6),
                         shortDescription: fakerService.sentence(10) ,
 //                        image: '/images/package/colossus-cover.jpg',
+                        capacity: (random.nextInt(25)+40),
+                        startDate: DateGeneratorService.startDate(),
+                        endDate: DateGeneratorService.endDate(),
                         image: 'http://lorempixel.com/1920/500',
                         duration: random.nextInt(25)+15,
                         price: Integer.parseInt(fakerService.numerify("3####"))
@@ -155,8 +163,7 @@ class BootStrap {
 //            booking.totalPrice = booking.package.price * booking.noOfPeople
             Booking booking = new Booking();
             booking.user = User.get(random.nextInt(10) + 1)
-            booking.package = Package.get(random.nextInt(10) + 1)
-            booking.startDate = randomDate()
+            booking._package = Package.get(random.nextInt(10) + 1)
             booking.noOfPeople = random.nextInt(10) + 1
             booking.paymentStatus = "Paid"
             booking.bookingStatus = "Tickets Generated"
@@ -166,13 +173,6 @@ class BootStrap {
 
 
 
-    }
-
-    def randomDate(){
-        Calendar calendar = Calendar.getInstance()
-        calendar.setTime(new Date())
-        calendar.add(Calendar.DATE,random.nextInt(10)+1)
-        return calendar.getTime()
     }
 
     def destroy = {

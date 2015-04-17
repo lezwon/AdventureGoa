@@ -31,17 +31,17 @@
 
                     <tr>
                         <td>Package</td>
-                        <td>${it.booking.package.name}</td>
+                        <td>${it.booking._package.name}</td>
                     </tr>
 
                     <tr>
                         <td>Date</td>
-                        <td><g:formatDate date="${it.booking.startDate}" format="dd/MM/yyyy"/> </td>
+                        <td><g:formatDate date="${it.booking._package.startDate}" format="dd/MM/yyyy"/> </td>
                     </tr>
 
                     <tr>
                         <td>Price</td>
-                        <td><g:formatNumber number="${it.booking.package.price}" format="INR #,##,###/-" /> </td>
+                        <td><g:formatNumber number="${it.booking._package.price}" format="INR #,##,###/-" /> </td>
                     </tr>
 
                 </table>
