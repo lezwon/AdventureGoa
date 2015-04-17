@@ -88,7 +88,7 @@ class BootStrap {
         for ( i in 0..9 ) {
             try {
                 new Package(
-                        name: fakerService.sentence(2),
+                        name: fakerService.words(2),
                         description: fakerService.paragraph(6),
                         shortDescription: fakerService.sentence(10) ,
 //                        image: '/images/package/colossus-cover.jpg',
@@ -111,7 +111,7 @@ class BootStrap {
         for ( i in 0..9 ) {
             try {
                 new Hotel(
-                        name: fakerService.sentence(2),
+                        name: fakerService.words(2),
                         description: fakerService.paragraph(6),
 //                        image: '/images/package/colossus-cover.jpg',
                         image: 'http://lorempixel.com/1920/500',
@@ -132,7 +132,7 @@ class BootStrap {
         for ( i in 0..9 ) {
             try {
                 new AdventureActivity(
-                        name: fakerService.sentence(3),
+                        name: fakerService.words(3),
                         description: fakerService.paragraph(6),
 //                        image: '/images/package/colossus-cover.jpg',
                         image: 'http://lorempixel.com/1920/500',

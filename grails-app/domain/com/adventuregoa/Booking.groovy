@@ -45,9 +45,6 @@ class Booking extends Base{
         this.reference = "D"+date+"-B"+String.format("%03d", this.id)
         this.save()
 
-        /*Reduce package capacity*/
-        this._package.capacity -= this.noOfPeople
-        this._package.save()
     }
 
 

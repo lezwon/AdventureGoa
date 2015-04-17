@@ -78,7 +78,7 @@
                     </div>
 
                     <g:form uri="/book" method="GET">
-                        <input name="package" type="hidden" value="${packageInstance.id}"/>
+                        <input name="_package" type="hidden" value="${packageInstance.id}"/>
 
                         <g:if test="${packageInstance.capacity > 0 }">
                             <input type="submit" value="Book Now" class="btn btn-primary btn-lg bk-now-btn" />

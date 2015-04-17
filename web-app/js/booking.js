@@ -70,6 +70,7 @@ $("#form-payment").submit(function(e){
     formData+= "&booking_id="+bookingId;
 
     $.post(action,formData,function(data){
+        console.log(data);
         if(data == "1"){
             $('#payment-container').collapse('hide');
             generateTickets();
@@ -79,6 +80,16 @@ $("#form-payment").submit(function(e){
         printErrors(data,form);
     });
 });
+
+
+/*GENERATE TICKETS*/
+function generateTickets() {
+
+    var hostOrigin = document.location.origin;
+    var url = $.cookie("domainUrl");
+
+    window.location.href = hostOrigin + url;
+}
 
 /*PRINT ERRORS*/
 function printErrors(data,form) {
@@ -113,13 +124,7 @@ $('.collapse').on('hide.bs.collapse', function () {
     $(".alert").remove();
 });
 
-function generateTickets() {
 
-    var hostOrigin = document.location.origin;
-    var url = $.cookie("domainUrl");
-
-    window.location.href = hostOrigin + url;
-}
 
 /*BACK BUTTON*/
 

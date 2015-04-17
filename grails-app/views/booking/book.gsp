@@ -30,7 +30,7 @@
                     </g:hasErrors>
 
                     <div class="form-group">
-                        <label for="package">Package</label>
+                        <label for="_package">Package</label>
                         <g:select name="_package" from="${packageInstanceList}" value="${bookingInstance._package?.id}"
                         optionKey="id" optionValue="name" class="form-control" noSelection="['':'-Choose your Package-']"/>
                     </div>

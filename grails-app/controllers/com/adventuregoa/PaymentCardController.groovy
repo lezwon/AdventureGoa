@@ -1,5 +1,6 @@
 package com.adventuregoa
 
+import adventuregoa.ConfirmBookingService
 import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured
 import grails.transaction.Transactional
@@ -32,17 +33,20 @@ class PaymentCardController {
             return
         }
 
-        updatePaymentStatus();
+        if(params.booking_id){
+            def bookingInstance = Booking.get(params.booking_id as int)
 
-        render 1
-    }
+            try {
+                ConfirmBookingService.updatePaymentStatus(bookingInstance)
+                ConfirmBookingService.deductCapacity(bookingInstance)
+                render 1
 
-    def updatePaymentStatus() {
-        def bookingId = params.booking_id
-        if(bookingId){
-            def bookingInstance = Booking.get(bookingId as int)
-            bookingInstance.bookingStatus = "Payment Paid"
-            bookingInstance.paymentStatus = "Paid"
+            } catch (e) {
+                e.printStackTrace()
+                render message(code: "default.update.error")
+            }
         }
+
     }
+
 }
