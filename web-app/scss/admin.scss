@@ -200,3 +200,11 @@ a{
     }
   }
 }
+
+.glass-bg{
+  padding: 50px 20px;
+  background: transparentize(white, .1);
+  margin: 50px 20px;
+  @include border-radius(10px);
+  @include single-box-shadow(0, 4px, 15px, -6px, transparentize(black, .25));
+}

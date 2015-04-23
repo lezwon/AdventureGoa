@@ -176,26 +176,26 @@
                                 <li class="nav-header">Contact us</li>
                                 <li><a href="">Helpline</a></li>
                                 <li><a href="">Office</a></li>
-                                <li><a href="">Reiciendis!</a></li>
-                                <li><a href="">Nulla.</a></li>
+                                <li><a href="">Support</a></li>
+                                <li><a href="">Social Media</a></li>
                             </ul>
                         </li>
                         <li>
                             <ul>
-                                <li class="nav-header">Jobs</li>
-                                <li><a href="">Lorem.</a></li>
-                                <li><a href="">Voluptatum.</a></li>
-                                <li><a href="">Veritatis!</a></li>
-                                <li><a href="">Quia?</a></li>
+                                <li class="nav-header">Careers</li>
+                                <li><a href="">Jobs</a></li>
+                                <li><a href="">Openings</a></li>
+                                <li><a href="">Technical</a></li>
+                                <li><a href="">Training</a></li>
                             </ul>
                         </li>
                         <li>
                             <ul>
                                 <li class="nav-header">Developers</li>
-                                <li><a href="">Lorem.</a></li>
-                                <li><a href="">Numquam?</a></li>
-                                <li><a href="">Odit?</a></li>
-                                <li><a href="">Ipsum.</a></li>
+                                <li><a href="">Api</a></li>
+                                <li><a href="">Privacy</a></li>
+                                <li><a href="">Partners</a></li>
+                                <li><a href="">Conference</a></li>
                             </ul>
                         </li>
                     </ul>

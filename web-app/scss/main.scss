@@ -301,11 +301,11 @@ footer{
     }
 
     a {
-      color: white;
+      color: darken(white,5);
       @include transition(all .3s ease);
 
       &:hover {
-        color: black;
+        color: white;
         text-decoration: none;
       }
     }
@@ -1192,6 +1192,7 @@ footer{
   border-color: lighten(black,5) !important;
   border-width: 0 !important;
   border-top-width: 4px !important;
+  overflow: hidden;
   @include border-radius(0 !important);
 
 

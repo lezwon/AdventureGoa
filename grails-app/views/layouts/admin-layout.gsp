@@ -15,18 +15,23 @@
     <g:external dir="css" file="foundation.min.css"/>
     <g:external dir="css" file="admin.css"/>
     <g:layoutHead/>
-
+    <style>
+    body{
+        background-image: url('${g.resource([dir: "images", file: "Mix Total_06-01.jpg"])}');
+    }
+    </style>
 </head>
 
 <body>
-<div class="container">
+<div class="glass-bg">
+    <div class="container">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
 
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">
                     Administrator
-                    <sec:username/>
+                    <sec:username />
                 </a>
             </div>
 
@@ -55,25 +60,27 @@
     </nav>
 </div>
 
-<div class="wrapper">
-    <div class="row">
-        <div class="small-3 columns">
-            <ul class="list-group" id="side-nav">
-                <li class="list-group-item"><h2>Menu</h2></li>
-                <li class="list-group-item"><g:link controller="admin" action="home">Home</g:link></li>
-                <li class="list-group-item"><g:link controller="user" action="index">Users</g:link></li>
-                <li class="list-group-item"><g:link controller="package" action="index">Packages</g:link></li>
-                <li class="list-group-item"><g:link controller="booking" action="index">Bookings</g:link></li>
-                <li class="list-group-item"><g:link controller="admin" action="index">Admins</g:link></li>
-                <li class="list-group-item"><g:link controller="hotel" action="index">Hotels</g:link></li>
-                <li class="list-group-item"><g:link controller="adventureActivity" action="index">Adventure Activities</g:link></li>
-                <li class="list-group-item"><g:link controller="ticket" action="index">Tickets</g:link></li>
-            </ul>
-        </div>
+    <div class="wrapper">
+        <div class="row">
+            <div class="small-3 columns">
+                <ul class="list-group" id="side-nav">
+                    <li class="list-group-item"><h2>Menu</h2></li>
+                    <li class="list-group-item"><g:link controller="admin" action="home">Home</g:link></li>
+                    <li class="list-group-item"><g:link controller="user" action="index">Users</g:link></li>
+                    <li class="list-group-item"><g:link controller="package" action="index">Packages</g:link></li>
+                    <li class="list-group-item"><g:link controller="booking" action="index">Bookings</g:link></li>
+                    <li class="list-group-item"><g:link controller="admin" action="index">Admins</g:link></li>
+                    <li class="list-group-item"><g:link controller="hotel" action="index">Hotels</g:link></li>
+                    <li class="list-group-item"><g:link controller="adventureActivity"
+                                                        action="index">Adventure Activities</g:link></li>
+                    <li class="list-group-item"><g:link controller="ticket" action="index">Tickets</g:link></li>
+                </ul>
+            </div>
 
-        <div class="small-9 columns">
+            <div class="small-9 columns">
 
-            <g:layoutBody/>
+                <g:layoutBody />
+            </div>
         </div>
     </div>
 </div>
