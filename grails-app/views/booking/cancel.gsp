@@ -40,7 +40,7 @@
 
                                 <tr>
                                     <td>Package Booked</td>
-                                    <td>${bookingInstance.package.name}</td>
+                                    <td>${bookingInstance._package.name}</td>
                                 </tr>
 
                                 <tr>
@@ -55,7 +55,7 @@
 
                                 <tr>
                                     <td>Start Date</td>
-                                    <td><g:formatDate date="${bookingInstance.package.startDate}" format="dd/MM/yyyym" /></td>
+                                    <td><g:formatDate date="${bookingInstance._package.startDate}" format="dd/MM/yyyym" /></td>
                                 </tr>
 
                                 <tr>

@@ -13,7 +13,7 @@ class FileUploadService {
 
     static uploadFile(def domain,params, String contextPath){
         domain.clearErrors()
-        def allowedContentTypes = ['image/jpeg']
+        def allowedContentTypes = ['image/jpeg','image/png']
 
         //image variable
         def image = params.image

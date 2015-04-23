@@ -41,6 +41,7 @@ class User extends Base{
         lastName nullable: true
         phone nullable: true
         dob nullable: true, validator: { val, obj, errors ->
+			if (val != null)
 			if(val.after(DateGeneratorService.birthDate())){
 				errors.rejectValue('dob','com.adventuregoa.User.dob.min')
 			}

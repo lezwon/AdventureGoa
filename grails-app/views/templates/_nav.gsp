@@ -21,8 +21,8 @@
                 <li><g:link uri="/packages">Packages</g:link></li>
                 <li><g:link uri="/hotels">Hotels</g:link></li>
                 <li><g:link uri="/sports">Sports</g:link></li>
-                <li><a href="">Experiences</a></li>
-                <li><a href="">Culture</a></li>
+                <li><g:link uri="/experiences">Experiences</g:link></li>
+                <li><g:link uri="/culture">Culture</g:link></li>
                 <li><g:link uri="/book" class="btn btn-sm btn-primary">Book Your Trip</g:link></li>
 
 

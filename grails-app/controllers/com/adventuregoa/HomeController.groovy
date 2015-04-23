@@ -16,7 +16,7 @@ class HomeController {
     @Secured("IS_AUTHENTICATED_REMEMBERED")
     def home(){
 
-        def user = springSecurityService.currentUser
+        User user = springSecurityService.currentUser as User
 
         if( params.username != user.username ){
             render(status: 403,'You are Unauthorized to access this page');

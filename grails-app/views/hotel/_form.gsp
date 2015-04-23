@@ -30,7 +30,7 @@
 
             <div class="form-group">
                 <label for="description">Description</label>
-                <g:textArea class="form-control" name="description" value="${hotelInstance?.description}"/>
+                <g:textArea rows="5" class="form-control" name="description" value="${hotelInstance?.description}"/>
             </div>
 
             <div class="form-group">
@@ -40,17 +40,17 @@
 
             <div class="form-group">
                 <label for="star">Star</label>
-                <g:field type="number" class="form-control" name="star" value="${hotelInstance?.star}"/>
+                <g:textField maxlength="1" class="form-control" name="star" value="${hotelInstance?.star}"/>
             </div>
 
             <div class="form-group">
                 <label for="phone">Phone</label>
-                <g:field type="number" class="form-control" name="phone" value="${hotelInstance?.phone}"/>
+                <g:textField maxlength="13" class="form-control" name="phone" value="${hotelInstance?.phone}"/>
             </div>
 
             <div class="form-group">
                 <label for="price">Price</label>
-                <g:field type="number" class="form-control" name="price" value="${hotelInstance?.price}"/>
+                <g:textField maxlength="4" class="form-control" name="price" value="${hotelInstance?.price}"/>
             </div>
 
 
@@ -64,8 +64,7 @@
 
             <div class="form-group">
                 <label for="image">Image</label>
-
-                <g:field class="form-control" name="image" value="${hotelInstance?.image}" type="file" accept=".jpg"/>
+                <g:field class="form-control" name="image" value="${hotelInstance?.image}" type="file" accept=".jpg,.png"/>
             </div>
 
             <div>
@@ -76,7 +75,7 @@
 
                 <div class="form-group">
                     <label for="address.state">State</label>
-                    <g:textField name="address.state" class="form-control" value="${hotelInstance?.address?.state}"/>
+                    <g:textField name="address.state" class="form-control" value="${hotelInstance?.address?.state?:"GOA"}"/>
                 </div>
 
                 <div class="form-group">
@@ -91,7 +90,7 @@
 
                 <div class="form-group">
                     <label for="address.zipCode">Zip Code</label>
-                    <g:field type="number" name="address.zipCode" class="form-control" maxlength="6" value="${hotelInstance?.address?.zipCode}"/>
+                    <g:textField name="address.zipCode" class="form-control" maxlength="6" value="${hotelInstance?.address?.zipCode}"/>
                 </div>
             </div>
 

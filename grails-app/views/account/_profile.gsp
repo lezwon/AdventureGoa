@@ -42,7 +42,7 @@
                         <td>Date of Birth</td>
                         <td>
                         <input type="date" name="dob" value="<g:formatDate date="${userInstance?.dob}" format="yyyy-MM-dd"/>"
-                               readonly="" class="form-control ac-field" placeholder=""/>
+                               readonly="" class="form-control ac-field" placeholder="" max="${g.formatDate([date: new Date(), format: "yyyy-MM-dd"])}"/>
                         </td>
 
                         <td><a href="#" class="btn-change btn-sm btn-primary btn">Change</a></td>

@@ -29,6 +29,7 @@ class BookingController {
         respond bookingInstance
     }
 
+    @Secured("IS_AUTHENTICATED_ANONYMOUSLY")
     def book() {
         respond new Booking(params), model:[packageInstanceList:Package.list()]
     }

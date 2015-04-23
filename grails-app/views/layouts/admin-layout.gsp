@@ -98,8 +98,8 @@
             widgetPositioning: {
                 horizontal: 'left',
                 vertical: 'bottom'
-            }
-//            minDate: minDate,
+            },
+            minDate: new Date()
 //            maxDate: maxDate
         });
 
@@ -110,7 +110,7 @@
                 horizontal: 'right',
                 vertical: 'bottom'
             },
-            minDate: minDate? minDate: false
+            minDate: minDate? minDate: new Date()
 //            maxDate: maxDate
         });
     });

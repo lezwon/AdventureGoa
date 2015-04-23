@@ -1,12 +1,21 @@
 @import "compass";
 @import "variables";
 
+
 *:not(.glyphicon){
   font-family: "Raleway", sans-serif !important;
 }
 
 .white {
   background-color: white;
+}
+
+.glass-bg{
+  padding: 50px 20px;
+  background: transparentize(white, .1);
+  margin-top: 50px;
+  @include border-radius(10px);
+  @include single-box-shadow(0, 4px, 15px, -6px, transparentize(black, .25));
 }
 
 .btn{
@@ -268,48 +277,50 @@
 
 footer{
   margin-top: 150px;
-  @include single-box-shadow(lighten(gray,40),0, -1px, 11px, 5px);
-  @include background(linear-gradient(white 0, darken(white,5) 100%));
+  background-color: transparentize(black, .5) !important;
+  //@include single-box-shadow(0, 2px, 5px, 2px, #000);
 
-  #footer {
-    padding: 30px 0;
+  //@include background(linear-gradient(#4DDFFF 0, #00B1FF 100%));
+}
 
-    ul li {
-      padding: 5px;
-      list-style: none;
-      font-family: "Open Sans", sans-serif;
-      font-size: 13px;
+#footer {
+  padding: 30px 0;
 
-      .nav-header {
-        font-size: 1.7em;
+  ul li {
+    padding: 5px;
+    list-style: none;
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+
+    .nav-header {
+      font-size: 1.7em;
+      color: white;
+      text-transform: uppercase;
+      padding: 5px 0;
+      font-weight: 400;
+    }
+
+    a {
+      color: white;
+      @include transition(all .3s ease);
+
+      &:hover {
         color: black;
-        text-transform: uppercase;
-        padding: 5px 0;
-        font-weight: 400;
-      }
-
-      a {
-        color: lighten(#000000, 30);
-        @include transition(all .3s ease);
-
-        &:hover {
-          color: black;
-          text-decoration: none;
-        }
+        text-decoration: none;
       }
     }
+  }
 
-    hr {
-      border-color: #2D2D2D;
-    }
+  hr {
+    border-color: white;
+  }
 
-    #copyright {
-      font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #808080;
-      text-align: center;
-      width: 100%;
-    }
+  #copyright {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    width: 100%;
   }
 }
 
@@ -465,6 +476,10 @@ footer{
   .flexslider {
     border: none;
 
+    .flex-viewport{
+      height: 400px;
+    }
+
     .slides {
       li {
         background-size: cover !important;
@@ -603,7 +618,7 @@ footer{
 /*PACKAGES*/
 
 .intro-head{
-  margin: 50px 0 50px 0;
+  margin: 0 0 50px 0;
 
 //  *{
 //    font-family: 'Raleway', sans-serif !important;
@@ -634,6 +649,7 @@ footer{
 
     a{
       background-size: cover;
+      background-position: center;
       width: 100%;
       display: block;
       height: 250px;
@@ -675,11 +691,15 @@ footer{
 
 /*SHOW PACKAGE*/
 .cover-image{
-  height: 300px;
+  height: 350px;
   width: 100%;
   background-size: cover;
-  background-position-y: 35%;
+  background-position-y: 17%;
   background-image:  linear-gradient(to bottom, rgba(102,102,102,0) 0%, rgba(0,0,0,1) 100%);
+
+  &.hotel-cover{
+    background-position-y: center;
+  }
 
   .cover-gradient{
     width: 100%;
@@ -696,11 +716,13 @@ footer{
   background: #ffffff;
   padding: 30px 20px;
   @include border-radius(0 0 10px 10px);
-  @include single-box-shadow(darken(white,20),0,5px,5px,0);
+  //@include single-box-shadow(darken(white,20),0,5px,5px,0);
 }
 
 .package-details{
-
+  h1{
+   font-weight: bold; 
+  }
 }
 
 .package-features{
@@ -756,6 +778,12 @@ footer{
       background: white;
       margin: 0;
       padding: 10px;
+      //font-weight: bold;
+    }
+
+    .tag-address{
+      font-size: 1.2em;
+      line-height: 1.3em;
     }
 
   }
@@ -781,7 +809,8 @@ footer{
   background: #ffffff;
   padding: 30px;
   @include border-radius(10px);
-  @include single-box-shadow(darken(white,20),0,5px,5px,0);
+  //@include single-box-shadow(darken(white,20),0,5px,5px,0);
+
 
   #startDate{
 
@@ -951,6 +980,11 @@ footer{
 /*Account Settings*/
 .header-container{
   margin-top: 50px;
+  h1{
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+  }
 }
 
 
@@ -1005,6 +1039,10 @@ footer{
 
   hr{
     margin: 10px 0 30px;
+  }
+
+  table{
+    background: none;
   }
 
   input:read-only{
@@ -1063,4 +1101,148 @@ footer{
 
 .change-bar{
   padding: 10px;
+}
+
+
+/*HOMEPAGE */
+.jumbotron{
+  background: none;
+
+  .carousel-inner{
+    @include border-radius(30px);
+  }
+
+  .carousel-control{
+    background: none;
+  }
+}
+
+.home-grid-container{
+  background: transparentize(white, .3);
+  padding-top: 50px;
+
+  .home-grid{
+    a{
+      display: block;
+      text-align: center;
+      color: black;
+      text-decoration: none;
+      padding: 0 10px;
+      max-height: 370px;
+
+      &:hover{
+        color: black;
+      }
+
+      .grid-image{
+        img{
+          display: block;
+          margin: 0 auto;
+          border: 5px solid white;
+          max-width: 200px;
+          max-height: 200px;
+          @include single-box-shadow(0px, 1px, 5px, 0px, gray);
+          @include border-radius(50%);
+        }
+      }
+
+      .grid-text{
+        h2.home-grid-title{
+          font-size: 1.5em;
+          font-weight: bold;
+        }
+
+        p{
+          font-size: .9em;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+.flexslider.home-slider {
+  border: none;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+
+  .flex-viewport{
+    height: 350px;
+  }
+}
+
+
+
+/*EXPERIENCES PAGE */
+
+.reviews-container{
+  padding-top: 70px;
+  height: 700px;
+  background-size: cover;
+}
+
+.exp-slider{
+  border-color: #8C8C8C !important;
+  border-width: 0 !important;
+  border-top-width: 4px !important;
+  @include border-radius(0 !important);
+
+
+  .slides{
+    li{
+      height: auto !important;
+    }
+  }
+}
+
+.awards{
+  margin-bottom: 50px;
+
+  *{
+    color: white;
+    text-align: center;
+  }
+
+  .header{
+    margin-bottom: 50px;
+
+    img{
+      margin: 0 auto;
+      display: block;
+    }
+
+    h1{
+      font-weight: bold;
+      font-size: 3em;
+      text-transform: uppercase;
+    }
+  }
+}
+
+
+.grid{
+
+  .grid-image{
+    height: 150px;
+
+    img{
+      display: block;
+      margin: 0 auto;
+      max-width: 150px;
+      max-height: 150px;
+    }
+  }
+
+  .grid-text{
+    h2.grid-title{
+      font-size: 1em;
+      font-weight: bold;
+      color: darken(white,5);
+    }
+
+  }
+
 }

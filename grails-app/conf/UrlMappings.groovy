@@ -9,7 +9,7 @@ class UrlMappings {
 
         "/"(view: "/index")
         "500"(view: '/error')
-        "/home"(controller: "package", action: "display")
+        "/home"(controller: "home")
         "/auth/login"(controller: "home", action: "index")
 
         "/$username/home" {
@@ -25,6 +25,8 @@ class UrlMappings {
         "/sports"(controller: "adventureActivity", action: "display")
         "/book"(controller: "booking", action: "book")
         "/checkout"(controller: "booking", action: "save")
+        "/culture" (view: "culture")
+        "/experiences" (view: "experiences")
 
     }
 }

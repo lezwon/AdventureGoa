@@ -4,9 +4,9 @@
     <meta name="layout" content="white-layout">
     <title>Packages</title>
     <style>
-        .wrapper{
-            background-image: url("<g:resource dir="images" file="swirl_pattern.png" />");
-        }
+    body{
+        background-image: url('${g.resource([dir: "images", file: "Mix Total_06-01.jpg"])}');
+    }
     </style>
 </head>
 <body>
@@ -18,12 +18,12 @@
         <g:set var="image" value="${resource(file: packageInstance.image)}"/>
     </g:else>
 
-    <div class="cover-image" style="background-image: url(${image})">
+    <div class="cover-image" style="background-image: url('${image}')">
         <div class="cover-gradient"></div>
     </div>
 
     <div class="row">
-        <div class="package-details-container">
+        <div class="package-details-container shadow">
             <div class="small-8 columns">
                 <div class="package-details">
                     <h1>${packageInstance.name}</h1>

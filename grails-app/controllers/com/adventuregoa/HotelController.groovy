@@ -164,11 +164,11 @@ class HotelController {
 
     @Secured("IS_AUTHENTICATED_ANONYMOUSLY")
     def display(){
-        respond Hotel.list()
+        render(view: "display", model: ["hotelInstanceList":Hotel.list()])
     }
 
     @Secured("IS_AUTHENTICATED_ANONYMOUSLY")
     def show(Hotel hotelInstance) {
-        respond hotelInstance
+        render(view: "show", model: ["hotelInstance":hotelInstance])
     }
 }

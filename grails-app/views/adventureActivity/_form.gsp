@@ -30,7 +30,7 @@
 
             <div class="form-group">
                 <label for="description">Description</label>
-                <g:textArea class="form-control" name="description" value="${adventureActivityInstance?.description}"/>
+                <g:textArea rows="5" class="form-control" name="description" value="${adventureActivityInstance?.description}"/>
             </div>
 
             <div class="form-group">
@@ -54,12 +54,12 @@
 
             <div class="form-group">
                 <label for="phone">Phone</label>
-                <g:field type="number" class="form-control" name="phone" value="${adventureActivityInstance?.phone}"/>
+                <g:textField class="form-control" name="phone" value="${adventureActivityInstance?.phone}" maxlength="10"/>
             </div>
 
             <div class="form-group">
                 <label for="price">Price</label>
-                <g:field type="number" class="form-control" name="price" value="${adventureActivityInstance?.price}"/>
+                <g:textField class="form-control" name="price" value="${adventureActivityInstance?.price}" maxlength="4"/>
             </div>
 
             <g:if test="${adventureActivityInstance?.image}">
@@ -73,7 +73,7 @@
             <div class="form-group">
                 <label for="image">Image</label>
 
-                <g:field class="form-control" name="image" type="file" accept=".jpg"/>
+                <g:field class="form-control" name="image" type="file" accept=".jpg, .png"/>
             </div>
 
             <div>
@@ -84,12 +84,12 @@
 
                 <div class="form-group">
                     <label for="address.state">State</label>
-                    <g:textField name="address.state" class="form-control" value="${adventureActivityInstance?.address?.state}"/>
+                    <g:textField name="address.state" class="form-control" value="${adventureActivityInstance?.address?.state?: "GOA"}"/>
                 </div>
 
                 <div class="form-group">
                     <label for="address.streetAddress">Street Address</label>
-                    <g:textArea name="address.streetAddress" class="form-control" value="${adventureActivityInstance?.address?.streetAddress}"/>
+                    <g:textArea rows="5" name="address.streetAddress" class="form-control" value="${adventureActivityInstance?.address?.streetAddress}"/>
                 </div>
 
                 <div class="form-group">
@@ -99,7 +99,7 @@
 
                 <div class="form-group">
                     <label for="address.zipCode">Zip Code</label>
-                    <g:field type="number" name="address.zipCode" class="form-control" maxlength="6" value="${adventureActivityInstance?.address?.zipCode}"/>
+                    <g:textField name="address.zipCode" class="form-control" maxlength="6" value="${adventureActivityInstance?.address?.zipCode}"/>
                 </div>
             </div>
 

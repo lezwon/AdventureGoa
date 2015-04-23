@@ -8,15 +8,15 @@
     <meta name="layout" content="white-layout">
     <title>Book Package</title>
     <style>
-    .wrapper{
-        background-image: url("<g:resource dir="images" file="swirl_pattern.png" />");
+    body{
+        background-image: url('${g.resource([dir: "images", file: "Mix Total_06-01.jpg"])}');
     }
     </style>
 </head>
 <body>
     <div class="row">
         <div class="small-8 columns small-centered">
-            <div id="booking-form-container">
+            <div id="booking-form-container" class="shadow">
                 <g:form uri="/checkout" class="form" useToken="true">
                     <h1>Book Your Package</h1>
                     <hr />

@@ -258,7 +258,7 @@ class PackageController {
     def display(){
 //        params.max=Math.min(params.max ? params.int('max') : 10,100)
         render view: "display", model: [
-                packageInstanceList:Package.where{ capacity > 0 }.list(params),
+                packageInstanceList:Package.where{ capacity > 0 && gt('startDate', new Date()) }.list(params),
                 packageInstanceTotal: Package.where{ capacity > 0 }.count()
         ]
     }

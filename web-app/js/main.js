@@ -70,8 +70,9 @@ body.on('click','a.btn-save',function(e){
     var inputElement = $(this).closest('tr').find('input, textarea, select');
 
     var form = $(this).closest("form");
-
+    var disabled = form.find('select:disabled').removeAttr('disabled');
     var formData = $(this).closest("form").serialize();
+    disabled.attr('disabled','disabled');
     var formAction = $(this).closest("form").attr("action");
 
     $.post(formAction,formData,function(data){

@@ -156,11 +156,11 @@ class AdventureActivityController {
 
     @Secured("IS_AUTHENTICATED_ANONYMOUSLY")
     def display(){
-        respond AdventureActivity.list()
+        render view: "display", model: [adventureActivityInstanceList:AdventureActivity.list()]
     }
 
     @Secured("IS_AUTHENTICATED_ANONYMOUSLY")
     def show(AdventureActivity adventureActivityInstance) {
-        respond adventureActivityInstance
+        render view: "show", model: [adventureActivityInstance:adventureActivityInstance]
     }
 }

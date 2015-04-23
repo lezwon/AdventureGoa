@@ -4,8 +4,8 @@
     <meta name="layout" content="white-layout">
     <title>Hotels</title>
     <style>
-    .wrapper{
-        background-image: url("<g:resource dir="images" file="swirl_pattern.png" />");
+    body{
+        background-image: url('${g.resource([dir: "images", file: "Mix Total_06-01.jpg"])}');
     }
     </style>
 </head>
@@ -19,7 +19,7 @@
 </g:else>
 
 
-<div class="cover-image" style="background-image: url(${image})"></div>
+<div class="cover-image hotel-cover" style="background-image: url('${image}')"></div>
 
 <div class="row">
     <div class="package-details-container">
@@ -32,7 +32,33 @@
         </div>
 
         <div class="small-4 columns">
+            <div class="side-container">
 
+                <div class="side-detail">
+                    <h4 class="tag-header">Price</h4>
+                    <h2 class="tag-value"><g:formatNumber number="${hotelInstance.price}" currencyCode="INR" format="Rs ##,###/-"/></h2>
+                </div>
+
+                <div class="side-detail">
+                    <h4 class="tag-header">Star</h4>
+                    <h2 class="tag-value">
+                        <g:each in="${1..hotelInstance.star}">
+                            &#9733;
+                        </g:each>
+                    </h2>
+                </div>
+
+                <div class="side-detail">
+                    <h4 class="tag-header">Phone</h4>
+                    <h2 class="tag-value">${hotelInstance.phone}</h2>
+                </div>
+
+                <div class="side-detail">
+                    <h4 class="tag-header">Address</h4>
+                    <h2 class="tag-value tag-address">${hotelInstance.address.streetAddress}</h2>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>

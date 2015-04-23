@@ -4,8 +4,8 @@
     <meta name="layout" content="white-layout">
     <title>Booking Status</title>
     <style>
-    .wrapper{
-        background-image: url("<g:resource dir="images" file="swirl_pattern.png" />");
+    body{
+        background-image: url('${g.resource([dir: "images", file: "Mix Total_06-01.jpg"])}');
     }
     </style>
 </head>

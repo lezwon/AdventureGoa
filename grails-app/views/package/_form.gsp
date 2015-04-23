@@ -41,7 +41,8 @@
             <div class="form-group">
                 <label for="startDate">Start Date</label>
                 <div class="input-group date" id="datetimepicker1">
-                    <g:textField name="startDate" class="form-control" value="${packageInstance?.startDate}"/>
+                    <g:textField name="startDate" class="form-control"
+                                 value="${g.formatDate([date: packageInstance?.startDate, format: "dd/MM/yyyy"])}"/>
                     <span class="input-group-addon">
                         <span class="glyphicon-calendar glyphicon"></span>
                     </span>
@@ -51,7 +52,8 @@
             <div class="form-group">
                 <label for="endDate">End Date</label>
                 <div class="input-group date" id="datetimepicker2">
-                    <g:textField name="endDate" class="form-control" value="${packageInstance?.endDate}"/>
+                    <g:textField name="endDate" class="form-control"
+                                 value="${g.formatDate([date: packageInstance?.endDate, format: "dd/MM/yyyy"])}"/>
                     <span class="input-group-addon">
                         <span class="glyphicon-calendar glyphicon"></span>
                     </span>

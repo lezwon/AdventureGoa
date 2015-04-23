@@ -82,8 +82,11 @@ class BootStrap {
 
 
 
+/*
 
-        /*Package records*/
+        */
+/*Package records*//*
+
 
         for ( i in 0..9 ) {
             try {
@@ -106,7 +109,9 @@ class BootStrap {
         }
 
 
-        /*Hotel records*/
+        */
+/*Hotel records*//*
+
 
         for ( i in 0..9 ) {
             try {
@@ -127,7 +132,9 @@ class BootStrap {
         }
 
 
-        /*AdventureActivity records*/
+        */
+/*AdventureActivity records*//*
+
 
         for ( i in 0..9 ) {
             try {
@@ -147,7 +154,9 @@ class BootStrap {
             }
         }
 
-        /*Hotels and Adventures to Packages records*/
+        */
+/*Hotels and Adventures to Packages records*//*
+
         Package.list().each { packageInstance ->
             (0..5).each{
                 packageInstance.addToAdventureActivities(AdventureActivity.get(random.nextInt(10) + 1))
@@ -157,7 +166,9 @@ class BootStrap {
         }
 
 
-        /*Create Bookings*/
+        */
+/*Create Bookings*//*
+
 
         (0..5).each{
 //            booking.totalPrice = booking.package.price * booking.noOfPeople
@@ -171,6 +182,7 @@ class BootStrap {
         }
 
 
+*/
 
 
     }
