@@ -24,7 +24,7 @@ class UrlMappings {
         "/hotels"(controller: "hotel", action: "display")
         "/sports"(controller: "adventureActivity", action: "display")
         "/book"(controller: "booking", action: "book")
-        "/checkout"(controller: "booking", action: "save")
+//        "/checkout"(controller: "booking", action: "save")
         "/culture" (view: "culture")
         "/experiences" (view: "experiences")
 

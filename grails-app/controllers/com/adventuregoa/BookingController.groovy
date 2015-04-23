@@ -5,6 +5,7 @@ import grails.plugin.springsecurity.annotation.Secured
 
 
 import javax.servlet.http.Cookie
+import java.awt.print.Book
 import java.text.SimpleDateFormat
 
 import static org.springframework.http.HttpStatus.*
@@ -29,7 +30,6 @@ class BookingController {
         respond bookingInstance
     }
 
-    @Secured("IS_AUTHENTICATED_ANONYMOUSLY")
     def book() {
         respond new Booking(params), model:[packageInstanceList:Package.list()]
     }
@@ -67,7 +67,21 @@ class BookingController {
         response.addCookie(domainUrlCookie)
 
         def user = User.get(springSecurityService.currentUser.id as int)
-        render(view: "checkout", model: [bookingInstance:bookingInstance, userInstance: user])
+//        render(view: "checkout", model: [bookingInstance:bookingInstance, userInstance: user])
+        redirect(action: "checkout", params: [bookingInstanceId:bookingInstance.id] )
+    }
+
+    def checkout(){
+        def user = springSecurityService.currentUser
+        def bookingInstance = Booking.get(params.bookingInstanceId as int)
+
+        if(bookingInstance.user != user && bookingInstance.bookingStatus != "Payment Pending"){
+            render(status: UNAUTHORIZED, text: message(code: "checkout.error"));
+            return
+        }
+
+
+        render(view: "checkout",  model: [bookingInstance: bookingInstance, userInstance: user])
     }
 
     def edit(Booking bookingInstance) {

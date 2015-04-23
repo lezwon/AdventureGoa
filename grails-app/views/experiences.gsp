@@ -18,9 +18,9 @@
 </head>
 
 <body>
-    <div class="reviews-container" style="background-image: url('<g:resource dir="images" file="experiences.jpg"/>')">
+    <div class="slide-container" style="background-image: url('<g:resource dir="images" file="experiences.jpg"/>')">
 
-        <div class="flexslider exp-slider">
+        <div class="flexslider exp-cul-slider">
             <ul class="slides">
                 <li><g:img dir="images" file="exp_bungee.jpg"/></li>
                 <li><g:img dir="images" file="exp_rafting.jpg"/></li>
@@ -28,14 +28,16 @@
             </ul>
         </div>
 
-        <div class="row">
+    </div>
+
+   <div class="row">
             <div class="small-12 columns">
 
                 <div class="awards">
 
                     <div class="header">
                         <g:img dir="images" file="trophy.png"/>
-                        <h1>Our Awards</h1>
+                        <h1>Recognition Awards</h1>
                     </div>
 
 
@@ -73,7 +75,7 @@
             </div>
         </div>
 
-    </div>
+
 
 <div>
     <div class="row">

@@ -17,7 +17,7 @@
     <div class="row">
         <div class="small-8 columns small-centered">
             <div id="booking-form-container" class="shadow">
-                <g:form uri="/checkout" class="form" useToken="true">
+                <g:form action="save" class="form" useToken="true">
                     <h1>Book Your Package</h1>
                     <hr />
 
